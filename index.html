@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Maquette</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/normalize.css" />
+    <link rel="stylesheet" href="style/bouton.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/section.css" />
+    <link rel="stylesheet" href="style/carousel.css" />
+    <link rel="stylesheet" href="style/card.css" />
+    <link rel="stylesheet" href="style/tailwind.css" />
+    <link rel="stylesheet" href="style/footer.css" />
+  </head>
+  <body>
+    <header class="Header">
+      <h1 class="Header__Title">Titre de la page</h1>
+      <button id="DarkMode" class="Bouton Bouton--white Bouton__DarkMode">Passé au thème sombre</button>
+      <a href="#ajout" class="Bouton Bouton--white">Ajouter un élément</a>
+    </header>
+
+    <section id="honneur" class="Section Section--Flex Section--Padding Section--FlexCenter">
+      <div class="Section__Content">
+        <article class="Card Card--blue">
+          <img
+            class="Card__Image"
+            src="medias/peinture-mini.jpg"
+            alt="random image"
+          />
+          <div class="Card__Content">
+            <h3 class="Card__ContentTitle ">My awesome article</h3>
+            <p>Lorem Ipsum dolor sit amet</p>
+          </div>
+        </article>
+      </div>
+      <div class="Section__Content">
+        <h2 class="Section__Title">À l'honneur cette semaine</h2>
+        <p>Fort de son succès....</p>
+      </div>
+    </section>
+
+    <section id="carousel"  class="Section Section--Padding ">
+      <h2 class="Section__Title">Titre de la section</h2>
+      <ul id="carousel-comments" class="Carousel">
+        <li id="no-comments" class="Carousel__List Comment Caroussel__List--Exist">
+          <article class="Carousel__ListContent Card">
+            <img
+              class="Card__Image"
+              src="medias/peinture-mini.jpg"
+              alt="random image"
+            />
+            <div class="Card__Content">
+              <h3 id="Comment-name" class="Card__ContentTitle Comment--Name">Pas de commentaires</h3>
+              <p id="Comment-description" class="Comment-description">Malheuresement il n'y a pas encore de commentaires à afficher</p>
+            </div>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+
+    <section id="diagonale" class="Section Section--Center Section--Diagonale">
+        <div class="Section__Content--Diagonale">
+          <h2 class="Section__Title Section__Title--White Section__Title--Diagonal">Incroyable…</h2>
+          <p class="Section__Content--white">Saviez-vous que les escargots peuvent faire des pointes à 3km/h</p>
+        </div>
+    </section>
+
+    <section id="favoris" class="Section Section--Padding ">
+      <ul class="Section__List Section__List--Wrap">
+        <li class="Section__ListItem">
+          <article class="Card">
+            <div class="Card__Content Card__Content--Relative">
+              <i class="Card__Favoris"> </i>
+              <h3 class="Card__ContentTitle">My awesome article</h3>
+              <p>Lorem Ipsum dolor sit amet</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="Section__ListItem">
+          <article class="Card">
+            <div class="Card__Content Card__Content--Relative">
+              <i class="Card__Favoris"> </i>
+              <h3 class="Card__ContentTitle">My awesome article</h3>
+              <p>Lorem Ipsum dolor sit amet</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="Section__ListItem">
+          <article class="Card">
+            <div class="Card__Content Card__Content--Relative">
+              <i class="Card__Favoris"> </i>
+              <path
+                  d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"
+                />
+              </svg>
+              <h3 class="Card__ContentTitle">My awesome article</h3>
+              <p>Lorem Ipsum dolor sit amet</p>
+            </div>
+          </article>
+        </li>
+
+        <li class="Section__ListItem">
+          <article class="Card">
+            <div class="Card__Content Card__Content--Relative">
+              <i class="Card__Favoris"> </i>
+              <h3 class="Card__ContentTitle">My awesome article</h3>
+              <p>Lorem Ipsum dolor sit amet</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ajout" class="m-auto w-2/3 Section--Padding ">
+      <h2 class="Section__Title">Ajouter un élément</h2>
+
+      <form action="#" method="POST" class="Formulaire">
+          <div class=" space-y-6  sm:p-2">
+            <input type="text" name="titre" id="Formulaire__Titre" placeholder="Titre" class="sm:p-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">
+          </div>
+          <div class=" space-y-6  sm:p-2">
+            <div class="mt-1">
+              <textarea id="Formulaire__Commentaire" name="description" rows="3" class=" sm:p-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Commentaire"></textarea>
+            </div>
+          </div>
+
+          <div class=" space-y-6 sm:p-2">
+            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+              <div class="space-y-1 text-center">
+                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                  <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="flex text-sm text-gray-600">
+                  <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                    <span>Uploader une image</span>
+                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center Bouton bg-gray-200">
+              Envoyer
+            </button>
+          </div>
+      </form>
+
+    </section>
+
+    <section id="footer" class="Section ">
+      <div class="Footer">
+        <div class="Footer__Infos">
+          <p >Malika</p>
+          <p>HANOTTE</p>
+        </div>
+        <div class="Footer__Logo">
+          <img src="./medias/logo-institut-G4.webp">
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
