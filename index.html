@@ -36,77 +36,60 @@ section{padding:80px 5vw}
 .pillar{padding:24px;border:1px solid var(--iv2)}
 .pillar h3{font-size:20px;margin-bottom:8px;font-style:italic}
 .pillar p{font-size:12px;color:var(--brm);line-height:1.85}
+
+/* CONFIGURATEUR */
 #conf-section{background:var(--br);padding:0}
 #conf-header{padding:56px 5vw 28px;text-align:center}
 #conf-header .stitle{color:var(--iv)}
 #conf-header .slbl{color:var(--brl)}
 #conf-header p{color:var(--brl);font-size:13px}
-#conf-controls{display:flex;align-items:center;gap:8px;padding:0 5vw 18px;flex-wrap:wrap;justify-content:center}
-#sl-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--brl)}
-#tsl{width:100px;-webkit-appearance:none;height:2px;background:rgba(255,255,255,.18);border-radius:1px;cursor:pointer;outline:none}
-#tsl::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.75);cursor:pointer}
-.pbtn{padding:5px 11px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.55);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif}
-.pbtn.on{background:var(--vt);color:var(--iv);border-color:var(--vt)}
-#uplbl{padding:5px 11px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid rgba(255,210,100,.3);background:rgba(255,210,100,.06);color:rgba(255,210,100,.75);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif}
-#upfile{display:none}
-#atelier-wrap{position:relative;width:100%;height:52vh;min-height:380px}
-#atelier-canvas{position:absolute;inset:0;width:100%;height:100%}
-#heure-overlay{position:absolute;top:10px;right:14px;text-align:right;pointer-events:none}
-#heure-time{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:rgba(255,255,255,.8)}
-#heure-amb{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-#fleurs-zone{position:absolute;left:7%;right:7%;display:flex;align-items:flex-end;justify-content:space-around;z-index:10}
-.fs{display:flex;flex-direction:column;align-items:center;cursor:pointer;user-select:none;min-width:56px;-webkit-tap-highlight-color:transparent}
-.fhw{position:relative;display:flex;justify-content:center}
-.fh{font-size:24px;line-height:1;transition:transform .25s,filter .25s}
-.fs:hover .fh{transform:translateY(-5px)}
-.fs.on .fh{filter:drop-shadow(0 0 7px rgba(255,215,60,.85))}
-.fbadge{position:absolute;top:-6px;right:-8px;background:var(--vt);color:#fff;border-radius:50%;width:15px;height:15px;font-size:8px;font-weight:500;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transform:scale(0);transition:all .2s}
-.fbadge.show{opacity:1;transform:scale(1)}
-.ftige{width:3px;border-radius:2px 2px 0 0;background:linear-gradient(to top,#2d5a20,#5a9040)}
-.fname{font-size:8px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:2px;text-align:center}
-.fs.on .fname{color:var(--vtl)}
-.qrow{display:flex;align-items:center;gap:4px;margin-top:4px;opacity:0;pointer-events:none;transition:opacity .2s;height:22px}
-.qrow.show{opacity:1;pointer-events:all}
-.qb{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(143,175,133,.6);background:rgba(247,243,238,.9);color:var(--vt);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;line-height:1}
-.qb:hover,.qb:active{background:var(--vt);color:#fff;transform:scale(.88)}
-.qnum{font-size:11px;color:rgba(255,255,255,.85);min-width:13px;text-align:center;font-weight:500}
-#panel-bas{background:rgba(15,10,5,.9);padding:12px 5vw;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.06)}
-#pb-tags{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:140px}
-.pb-tag{padding:3px 9px;border:1px solid rgba(143,175,133,.35);font-size:10px;color:var(--vtl);border-radius:1px;display:flex;align-items:center;gap:3px}
-#pb-msg{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(255,255,255,.28);flex:1;text-align:center}
-#conf-steps-wrap{padding:28px 5vw 0;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
-.cstep{padding:8px 16px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brl);border-bottom:1px solid transparent;cursor:pointer}
-.cstep.active{color:var(--iv);border-bottom-color:var(--vtl)}
-.csep{width:28px;height:1px;background:rgba(255,255,255,.08);margin-bottom:2px}
-#conf-panels{padding:32px 5vw 64px}
-.cpanel-inner{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:36px;min-height:180px}
-.micro{text-align:center;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(255,255,255,.38);margin-bottom:18px}
-.sel-display{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:14px}
-.stag-c{background:rgba(143,175,133,.14);border:1px solid var(--vtl);padding:3px 10px;font-size:10px;color:var(--vtl)}
-.btn-cont{display:block;width:fit-content;margin:24px auto 0;background:var(--vtl);color:var(--br);padding:12px 40px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;font-family:'DM Sans',sans-serif}
-.btn-cont.vis{opacity:1;pointer-events:all}
-.amp-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.acard{padding:32px 20px;border:1px solid rgba(255,255,255,.1);cursor:pointer;text-align:center;transition:border-color .3s}
-.acard.sel{border-color:var(--vtl);background:rgba(143,175,133,.07)}
-.anom{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;margin-bottom:8px;color:var(--iv)}
-.adesc{font-size:11px;color:var(--brl);line-height:1.85}
-.aprix{font-size:11px;margin-top:12px;color:rgba(255,255,255,.22);transition:color .3s}
-.acard.sel .aprix{color:var(--vtl)}
-.fw{max-width:420px;margin:0 auto}
-.fq{font-size:16px;margin-bottom:28px;font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--iv)}
-.fopts{display:flex;flex-direction:column;gap:8px}
-.fopt{padding:16px 22px;border:1px solid rgba(255,255,255,.1);cursor:pointer;font-size:12px;color:var(--brl);transition:all .3s}
-.fopt.sel{border-color:var(--vtl);color:var(--vtl);background:rgba(143,175,133,.07)}
-.fnote{margin-top:20px;font-style:italic;font-size:12px;color:rgba(255,255,255,.22);line-height:1.85}
-.vis-g{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.vis-flat{background:var(--iv2);aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.vfl{animation:vf 3s ease-in-out infinite;font-size:28px;display:inline-block}
-.vfl:nth-child(2){animation-delay:.4s}.vfl:nth-child(3){animation-delay:.8s}
-@keyframes vf{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.vis-t h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;margin-bottom:14px;color:var(--iv)}
-.vis-t p{font-size:12px;color:var(--brl);line-height:1.95;margin-bottom:12px}
-.prix-show{font-family:'Cormorant Garamond',serif;font-size:42px;font-style:italic;color:var(--vtl);margin:12px 0}
-.vis-note{font-style:italic;font-size:11px;color:rgba(255,255,255,.18);margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);line-height:1.8}
+#barre-livraison{background:rgba(143,175,133,.12);border-top:1px solid rgba(143,175,133,.2);border-bottom:1px solid rgba(143,175,133,.2);padding:10px 5vw;text-align:center;font-size:12px;color:var(--vtl);letter-spacing:.05em;transition:all .4s}
+#barre-livraison.offerte{background:rgba(143,175,133,.22);color:#b8e8a0}
+.seuils-info{display:flex;gap:1px;margin:0 5vw 16px}
+.seuil-bloc{flex:1;padding:10px 8px;text-align:center;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.seuil-bloc.actif{background:rgba(143,175,133,.1);border-color:var(--vtl)}
+.seuil-nom{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px}
+.seuil-bloc.actif .seuil-nom{color:var(--vtl)}
+.seuil-fourchette{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,.3)}
+.seuil-bloc.actif .seuil-fourchette{color:rgba(143,175,133,.8)}
+.seuil-livraison{font-size:9px;color:rgba(255,255,255,.2);margin-top:3px}
+.seuil-bloc.actif .seuil-livraison{color:rgba(143,175,133,.5)}
+#categories-nav{display:flex;gap:6px;padding:16px 5vw 8px;flex-wrap:wrap;justify-content:center}
+.cat-btn{padding:5px 14px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif;transition:all .2s}
+.cat-btn:hover,.cat-btn.active{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.3)}
+#banc-grille{display:flex;flex-wrap:wrap;gap:8px;padding:16px 5vw;justify-content:center}
+.fleur-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;min-width:80px;max-width:92px;border-radius:2px;user-select:none;-webkit-tap-highlight-color:transparent}
+.fleur-card:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.fleur-card.sel{border-color:var(--vtl);background:rgba(143,175,133,.1)}
+.fleur-emoji{font-size:22px;line-height:1}
+.fleur-nom{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:center;line-height:1.3}
+.fleur-card.sel .fleur-nom{color:var(--vtl)}
+.fleur-prix-tag{font-size:10px;color:rgba(255,255,255,.3);font-family:'Cormorant Garamond',serif;font-style:italic}
+.fleur-card.sel .fleur-prix-tag{color:rgba(143,175,133,.7)}
+.qty-row{display:flex;align-items:center;gap:5px;margin-top:2px;opacity:0;pointer-events:none;transition:opacity .2s;height:20px}
+.qty-row.show{opacity:1;pointer-events:all}
+.qb{width:20px;height:20px;border-radius:50%;border:1px solid rgba(143,175,133,.5);background:rgba(247,243,238,.1);color:var(--vtl);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;touch-action:manipulation;line-height:1}
+.qb:hover,.qb:active{background:var(--vtl);color:var(--br)}
+.qnum{font-size:11px;color:rgba(255,255,255,.8);min-width:12px;text-align:center;font-weight:500}
+#recap-bar{background:rgba(0,0,0,.3);border-top:1px solid rgba(255,255,255,.08);padding:16px 5vw;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+#sel-tags{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:120px}
+.sel-tag{padding:3px 8px;border:1px solid rgba(143,175,133,.3);font-size:10px;color:var(--vtl);border-radius:1px;display:flex;align-items:center;gap:3px}
+#total-zone{text-align:right;min-width:140px}
+#total-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px}
+#total-montant{font-family:'Cormorant Garamond',serif;font-size:36px;font-style:italic;color:var(--vtl);transition:color .3s}
+#geste-badge{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2px}
+#geste-badge.essentiel{color:#8FAF85}
+#geste-badge.signature{color:#c8e4a0}
+#geste-badge.genereux{color:#e8f8c0}
+#option-feuillage{padding:12px 5vw;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.feuillage-opt{padding:5px 14px;font-size:10px;letter-spacing:.08em;border:1px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif;transition:all .2s}
+.feuillage-opt.active{border-color:var(--vtl);color:var(--vtl);background:rgba(143,175,133,.08)}
+#btn-commander{display:block;width:calc(100% - 10vw);margin:16px 5vw 24px;padding:16px;background:var(--vtl);color:var(--br);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;text-align:center}
+#btn-commander.vis{opacity:1;pointer-events:all}
+#btn-commander:hover{background:var(--iv)}
+#msg-minimum{text-align:center;padding:8px 5vw 16px;font-size:11px;color:rgba(255,255,255,.25);font-style:italic;font-family:'Cormorant Garamond',serif;min-height:32px}
+
+/* GAMMES */
 .gammes-bg{background:var(--iv2)}
 .gammes-hdr{padding:70px 5vw 0}
 .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--iv2);margin-top:40px}
@@ -116,10 +99,12 @@ section{padding:80px 5vw}
 .gdesc{font-size:13px;color:var(--brm);line-height:1.95;margin-bottom:22px}
 .gliv{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--brl)}
 .gcard.feat{background:var(--br)}
-.gcard.feat .gnom{color:var(--iv)}
+.gcard.feat .gnom,.gcard.feat .gprix{color:var(--iv)}
 .gcard.feat .gprix{color:var(--vtl)}
 .gcard.feat .gdesc{color:rgba(255,255,255,.5)}
 .gcard.feat .gliv{color:rgba(255,255,255,.22)}
+
+/* ATELIERS */
 .ate-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .ate-t p{color:var(--brm);line-height:1.95;margin-bottom:16px;font-size:14px}
 .ate-cite{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--br);margin:24px 0;padding-left:18px;border-left:2px solid var(--vtl);line-height:1.45}
@@ -128,6 +113,8 @@ section{padding:80px 5vw}
 .ate-dot{width:7px;height:7px;border-radius:50%;background:var(--vtl);flex-shrink:0}
 .ate-info h4{font-size:13px;font-weight:400;margin-bottom:2px}
 .ate-info p{font-size:11px;color:var(--brl)}
+
+/* ABO */
 .abo{background:var(--vt);padding:80px 5vw}
 .abo-inner{max-width:600px}
 .abo-lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--vtl);margin-bottom:18px}
@@ -136,12 +123,15 @@ section{padding:80px 5vw}
 .abo-rs{display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap}
 .abo-r{padding:16px 24px;border:1px solid rgba(255,255,255,.13);font-size:11px;color:rgba(255,255,255,.5)}
 .abo-btn{background:var(--iv);color:var(--vt);padding:13px 34px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* FAQ */
 .faq-w{max-width:680px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--iv2);padding:22px 0}
 .faq-q{font-family:'Cormorant Garamond',serif;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--br)}
 .faq-q::after{content:'...';font-family:'DM Sans',sans-serif;font-size:12px;color:var(--brl)}
 .faq-a{font-size:13px;color:var(--brm);line-height:1.95;max-height:0;overflow:hidden;transition:max-height .4s ease,padding-top .3s}
 .faq-item.open .faq-a{max-height:200px;padding-top:12px}
+
 footer{background:var(--br);padding:64px 5vw 32px}
 .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
 .fbrand{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;margin-bottom:12px;color:var(--iv)}
@@ -150,13 +140,14 @@ footer{background:var(--br);padding:64px 5vw 32px}
 .fcol a{display:block;font-size:11px;color:rgba(255,255,255,.42);text-decoration:none;margin-bottom:8px}
 .fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;font-size:10px;color:var(--brl);flex-wrap:wrap;gap:8px}
 @media(max-width:760px){
-.hero,.concept-g,.ate-g,.vis-g{grid-template-columns:1fr}
-.hero-vis{height:240px}.amp-g,.ggrid{grid-template-columns:1fr}
-.fgrid{grid-template-columns:1fr 1fr}.nlinks{display:none}.cpanel-inner{padding:20px 14px}
+.hero,.concept-g,.ate-g{grid-template-columns:1fr}
+.hero-vis{height:240px}.ggrid{grid-template-columns:1fr}
+.fgrid{grid-template-columns:1fr 1fr}.nlinks{display:none}
 }
 </style>
 </head>
 <body>
+
 <nav>
   <a href="#top" class="nbrand">Mon Joli Bouquet</a>
   <ul class="nlinks">
@@ -168,9 +159,10 @@ footer{background:var(--br);padding:64px 5vw 32px}
     <li><a href="#conf-section" class="ncta">Commencer</a></li>
   </ul>
 </nav>
+
 <section id="top" class="hero">
   <div>
-    <div class="slbl">Co-creation florale artisanale - Grenoble</div>
+    <div class="slbl">Co-creation florale artisanale &middot; Grenoble</div>
     <h1>Composer son bouquet, accompagne par un atelier.</h1>
     <p class="hero-sub">Ici, vous ne choisissez pas un produit. Vous choisissez une direction. L'atelier interprete. Le vivant fait le reste.</p>
     <div class="hero-btns">
@@ -188,6 +180,7 @@ footer{background:var(--br);padding:64px 5vw 32px}
     <div class="hero-caption">Dans un jardin, tout se melange.</div>
   </div>
 </section>
+
 <section id="concept" style="background:var(--iv2)">
   <div class="slbl">Notre philosophie</div>
   <div class="concept-g">
@@ -204,98 +197,78 @@ footer{background:var(--br);padding:64px 5vw 32px}
     </div>
   </div>
 </section>
+
 <div id="conf-section">
   <div id="conf-header">
     <div class="slbl">Configurateur</div>
-    <h2 class="stitle">Composez votre bouquet</h2>
-    <p>Prenez votre temps. Il n'y a pas de bon ou de mauvais choix.</p>
+    <h2 class="stitle">Le banc de fleurs</h2>
+    <p>Cliquez sur les fleurs qui vous parlent. Ajustez les quantites. Le prix se compose avec vous.</p>
   </div>
-  <div id="conf-controls">
-    <span id="sl-lbl">Heure</span>
-    <input type="range" id="tsl" min="0" max="23" step="1" value="10">
-    <button class="pbtn on" data-p="montagne">Montagne</button>
-    <button class="pbtn" data-p="mer">Mer</button>
-    <button class="pbtn" data-p="campagne">Campagne</button>
-    <button class="pbtn" data-p="foret">Foret</button>
-    <label id="uplbl">Ma photo<input type="file" id="upfile" accept="image/*"></label>
-  </div>
-  <div id="atelier-wrap">
-    <canvas id="atelier-canvas"></canvas>
-    <div id="heure-overlay">
-      <div id="heure-time">10:00</div>
-      <div id="heure-amb">Matinee</div>
+
+  <div id="barre-livraison">Livraison 15 &euro; &middot; Offerte a partir de 125 &euro; de fleurs</div>
+
+  <div class="seuils-info">
+    <div class="seuil-bloc" id="bloc-essentiel">
+      <div class="seuil-nom">Essentiel</div>
+      <div class="seuil-fourchette">75 &euro; &ndash; 94 &euro;</div>
+      <div class="seuil-livraison">Livraison 15 &euro;</div>
     </div>
-    <div id="fleurs-zone"></div>
-  </div>
-  <div id="panel-bas">
-    <div>
-      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:4px">Votre selection</div>
-      <div id="pb-tags"><span style="font-size:11px;color:rgba(255,255,255,.2);font-style:italic">Aucune fleur choisie</span></div>
+    <div class="seuil-bloc" id="bloc-signature">
+      <div class="seuil-nom">Signature</div>
+      <div class="seuil-fourchette">95 &euro; &ndash; 124 &euro;</div>
+      <div class="seuil-livraison">Livraison 15 &euro;</div>
     </div>
-    <div id="pb-msg">Choisissez les fleurs qui vous parlent.</div>
-  </div>
-  <div id="conf-steps-wrap">
-    <div class="cstep active" data-s="0" onclick="goStep(0)">Fleurs</div>
-    <div class="csep"></div>
-    <div class="cstep" data-s="1" onclick="goStep(1)">Ampleur</div>
-    <div class="csep"></div>
-    <div class="cstep" data-s="2" onclick="goStep(2)">Feuillage</div>
-    <div class="csep"></div>
-    <div class="cstep" data-s="3" onclick="goStep(3)">Votre creation</div>
-  </div>
-  <div id="conf-panels">
-    <div id="s0" class="cpanel-inner">
-      <p id="micro0" class="micro">Selectionnez vos fleurs sur le banc ci-dessus.</p>
-      <div class="sel-display" id="sd0"></div>
-      <button class="btn-cont" id="bc0" onclick="goStep(1)">Continuer</button>
-    </div>
-    <div id="s1" class="cpanel-inner" style="display:none">
-      <p class="micro">Quelle place souhaitez-vous donner a votre bouquet ?</p>
-      <div class="amp-g">
-        <div class="acard" onclick="selAmp(this,'essentiel')"><div class="anom">Essentiel</div><div class="adesc">Un geste juste, equilibre, sincere.</div><div class="aprix">75 euro - livraison en sus</div></div>
-        <div class="acard" onclick="selAmp(this,'signature')"><div class="anom">Signature</div><div class="adesc">Notre coeur de gamme. Expressif, nuance.</div><div class="aprix">95 euro - livraison en sus</div></div>
-        <div class="acard" onclick="selAmp(this,'genereux')"><div class="anom">Genereux</div><div class="adesc">Un geste ample pour les moments qui comptent.</div><div class="aprix">A partir de 125 euro - livraison offerte</div></div>
-      </div>
-      <button class="btn-cont" id="bc1" onclick="goStep(2)">Continuer</button>
-    </div>
-    <div id="s2" class="cpanel-inner" style="display:none">
-      <div class="fw">
-        <p class="fq">Souhaitez-vous un bouquet avec feuillage visible ?</p>
-        <div class="fopts">
-          <div class="fopt" onclick="selFeu(this,'oui')">Oui, avec feuillage apparent</div>
-          <div class="fopt" onclick="selFeu(this,'non')">Non, sans feuillage visible</div>
-          <div class="fopt sel" onclick="selFeu(this,'confiance')">Je fais confiance a l'atelier</div>
-        </div>
-        <p class="fnote">Le feuillage sert avant tout a equilibrer le bouquet. L'atelier l'utilise avec justesse.</p>
-        <button class="btn-cont vis" style="margin-top:28px" onclick="goStep(3)">Continuer</button>
-      </div>
-    </div>
-    <div id="s3" class="cpanel-inner" style="display:none">
-      <div class="vis-g">
-        <div class="vis-flat" id="vis-flat">
-          <div id="vis-placeholder" style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;padding:24px"></div>
-        </div>
-        <div class="vis-t">
-          <h3>Votre bouquet prend forme.</h3>
-          <p>L'atelier composera a partir de votre selection, avec les fleurs les plus justes du moment.</p>
-          <p id="vr3" style="font-style:italic;color:rgba(255,255,255,.3);font-size:11px"></p>
-          <div class="prix-show" id="vp3">-</div>
-          <p style="font-size:11px;color:var(--brl)">Le prix reflete la selection et l'interpretation en atelier.</p>
-          <button class="btn-cont vis" style="margin-top:24px" onclick="finaliser()">Confier mon bouquet</button>
-          <p class="vis-note">Illustration d'interpretation. Chaque bouquet est compose a la main. Le resultat sera fidele a l'esprit, pas a une image.</p>
-        </div>
-      </div>
+    <div class="seuil-bloc" id="bloc-genereux">
+      <div class="seuil-nom">Genereux</div>
+      <div class="seuil-fourchette">125 &euro; et plus</div>
+      <div class="seuil-livraison">Livraison offerte</div>
     </div>
   </div>
+
+  <div id="categories-nav">
+    <button class="cat-btn active" data-cat="tout">Toutes</button>
+    <button class="cat-btn" data-cat="roses">Roses</button>
+    <button class="cat-btn" data-cat="lys">Lys</button>
+    <button class="cat-btn" data-cat="hortensias">Hortensias</button>
+    <button class="cat-btn" data-cat="oeillets">Oeillets</button>
+    <button class="cat-btn" data-cat="autres">Autres</button>
+    <button class="cat-btn" data-cat="feuillages">Feuillages</button>
+  </div>
+
+  <div id="banc-grille"></div>
+
+  <div id="option-feuillage">
+    <span style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.05em">Feuillage</span>
+    <button class="feuillage-opt active" onclick="setFeuillage(this,'minimum')">Minimum (inclus)</button>
+    <button class="feuillage-opt" onclick="setFeuillage(this,'genereux')">Genereux +5 &euro;</button>
+    <span style="font-size:10px;color:rgba(255,255,255,.25);font-style:italic;font-family:'Cormorant Garamond',serif">Un minimum de feuillage structure toujours le bouquet.</span>
+  </div>
+
+  <div id="recap-bar">
+    <div style="flex:1;min-width:120px">
+      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px">Votre selection</div>
+      <div id="sel-tags"><span style="font-size:11px;color:rgba(255,255,255,.2);font-style:italic">Aucune fleur choisie</span></div>
+    </div>
+    <div id="total-zone">
+      <div id="total-label">Total fleurs</div>
+      <div id="total-montant">0 &euro;</div>
+      <div id="geste-badge"></div>
+    </div>
+  </div>
+
+  <div id="msg-minimum"></div>
+  <button id="btn-commander" onclick="commander()">Confier mon bouquet a l'atelier</button>
 </div>
+
 <div class="gammes-bg" id="gammes">
   <div class="gammes-hdr"><div class="slbl">Nos gammes</div><h2 class="stitle">Trois niveaux de geste.</h2></div>
   <div class="ggrid">
-    <div class="gcard"><div class="gnom">Essentiel</div><div class="gprix">75 euros</div><div class="gdesc">Un bouquet juste, sans superflu. Pour un geste sincere.</div><div class="gliv">Livraison en sus</div></div>
-    <div class="gcard feat"><div class="slbl" style="color:var(--vtl)">Recommande</div><div class="gnom">Signature</div><div class="gprix">95 euros</div><div class="gdesc">Notre coeur de gamme. Plus de matiere, plus de nuances.</div><div class="gliv" style="color:rgba(255,255,255,.22)">Livraison en sus</div></div>
-    <div class="gcard"><div class="gnom">Genereux</div><div class="gprix">A partir de 125 euros</div><div class="gdesc">Un geste ample pour les moments rares.</div><div class="gliv" style="color:var(--vt);font-weight:500">Livraison offerte</div></div>
+    <div class="gcard"><div class="gnom">Essentiel</div><div class="gprix">75 &euro; &ndash; 94 &euro;</div><div class="gdesc">Un bouquet juste, sans superflu. Pour un geste sincere.</div><div class="gliv">Livraison 15 &euro; en sus</div></div>
+    <div class="gcard feat"><div class="slbl" style="color:var(--vtl)">Recommande</div><div class="gnom">Signature</div><div class="gprix">95 &euro; &ndash; 124 &euro;</div><div class="gdesc">Notre coeur de gamme. Plus de matiere, plus de nuances.</div><div class="gliv">Livraison 15 &euro; en sus</div></div>
+    <div class="gcard"><div class="gnom">Genereux</div><div class="gprix">A partir de 125 &euro;</div><div class="gdesc">Un geste ample pour les moments rares.</div><div class="gliv" style="color:var(--vt);font-weight:500">Livraison offerte</div></div>
   </div>
 </div>
+
 <section id="ateliers">
   <div class="slbl">Les ateliers partenaires</div>
   <div class="ate-g">
@@ -303,18 +276,18 @@ footer{background:var(--br);padding:64px 5vw 32px}
       <h2 class="stitle">Des artisans qui interpretent, pas des executants.</h2>
       <p>Mon Joli Bouquet s'appuie sur un reseau restreint d'ateliers selectionnes pour leur exigence et leur capacite a interpreter une intention sans la reduire.</p>
       <blockquote class="ate-cite">L'artisan est auteur, pas executant.</blockquote>
-      <p>Chaque atelier conserve son identite, sa clientele, son rythme.</p>
+      <p>Chaque atelier conserve son identite, sa clientele, son rythme. Les ateliers sont regles chaque semaine. Pas a 30 jours. C'est un engagement, pas un avantage.</p>
     </div>
     <div>
       <div class="ate-list">
-        <div class="ate-item"><div class="ate-dot"></div><div class="ate-info"><h4>Atelier Grenoble Centre</h4><p>Epure vegetale contemporaine - Atelier pilote Phase 1</p></div></div>
-        <div class="ate-item"><div class="ate-dot" style="background:#E8D5C8"></div><div class="ate-info"><h4>Atelier Lyon Presqu'ile</h4><p>Geste floral structure - Atelier partenaire agree</p></div></div>
-        <div class="ate-item" style="opacity:.35"><div class="ate-dot" style="background:var(--brl)"></div><div class="ate-info"><h4>Prochainement - Saint-Tropez</h4><p>Atelier signature - Phase 3</p></div></div>
+        <div class="ate-item"><div class="ate-dot"></div><div class="ate-info"><h4>Atelier Grenoble Centre</h4><p>Epure vegetale contemporaine &middot; Atelier pilote Phase 1</p></div></div>
+        <div class="ate-item"><div class="ate-dot" style="background:#E8D5C8"></div><div class="ate-info"><h4>Atelier Lyon Presqu'ile</h4><p>Geste floral structure &middot; Atelier partenaire agree</p></div></div>
+        <div class="ate-item" style="opacity:.35"><div class="ate-dot" style="background:var(--brl)"></div><div class="ate-info"><h4>Prochainement &middot; Saint-Tropez</h4><p>Atelier signature &middot; Phase 3</p></div></div>
       </div>
-      <div style="padding:18px 24px;border-top:1px solid var(--iv2)"><p style="font-size:11px;color:var(--brm);font-style:italic;line-height:1.85">Les ateliers sont regles chaque semaine. Pas a 30 jours. C'est un engagement, pas un avantage.</p></div>
     </div>
   </div>
 </section>
+
 <div class="abo">
   <div class="abo-inner">
     <div class="abo-lbl">Abonnement</div>
@@ -324,72 +297,84 @@ footer{background:var(--br);padding:64px 5vw 32px}
     <button class="abo-btn">Decouvrir l'abonnement</button>
   </div>
 </div>
+
 <section id="faq">
   <div class="slbl" style="text-align:center">Questions frequentes</div>
   <h2 class="stitle" style="text-align:center;margin-bottom:44px">Les reponses honnetes.</h2>
   <div class="faq-w">
     <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Puis-je voir exactement a quoi ressemblera mon bouquet ?</div><p class="faq-a">Non, pas exactement. Chaque bouquet est interprete a partir de vos choix et du vivant disponible. Le resultat sera fidele a l'esprit, pas a une image figee.</p></div>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Combien de fleurs y a-t-il dans un bouquet ?</div><p class="faq-a">Nous ne raisonnons pas en nombre de tiges. Un bouquet est pense en equilibre, pas en quantite.</p></div>
-    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">A quel moment connait-on le prix ?</div><p class="faq-a">Le prix se revele lorsque votre composition prend forme. Il vient apres le geste, jamais avant.</p></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Le prix que je vois est-il le prix final ?</div><p class="faq-a">Le prix affiche correspond exactement aux fleurs que vous avez choisies, tige par tige. La livraison est indiquee separement. Aucun frais cache.</p></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Que se passe-t-il si une fleur n'est pas disponible ?</div><p class="faq-a">L'atelier vous contacte avant la composition pour proposer une alternative dans le meme esprit. Votre intention est preservee.</p></div>
     <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Est-ce fait pour moi ?</div><p class="faq-a">Si vous aimez choisir sans tout maitriser, oui. Si vous cherchez une copie exacte, probablement pas. Et c'est tres bien ainsi.</p></div>
   </div>
 </section>
+
 <footer>
   <div class="fgrid">
-    <div><div class="fbrand">Mon Joli Bouquet</div><p class="ftag">Composer son bouquet,<br>accompagne par un atelier.<br><br>Grenoble - Phase 1 - 2025</p></div>
+    <div><div class="fbrand">Mon Joli Bouquet</div><p class="ftag">Composer son bouquet,<br>accompagne par un atelier.<br><br>Grenoble &middot; Phase 1 &middot; 2025</p></div>
     <div class="fcol"><h4>Explorer</h4><a href="#concept">Le concept</a><a href="#conf-section">Composer</a><a href="#gammes">Les gammes</a></div>
     <div class="fcol"><h4>Les ateliers</h4><a href="#ateliers">Notre reseau</a><a href="#">Devenir partenaire</a></div>
     <div class="fcol"><h4>Informations</h4><a href="#faq">FAQ</a><a href="#">Livraison</a><a href="#">Contact</a></div>
   </div>
   <div class="fbot">
-    <span>2025 Mon Joli Bouquet - Grenoble</span>
+    <span>2025 Mon Joli Bouquet &middot; Grenoble</span>
     <span style="font-style:italic;font-family:'Cormorant Garamond',serif">Dans un jardin, tout se melange.</span>
   </div>
 </footer>
+
 <script>
 var FLEURS=[
-  {id:'rose',n:'Rose',e:'🌹',h:88,img:''},
-  {id:'pivoine',n:'Pivoine',e:'🌸',h:74,img:''},
-  {id:'renoncule',n:'Renoncule',e:'🌼',h:60,img:''},
-  {id:'anemone',n:'Anemone',e:'🪷',h:66,img:''},
-  {id:'dahlia',n:'Dahlia',e:'🌺',h:80,img:''},
-  {id:'tulipe',n:'Tulipe',e:'🌷',h:70,img:''},
-  {id:'lisianthus',n:'Lisianthus',e:'💜',h:63,img:''},
-  {id:'cosmos',n:'Cosmos',e:'🌸',h:55,img:''},
-  {id:'eucalyptus',n:'Eucalyptus',e:'🌿',h:50,img:''},
-  {id:'scabieuse',n:'Scabieuse',e:'🫧',h:60,img:''}
+  {id:'lys-rose',n:'Lys oriental rose',e:'🌸',p:10,cat:'lys'},
+  {id:'lys-blanc',n:'Lys oriental blanc',e:'🤍',p:10,cat:'lys'},
+  {id:'lys-asiat',n:'Lys asiatique orange',e:'🧡',p:7,cat:'lys'},
+  {id:'rose-rouge-70',n:'Rose rouge 70cm',e:'🌹',p:6,cat:'roses'},
+  {id:'rose-rouge-60',n:'Rose rouge 60cm',e:'🌹',p:5,cat:'roses'},
+  {id:'rose-blanche-70',n:'Rose blanche 70cm',e:'🤍',p:6,cat:'roses'},
+  {id:'rose-creme-60',n:'Rose creme 60cm',e:'🌾',p:4,cat:'roses'},
+  {id:'rose-rosepale',n:'Rose rose pale',e:'🌸',p:6,cat:'roses'},
+  {id:'rose-sw50',n:'Rose Sweet Av. 50cm',e:'🌸',p:5,cat:'roses'},
+  {id:'rose-fuchsia',n:'Rose fuchsia 70cm',e:'💗',p:6,cat:'roses'},
+  {id:'rose-rosevif',n:'Rose rose vif 70cm',e:'🌺',p:6,cat:'roses'},
+  {id:'rose-orange',n:'Rose orange 70cm',e:'🧡',p:6,cat:'roses'},
+  {id:'rose-saumon',n:'Rose saumon 70cm',e:'🍑',p:6,cat:'roses'},
+  {id:'rose-br-rosevif',n:'Rose branchue rose vif',e:'🌸',p:7,cat:'roses'},
+  {id:'rose-br-blanc',n:'Rose branchue blanc',e:'🤍',p:7,cat:'roses'},
+  {id:'rose-br-saumon',n:'Rose branchue saumon',e:'🍑',p:7,cat:'roses'},
+  {id:'hortensia-blanc',n:'Hortensia blanc',e:'🌿',p:10,cat:'hortensias'},
+  {id:'hortensia-rose',n:'Hortensia rose',e:'🌸',p:10,cat:'hortensias'},
+  {id:'hortensia-bleu',n:'Hortensia bleu',e:'💙',p:10,cat:'hortensias'},
+  {id:'lisianthus-blanc',n:'Lisianthus blanc',e:'🤍',p:5,cat:'autres'},
+  {id:'lisianthus-rose',n:'Lisianthus rose pale',e:'🌸',p:5,cat:'autres'},
+  {id:'oeillet-blanc',n:'Oeillet blanc',e:'🤍',p:3,cat:'oeillets'},
+  {id:'oeillet-vert',n:'Oeillet vert',e:'💚',p:3,cat:'oeillets'},
+  {id:'oeillet-violet',n:'Oeillet violet',e:'💜',p:3,cat:'oeillets'},
+  {id:'oeillet-orange',n:'Oeillet orange',e:'🧡',p:3,cat:'oeillets'},
+  {id:'oeillet-fuchsia',n:'Oeillet fuchsia',e:'💗',p:3,cat:'oeillets'},
+  {id:'oeillet-rosevif',n:'Oeillet rose vif',e:'🌸',p:3,cat:'oeillets'},
+  {id:'oeillet-rouge',n:'Oeillet rouge',e:'❤️',p:3,cat:'oeillets'},
+  {id:'chardon',n:'Chardon vert',e:'🌿',p:5,cat:'autres'},
+  {id:'bony',n:'Bony ping pong blanc',e:'⚪',p:6,cat:'autres'},
+  {id:'santini-blanc',n:'Santini blanc',e:'🤍',p:4,cat:'autres'},
+  {id:'santini-vert',n:'Santini vert',e:'💚',p:4,cat:'autres'},
+  {id:'gypsophile',n:'Gypsophile blanc',e:'🤍',p:4,cat:'autres'},
+  {id:'germini',n:'Germini saumon',e:'🍑',p:2,cat:'autres'},
+  {id:'pivoine',n:'Pivoine',e:'🌸',p:5,cat:'autres'},
+  {id:'renoncule',n:'Renoncule',e:'🌼',p:5,cat:'autres'},
+  {id:'eucalyptus-grand',n:'Eucalyptus 50-60cm',e:'🌿',p:3,cat:'feuillages'},
+  {id:'eucalyptus-petit',n:'Eucalyptus 30-40cm',e:'🌿',p:2,cat:'feuillages'},
 ];
-var PAYSAGES={montagne:'',mer:'',campagne:'',foret:''};
-var FLAT_LAYS={essentiel:'',signature:'',genereux:'',default:''};
-var MSGS=['Choisissez les fleurs qui vous parlent.','Vous pouvez en choisir une ou plusieurs.','L atelier compose autour de vos choix.','Tout se melange dans le jardin.'];
-var sel={};var currentP='montagne';var customImg=null;var ampleur=null;
-var paysageImgs={};
-Object.keys(PAYSAGES).forEach(function(k){if(PAYSAGES[k]){var img=new Image();img.onload=function(){paysageImgs[k]=img;render(parseInt(document.getElementById('tsl').value));};img.src=PAYSAGES[k];}});
-var canvas=document.getElementById('atelier-canvas');var ctx=canvas.getContext('2d');
-function skyColors(h){if(h<5||h>=23)return{t:'#02020e',b:'#070720',amb:'Nuit'};if(h<7)return{t:'#1a0832',b:'#e85020',amb:'Aube'};if(h<10)return{t:'#3a7ec8',b:'#ffd080',amb:'Matinee'};if(h<14)return{t:'#3a8cd8',b:'#a0d8f8',amb:'Journee'};if(h<17)return{t:'#4a8cd0',b:'#b0dcf0',amb:'Apres-midi'};if(h<19)return{t:'#1a3a90',b:'#f08020',amb:'Coucher'};if(h<21)return{t:'#080828',b:'#c03010',amb:'Crepuscule'};return{t:'#02020e',b:'#080825',amb:'Nuit'};}
-function sunPos(h,W,SH){if(h<5||h>20)return null;var p=(h-5)/15;return{x:W*.1+p*W*.8,y:SH*.55-Math.sin(p*Math.PI)*SH*.42,r:h>=10&&h<=15?26:20,col:h<8||h>17?'#ff8030':'#ffe566'};}
-function drawSkyBase(h,W,H){var sk=skyColors(h),SH=H*.6;var g=ctx.createLinearGradient(0,0,0,SH);g.addColorStop(0,sk.t);g.addColorStop(1,sk.b);ctx.fillStyle=g;ctx.fillRect(0,0,W,SH);var sun=sunPos(h,W,SH);if(sun){var sg=ctx.createRadialGradient(sun.x,sun.y,0,sun.x,sun.y,sun.r*3.5);sg.addColorStop(0,sun.col+'88');sg.addColorStop(1,sun.col+'00');ctx.fillStyle=sg;ctx.beginPath();ctx.arc(sun.x,sun.y,sun.r*3.5,0,Math.PI*2);ctx.fill();ctx.fillStyle=sun.col;ctx.beginPath();ctx.arc(sun.x,sun.y,sun.r,0,Math.PI*2);ctx.fill();}}
-function drawMontagne(h,W,H){drawSkyBase(h,W,H);var SH=H*.6;ctx.fillStyle='#8aa8c8';ctx.beginPath();var pts=[[0,SH*.95],[W*.12,SH*.22],[W*.3,SH*.52],[W*.48,SH*.08],[W*.65,SH*.38],[W*.8,SH*.12],[W,SH*.35],[W,SH],[0,SH]];pts.forEach(function(p,i){if(i)ctx.lineTo(p[0],p[1]);else ctx.moveTo(p[0],p[1]);});ctx.closePath();ctx.fill();ctx.fillStyle='#6888a8';ctx.beginPath();var pts2=[[0,SH],[W*.07,SH*.38],[W*.22,SH*.55],[W*.4,SH*.28],[W*.55,SH*.45],[W*.72,SH*.2],[W*.88,SH*.42],[W,SH*.52],[W,SH]];pts2.forEach(function(p,i){if(i)ctx.lineTo(p[0],p[1]);else ctx.moveTo(p[0],p[1]);});ctx.closePath();ctx.fill();var gg=ctx.createLinearGradient(0,SH*.88,0,SH);gg.addColorStop(0,'#6a9848');gg.addColorStop(1,'#4a7830');ctx.fillStyle=gg;ctx.fillRect(0,SH*.88,W,SH*.12);}
-function drawMer(h,W,H){drawSkyBase(h,W,H);var SH=H*.6;var seaC=h<7?'#c04010':h<10?'#1878c0':h<17?'#1068b8':'#803010';var mg=ctx.createLinearGradient(0,SH*.38,0,SH);mg.addColorStop(0,seaC);mg.addColorStop(1,'#082848');ctx.fillStyle=mg;ctx.fillRect(0,SH*.38,W,SH*.62);var pg=ctx.createLinearGradient(0,SH*.88,0,SH);pg.addColorStop(0,'#e8d08a');pg.addColorStop(1,'#c8b060');ctx.fillStyle=pg;ctx.fillRect(0,SH*.88,W,SH*.12);}
-function drawCampagne(h,W,H){drawSkyBase(h,W,H);var SH=H*.6;var prairies=[['#7ab850',SH*.45],['#6aa040',SH*.54],['#5a9030',SH*.6]];prairies.forEach(function(item){ctx.fillStyle=item[0];ctx.beginPath();ctx.moveTo(0,item[1]);for(var x=0;x<=W;x+=100)ctx.quadraticCurveTo(x+50,item[1]-7,x+100,item[1]);ctx.lineTo(W,SH);ctx.lineTo(0,SH);ctx.closePath();ctx.fill();});}
-function drawForet(h,W,H){drawSkyBase(h,W,H);var SH=H*.6;for(var i=0;i<15;i++){var x=i*(W/14)-8,w=52+20,th=130+60,gv=42+15;ctx.fillStyle='rgb(20,'+(gv+35)+',18)';ctx.beginPath();ctx.ellipse(x+w/2,SH-th*.52,w/2,th*.52,0,0,Math.PI*2);ctx.fill();}var fg=ctx.createLinearGradient(0,SH*.85,0,SH);fg.addColorStop(0,'#2d5018');fg.addColorStop(1,'#1a3010');ctx.fillStyle=fg;ctx.fillRect(0,SH*.85,W,SH*.15);}
-function drawAtelier(h,W,H){var lum=Math.min(1,Math.max(0.2,h>=5&&h<=19?(h<12?(h-5)/7:(19-h)/7):0));var wr=Math.round(90*lum+18),wg=Math.round(58*lum+10),wb=Math.round(22*lum);var sr=Math.round(65*lum+10),sg2=Math.round(42*lum+8),sb=Math.round(16*lum);var wood='rgb('+wr+','+wg+','+wb+')',sol='rgb('+sr+','+sg2+','+sb+')';ctx.fillStyle='rgb('+(sr-5)+','+(sg2-4)+','+sb+')';ctx.fillRect(0,H*.38,W*.09,H*.62);ctx.fillRect(W*.91,H*.38,W*.09,H*.62);var pr=Math.round(120*lum+22),pg3=Math.round(85*lum+14),pb3=Math.round(38*lum+6);ctx.fillStyle='rgb('+pr+','+pg3+','+pb3+')';ctx.fillRect(0,H*.6,W,H*.4);var tw=W/11,th=18;ctx.lineWidth=1;for(var row=0;row*th<H*.4+th;row++){for(var col=-1;col*tw<W+tw;col++){var x=col*tw+(row%2===0?0:tw/2),y=H*.6+row*th;ctx.strokeStyle='rgba(0,0,0,'+(0.1*lum+0.04)+')';ctx.strokeRect(x+.5,y+.5,tw-1,th-1);}}var vL=W*.09,vR=W*.91,vH=H*.6;ctx.fillStyle=wood;ctx.fillRect(vL-5,0,10,vH);ctx.fillRect(vR-5,0,10,vH);ctx.fillRect(vL,0,vR-vL,11);ctx.fillRect(vL,vH-8,vR-vL,8);[.25,.5,.75].forEach(function(p){ctx.fillRect(vL+(vR-vL)*p-4,0,8,vH);});ctx.fillRect(vL,vH*.5-4,vR-vL,8);var vb=lum*.055+.018;ctx.fillStyle='rgba(210,235,255,'+vb+')';var cw=(vR-vL)/4,ch=vH/2;for(var c=0;c<4;c++)for(var r=0;r<2;r++){var vx=vL+c*cw+6,vy=r*ch+(r===0?11:8),vw=cw-12,vh=ch-(r===0?14:12);ctx.fillRect(vx,vy,vw,vh);}var bY=H*.602,bL=W*.07,bR=W*.93;ctx.shadowColor='rgba(0,0,0,.38)';ctx.shadowBlur=16;ctx.shadowOffsetY=5;var bg=ctx.createLinearGradient(0,bY,0,bY+14);bg.addColorStop(0,'rgb('+(wr+18)+','+(wg+10)+','+(wb+3)+')');bg.addColorStop(1,wood);ctx.fillStyle=bg;ctx.beginPath();ctx.rect(bL,bY,bR-bL,15);ctx.fill();ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.fillStyle=sol;[.11,.3,.7,.89].forEach(function(p){ctx.fillRect(bL+(bR-bL)*p-5,bY+15,10,H*.058);});document.getElementById('heure-time').textContent=(h<10?'0':'')+h+':00';document.getElementById('heure-amb').textContent=skyColors(h).amb;var bright=h>=8&&h<=18?1:h>=6&&h<8||h>18&&h<20?.6:.25;document.querySelectorAll('.fh').forEach(function(e){e.style.filter='brightness('+bright+')';});document.querySelectorAll('.fname').forEach(function(e){e.style.opacity=bright*.8+.1;});}
-function render(h){var wrap=document.getElementById('atelier-wrap');var W=wrap.offsetWidth||800,H=wrap.offsetHeight||420;canvas.width=W;canvas.height=H;if(customImg){ctx.drawImage(customImg,0,0,W,H*.6);}else if(paysageImgs[currentP]){ctx.drawImage(paysageImgs[currentP],0,0,W,H*.6);}else{if(currentP==='montagne')drawMontagne(h,W,H);else if(currentP==='mer')drawMer(h,W,H);else if(currentP==='campagne')drawCampagne(h,W,H);else drawForet(h,W,H);}drawAtelier(h,W,H);document.getElementById('fleurs-zone').style.bottom=(H*.403)+'px';}
-function buildFleurs(){var fz=document.getElementById('fleurs-zone');fz.innerHTML='';FLEURS.forEach(function(f){var wrap=document.createElement('div');wrap.className='fs';wrap.dataset.id=f.id;var hw=document.createElement('div');hw.className='fhw';var head=document.createElement('div');head.className='fh';head.style.fontSize=(19+f.h*.09)+'px';head.textContent=f.e;var badge=document.createElement('div');badge.className='fbadge';badge.id='fb-'+f.id;badge.textContent='1';hw.appendChild(head);hw.appendChild(badge);var tige=document.createElement('div');tige.className='ftige';tige.style.height=f.h+'px';var fn=document.createElement('div');fn.className='fname';fn.textContent=f.n;var qrow=document.createElement('div');qrow.className='qrow';qrow.id='qr-'+f.id;var qm=document.createElement('button');qm.className='qb';qm.textContent='-';var qn=document.createElement('span');qn.className='qnum';qn.id='qn-'+f.id;qn.textContent='1';var qp=document.createElement('button');qp.className='qb';qp.textContent='+';(function(fid){qm.addEventListener('click',function(e){e.stopPropagation();e.preventDefault();changeQ(fid,-1);});qp.addEventListener('click',function(e){e.stopPropagation();e.preventDefault();changeQ(fid,1);});})(f.id);qrow.appendChild(qm);qrow.appendChild(qn);qrow.appendChild(qp);(function(fid){hw.addEventListener('click',function(e){e.stopPropagation();toggleF(fid);});tige.addEventListener('click',function(e){e.stopPropagation();toggleF(fid);});fn.addEventListener('click',function(e){e.stopPropagation();toggleF(fid);});})(f.id);wrap.appendChild(hw);wrap.appendChild(tige);wrap.appendChild(fn);wrap.appendChild(qrow);fz.appendChild(wrap);});}
-function toggleF(id){if(sel[id]){delete sel[id];document.querySelector('.fs[data-id="'+id+'"]').classList.remove('on');document.getElementById('qr-'+id).classList.remove('show');document.getElementById('fb-'+id).classList.remove('show');}else{sel[id]=1;document.querySelector('.fs[data-id="'+id+'"]').classList.add('on');document.getElementById('qr-'+id).classList.add('show');var b=document.getElementById('fb-'+id);b.textContent='1';b.classList.add('show');document.getElementById('qn-'+id).textContent='1';}updatePanel();updateStep0();}
-function changeQ(id,d){if(!sel[id])return;sel[id]=Math.max(1,Math.min(9,sel[id]+d));document.getElementById('qn-'+id).textContent=sel[id];document.getElementById('fb-'+id).textContent=sel[id];updatePanel();}
-function updatePanel(){var ids=Object.keys(sel),tags=document.getElementById('pb-tags');if(!ids.length){tags.innerHTML='<span style="font-size:11px;color:rgba(255,255,255,.2);font-style:italic">Aucune fleur choisie</span>';document.getElementById('pb-msg').textContent=MSGS[0];return;}tags.innerHTML=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return'<div class="pb-tag">'+f.e+' '+f.n+' <span style="opacity:.5">x'+sel[id]+'</span></div>';}).join('');document.getElementById('pb-msg').textContent=MSGS[Math.min(ids.length-1,3)];}
-function updateStep0(){var ids=Object.keys(sel);var sd=document.getElementById('sd0');if(sd)sd.innerHTML=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return'<span class="stag-c">'+f.e+' '+f.n+' x'+sel[id]+'</span>';}).join('');var bc=document.getElementById('bc0');if(bc)bc.classList.toggle('vis',ids.length>0);var m=document.getElementById('micro0');if(m)m.textContent=ids.length===0?MSGS[0]:ids.length===1?MSGS[1]:MSGS[2];}
-function goStep(n){[0,1,2,3].forEach(function(i){var p=document.getElementById('s'+i);if(p)p.style.display=i===n?'block':'none';var st=document.querySelector('.cstep[data-s="'+i+'"]');if(st)st.classList.toggle('active',i===n);});if(n===3)updateVisuel();}
-function selAmp(el,v){document.querySelectorAll('.acard').forEach(function(c){c.classList.remove('sel');});el.classList.add('sel');ampleur=v;document.getElementById('bc1').classList.add('vis');}
-function selFeu(el,v){document.querySelectorAll('.fopt').forEach(function(o){o.classList.remove('sel');});el.classList.add('sel');}
-function updateVisuel(){var ids=Object.keys(sel);var icons={rose:'🌹',pivoine:'🌸',renoncule:'🌼',anemone:'🪷',dahlia:'🌺',tulipe:'🌷',lisianthus:'💜',cosmos:'🌸',eucalyptus:'🌿',scabieuse:'🫧'};var flatUrl=ampleur&&FLAT_LAYS[ampleur]?FLAT_LAYS[ampleur]:FLAT_LAYS.default;var vFlat=document.getElementById('vis-flat');if(flatUrl){vFlat.innerHTML='<img src="'+flatUrl+'" alt="Illustration" style="width:100%;height:100%;object-fit:cover">';}else{vFlat.innerHTML='<div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;padding:24px">'+ids.slice(0,5).map(function(id,i){return'<span class="vfl" style="font-size:28px;animation-delay:'+(i*.35)+'s">'+(icons[id]||'🌸')+'</span>';}).join('')+'</div>';}var pm={essentiel:'75 euros',signature:'95 euros',genereux:'A partir de 125 euros'};var vp=document.getElementById('vp3');if(vp)vp.textContent=ampleur?pm[ampleur]:'-';var vr=document.getElementById('vr3');if(vr)vr.textContent=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return f.n+' x'+sel[id];}).join(', ')+(ampleur?' - '+ampleur:'');}
-function finaliser(){alert('Votre bouquet sera disponible a la commande tres prochainement.\n\nLancement Phase 1 - Grenoble - 2025\n\nMerci.');}
-document.getElementById('tsl').addEventListener('input',function(){render(parseInt(this.value));});
-document.querySelectorAll('.pbtn').forEach(function(b){b.addEventListener('click',function(){customImg=null;currentP=b.dataset.p;document.querySelectorAll('.pbtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render(parseInt(document.getElementById('tsl').value));});});
-document.getElementById('upfile').addEventListener('change',function(e){var file=e.target.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(ev){var img=new Image();img.onload=function(){customImg=img;document.querySelectorAll('.pbtn').forEach(function(b){b.classList.remove('on');});render(parseInt(document.getElementById('tsl').value));};img.src=ev.target.result;};reader.readAsDataURL(file);});
-window.addEventListener('resize',function(){render(parseInt(document.getElementById('tsl').value));});
-var h0=new Date().getHours();document.getElementById('tsl').value=h0;buildFleurs();render(h0);
+var MINIMUM=75,SEUIL_SIGN=95,SEUIL_GEN=125,LIVRAISON=15;
+var sel={},catActive='tout',feuilGenActif=false;
+function getTotal(){var t=0;Object.keys(sel).forEach(function(id){var f=FLEURS.find(function(x){return x.id===id;});if(f)t+=f.p*sel[id];});if(feuilGenActif)t+=5;return t;}
+function getGeste(t){if(t<MINIMUM)return null;if(t<SEUIL_SIGN)return'essentiel';if(t<SEUIL_GEN)return'signature';return'genereux';}
+function buildGrille(){var g=document.getElementById('banc-grille');g.innerHTML='';var list=catActive==='tout'?FLEURS:FLEURS.filter(function(f){return f.cat===catActive;});list.forEach(function(f){var card=document.createElement('div');card.className='fleur-card'+(sel[f.id]?' sel':'');var em=document.createElement('div');em.className='fleur-emoji';em.textContent=f.e;var nm=document.createElement('div');nm.className='fleur-nom';nm.textContent=f.n;var pt=document.createElement('div');pt.className='fleur-prix-tag';pt.textContent=f.p+' euro / tige';var qrow=document.createElement('div');qrow.className='qty-row'+(sel[f.id]?' show':'');qrow.id='qr-'+f.id;var qm=document.createElement('button');qm.className='qb';qm.textContent='-';var qn=document.createElement('span');qn.className='qnum';qn.id='qn-'+f.id;qn.textContent=sel[f.id]||1;var qp=document.createElement('button');qp.className='qb';qp.textContent='+';(function(fid){qm.addEventListener('click',function(e){e.stopPropagation();e.preventDefault();changeQ(fid,-1);});qp.addEventListener('click',function(e){e.stopPropagation();e.preventDefault();changeQ(fid,1);});[em,nm,pt].forEach(function(el){el.addEventListener('click',function(e){e.stopPropagation();toggleF(fid);});});})(f.id);qrow.appendChild(qm);qrow.appendChild(qn);qrow.appendChild(qp);card.appendChild(em);card.appendChild(nm);card.appendChild(pt);card.appendChild(qrow);g.appendChild(card);});}
+function toggleF(id){if(sel[id])delete sel[id];else sel[id]=1;buildGrille();updateUI();}
+function changeQ(id,d){if(!sel[id])return;sel[id]=Math.max(1,Math.min(20,sel[id]+d));var qn=document.getElementById('qn-'+id);if(qn)qn.textContent=sel[id];updateUI();}
+function setFeuillage(el,val){document.querySelectorAll('.feuillage-opt').forEach(function(b){b.classList.remove('active');});el.classList.add('active');feuilGenActif=(val==='genereux');updateUI();}
+function updateUI(){var total=getTotal();var geste=getGeste(total);var ids=Object.keys(sel);document.getElementById('total-montant').textContent=total+' euro';var gb=document.getElementById('geste-badge');var labels={essentiel:'Geste Essentiel',signature:'Geste Signature',genereux:'Geste Genereux'};gb.textContent=geste?labels[geste]:'';gb.className=geste||'';['essentiel','signature','genereux'].forEach(function(g){document.getElementById('bloc-'+g).classList.toggle('actif',geste===g);});var barre=document.getElementById('barre-livraison');if(total>=SEUIL_GEN){barre.textContent='Livraison offerte - Geste Genereux';barre.classList.add('offerte');}else{var reste=SEUIL_GEN-total;barre.textContent=total>0?'Livraison 15 euro - encore '+reste+' euro pour la livraison offerte':'Livraison 15 euro - Offerte a partir de 125 euro de fleurs';barre.classList.remove('offerte');}var tags=document.getElementById('sel-tags');if(!ids.length){tags.innerHTML='<span style="font-size:11px;color:rgba(255,255,255,.2);font-style:italic">Aucune fleur choisie</span>';}else{tags.innerHTML=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return'<div class="sel-tag">'+f.e+' '+f.n.split(' ').slice(0,2).join(' ')+' <span style="opacity:.5">x'+sel[id]+'</span></div>';}).join('');}var msg=document.getElementById('msg-minimum');var btn=document.getElementById('btn-commander');if(total===0){msg.textContent='Minimum de commande : 75 euro';btn.classList.remove('vis');}else if(total<MINIMUM){msg.textContent='Encore '+(MINIMUM-total)+' euro pour atteindre le minimum de commande';btn.classList.remove('vis');}else{msg.textContent='';btn.classList.add('vis');}}
+document.querySelectorAll('.cat-btn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');catActive=btn.dataset.cat;buildGrille();});});
+function commander(){var total=getTotal();var livraison=total>=SEUIL_GEN?0:LIVRAISON;alert('Votre bouquet sera disponible a la commande tres prochainement.\n\nTotal fleurs : '+total+' euro\n'+(feuilGenActif?'Feuillage genereux : 5 euro\n':'')+(livraison===0?'Livraison offerte':'Livraison : '+livraison+' euro')+'\n\nLancement Phase 1 - Grenoble - 2025\n\nMerci, Mylene.');}
+buildGrille();updateUI();
 </script>
 </body>
 </html>
