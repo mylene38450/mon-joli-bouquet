@@ -50,69 +50,69 @@ section{padding:80px 5vw}
 .pillar{padding:24px;border:1px solid var(--iv2)}
 .pillar h3{font-size:20px;margin-bottom:8px;font-style:italic}
 .pillar p{font-size:12px;color:var(--brm);line-height:1.85}
-#conf-section{background:var(--br);padding:0}
+#conf-section{background:transparent;padding:0}
 #conf-header{padding:56px 5vw 28px;text-align:center}
-#conf-header .stitle{color:var(--iv)}
-#conf-header .slbl{color:var(--brl)}
-#conf-header p{color:var(--brl);font-size:13px}
-#barre-livraison{background:rgba(143,175,133,.12);border-top:1px solid rgba(143,175,133,.2);border-bottom:1px solid rgba(143,175,133,.2);padding:10px 5vw;text-align:center;font-size:12px;color:var(--vtl);letter-spacing:.05em;transition:all .4s}
+#conf-header .stitle{color:var(--br)}
+#conf-header .slbl{color:var(--brm)}
+#conf-header p{color:var(--brm);font-size:15px}
+#barre-livraison{background:rgba(200,112,90,.12);border-top:1px solid rgba(193,122,106,.25);border-bottom:1px solid rgba(193,122,106,.25);padding:10px 5vw;text-align:center;font-size:12px;color:var(--vtl);letter-spacing:.05em;transition:all .4s}
 #barre-livraison.offerte{background:rgba(193,122,106,.3);color:#F5E6C8}
 .seuils-info{display:flex;gap:1px;margin:0 5vw 16px}
-.seuil-bloc{flex:1;padding:10px 8px;text-align:center;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.seuil-bloc{flex:1;padding:10px 8px;text-align:center;background:rgba(245,230,200,.4);border:1px solid rgba(193,122,106,.15)}
 .seuil-bloc.actif{background:rgba(193,122,106,.15);border-color:#C17A6A}
-.seuil-nom{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px}
+.seuil-nom{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-bottom:4px}
 .seuil-bloc.actif .seuil-nom{color:#C17A6A}
-.seuil-fourchette{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,.3)}
+.seuil-fourchette{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--brm)}
 .seuil-bloc.actif .seuil-fourchette{color:#C17A6A}
-.seuil-livraison{font-size:9px;color:rgba(255,255,255,.2);margin-top:3px}
+.seuil-livraison{font-size:9px;color:var(--brl);margin-top:3px}
 .seuil-bloc.actif .seuil-livraison{color:rgba(193,122,106,.7)}
 #categories-nav{display:flex;gap:6px;padding:16px 5vw 8px;flex-wrap:wrap;justify-content:center}
-.cat-btn{padding:5px 14px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif;transition:all .2s}
+.cat-btn{padding:5px 14px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(193,122,106,.3);background:rgba(245,230,200,.5);color:var(--brm);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif;transition:all .2s}
 .cat-btn:hover,.cat-btn.active{background:#C17A6A;color:#F5E6C8;border-color:#C17A6A}
 #banc-grille{display:flex;flex-wrap:wrap;gap:8px;padding:16px 5vw;justify-content:center}
-.fleur-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;min-width:80px;max-width:92px;border-radius:2px;user-select:none;-webkit-tap-highlight-color:transparent}
-.fleur-card:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.fleur-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid rgba(193,122,106,.15);background:rgba(245,230,200,.5);cursor:pointer;transition:all .2s;min-width:80px;max-width:92px;border-radius:2px;user-select:none;-webkit-tap-highlight-color:transparent}
+.fleur-card:hover{border-color:#C17A6A;background:rgba(245,230,200,.8)}
 .fleur-card.sel{border-color:#C17A6A;background:rgba(193,122,106,.12)}
 .fleur-emoji{font-size:22px;line-height:1}
-.fleur-nom{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:center;line-height:1.3}
+.fleur-nom{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--brm);text-align:center;line-height:1.3}
 .fleur-card.sel .fleur-nom{color:#C17A6A}
-.fleur-prix-tag{font-size:10px;color:rgba(255,255,255,.3);font-family:'Cormorant Garamond',serif;font-style:italic}
+.fleur-prix-tag{font-size:10px;color:var(--brl);font-family:'Cormorant Garamond',serif;font-style:italic}
 .fleur-card.sel .fleur-prix-tag{color:#C17A6A}
 .qty-row{display:flex;align-items:center;gap:5px;margin-top:2px;opacity:0;pointer-events:none;transition:opacity .2s;height:20px}
 .qty-row.show{opacity:1;pointer-events:all}
-.qb{width:20px;height:20px;border-radius:50%;border:1px solid rgba(143,175,133,.5);background:rgba(247,243,238,.1);color:var(--vtl);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;touch-action:manipulation;line-height:1}
+.qb{width:20px;height:20px;border-radius:50%;border:1px solid rgba(193,122,106,.5);background:rgba(245,230,200,.6);color:#C17A6A;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;touch-action:manipulation;line-height:1}
 .qb:hover,.qb:active{background:#C17A6A;color:#F5E6C8}
 .qnum{font-size:11px;color:rgba(255,255,255,.8);min-width:12px;text-align:center;font-weight:500}
-#recap-bar{background:rgba(0,0,0,.3);border-top:1px solid rgba(255,255,255,.08);padding:16px 5vw;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+#recap-bar{background:rgba(200,112,90,.15);border-top:1px solid rgba(193,122,106,.2);padding:16px 5vw;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 #sel-tags{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:120px}
 .sel-tag{padding:3px 8px;border:1px solid rgba(193,122,106,.4);font-size:10px;color:#C17A6A;border-radius:1px;display:flex;align-items:center;gap:3px}
 #total-zone{text-align:right;min-width:140px}
-#total-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px}
+#total-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--brm);margin-bottom:4px}
 #total-montant{font-family:'Cormorant Garamond',serif;font-size:36px;font-style:italic;color:#C17A6A;transition:color .3s}
-#geste-badge{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2px}
+#geste-badge{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-top:2px}
 #geste-badge.essentiel{color:#C17A6A}
 #geste-badge.signature{color:#C17A6A}
 #geste-badge.genereux{color:#F5E6C8}
 #option-feuillage{padding:12px 5vw;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.feuillage-opt{padding:5px 14px;font-size:10px;letter-spacing:.08em;border:1px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif;transition:all .2s}
-.feuillage-opt.active{border-color:var(--vtl);color:var(--vtl);background:rgba(143,175,133,.08)}
+.feuillage-opt{padding:5px 14px;font-size:10px;letter-spacing:.08em;border:1px solid rgba(193,122,106,.3);background:rgba(245,230,200,.5);color:var(--brm);cursor:pointer;border-radius:2px;font-family:'DM Sans',sans-serif;transition:all .2s}
+.feuillage-opt.active{border-color:#C17A6A;color:#C17A6A;background:rgba(193,122,106,.15)}
 #btn-commander{display:block;width:calc(100% - 10vw);margin:16px 5vw 24px;padding:16px;background:#C17A6A;color:var(--br);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;text-align:center}
 #btn-commander.vis{opacity:1;pointer-events:all}
 #btn-commander:hover{background:var(--iv)}
-#msg-minimum{text-align:center;padding:8px 5vw 16px;font-size:11px;color:rgba(255,255,255,.25);font-style:italic;font-family:'Cormorant Garamond',serif;min-height:32px}
+#msg-minimum{text-align:center;padding:8px 5vw 16px;font-size:11px;color:var(--brm);font-style:italic;font-family:'Cormorant Garamond',serif;min-height:32px}
 .gammes-bg{background:rgba(249,242,232,.7)}
 .gammes-hdr{padding:70px 5vw 0}
 .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--iv2);margin-top:40px}
-.gcard{background:var(--iv);padding:48px 38px}
+.gcard{background:rgba(245,230,200,.7);padding:48px 38px}
 .gnom{font-family:'Cormorant Garamond',serif;font-size:32px;font-style:italic;font-weight:300;margin-bottom:6px}
 .gprix{font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:var(--brm);margin-bottom:18px}
 .gdesc{font-size:13px;color:var(--brm);line-height:1.95;margin-bottom:22px}
 .gliv{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--brl)}
-.gcard.feat{background:var(--br)}
-.gcard.feat .gnom,.gcard.feat .gprix{color:var(--iv)}
-.gcard.feat .gprix{color:var(--vtl)}
-.gcard.feat .gdesc{color:rgba(255,255,255,.5)}
-.gcard.feat .gliv{color:rgba(255,255,255,.22)}
+.gcard.feat{background:#C17A6A}
+.gcard.feat .gnom,.gcard.feat .gprix{color:#F5E6C8}
+.gcard.feat .gprix{color:#F5E6C8}
+.gcard.feat .gdesc{color:rgba(245,230,200,.8)}
+.gcard.feat .gliv{color:rgba(245,230,200,.6)}
 .ate-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .ate-t p{color:var(--brm);line-height:1.95;margin-bottom:16px;font-size:14px}
 .ate-cite{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--br);margin:24px 0;padding-left:18px;border-left:2px solid var(--vtl);line-height:1.45}
@@ -334,10 +334,10 @@ footer{background:linear-gradient(180deg,#C8705A 0%,#E8C4A0 55%,#F5E6C8 100%);pa
 </div>
 <div id="banc-grille"></div>
 <div id="option-feuillage">
-<span style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.05em">Feuillage</span>
+<span style="font-size:11px;color:var(--brm);letter-spacing:.05em">Feuillage</span>
 <button class="feuillage-opt active" onclick="setFeuillage(this,'minimum')">Minimum (inclus)</button>
 <button class="feuillage-opt" onclick="setFeuillage(this,'genereux')">Genereux +5 &euro;</button>
-<span style="font-size:10px;color:rgba(255,255,255,.25);font-style:italic;font-family:'Cormorant Garamond',serif">Un minimum de feuillage structure toujours le bouquet.</span>
+<span style="font-size:13px;color:var(--brm);font-style:italic;font-family:'Cormorant Garamond',serif">Un minimum de feuillage structure toujours le bouquet.</span>
 </div>
 <div id="recap-bar">
 <div style="flex:1;min-width:120px">
@@ -366,7 +366,7 @@ footer{background:linear-gradient(180deg,#C8705A 0%,#E8C4A0 55%,#F5E6C8 100%);pa
 <div class="slbl">Les ateliers partenaires</div>
 <div class="ate-g">
 <div class="ate-t">
-<h2 class="stitle">Des artisans qui interpretent, pas des executants.</h2>
+<h2 class="stitle">Des artisans qui interpr&egrave;tent, pas des ex&eacute;cutants.</h2>
 <p>Mon Joli Bouquet s'appuie sur un r&eacute;seau restreint d'ateliers s&eacute;lectionn&eacute;s pour leur exigence<br>et leur capacit&eacute; &agrave; interpr&eacute;ter une intention sans la r&eacute;duire.</p>
 <blockquote class="ate-cite">L'artisan est auteur, pas ex&eacute;cutant.</blockquote>
 <p>Chaque atelier conserve son identit&eacute;, sa client&egrave;le, son rythme.<br>Les ateliers sont r&eacute;gl&eacute;s chaque semaine. Pas &agrave; 30 jours.<br>C'est un engagement, pas un avantage.</p>
@@ -409,7 +409,7 @@ footer{background:linear-gradient(180deg,#C8705A 0%,#E8C4A0 55%,#F5E6C8 100%);pa
 <div class="fcol"><h4>Informations</h4><a href="#faq">FAQ</a><a href="#">Livraison</a><a href="#">Contact</a></div>
 </div>
 <div class="fbot">
-<span>2025 Mon Joli Bouquet &middot; Grenoble</span>
+<span>2025 Mon Joli Bouquet</span>
 <span style="font-style:italic;font-family:'Cormorant Garamond',serif">Dans un jardin, tout se m&eacute;lange.</span>
 </div>
 </footer>
@@ -510,7 +510,7 @@ function toggleF(id){if(sel[id])delete sel[id];else sel[id]=1;buildGrille();upda
 function changeQ(id,d){if(!sel[id])return;sel[id]=Math.max(1,Math.min(20,sel[id]+d));var qn=document.getElementById('qn-'+id);if(qn)qn.textContent=sel[id];updateUI();}
 function setFeuillage(el,val){document.querySelectorAll('.feuillage-opt').forEach(function(b){b.classList.remove('active');});el.classList.add('active');feuilGenActif=(val==='genereux');updateUI();}
 
-function updateUI(){var total=getTotal();var geste=getGeste(total);var ids=Object.keys(sel);document.getElementById('total-montant').textContent=total+' euro';var gb=document.getElementById('geste-badge');var labels={essentiel:'Geste Essentiel',signature:'Geste Signature',genereux:'Geste Genereux'};gb.textContent=geste?labels[geste]:'';gb.className=geste||'';['essentiel','signature','genereux'].forEach(function(g){document.getElementById('bloc-'+g).classList.toggle('actif',geste===g);});var barre=document.getElementById('barre-livraison');if(total>=SEUIL_GEN){barre.textContent='Livraison offerte - Geste Genereux';barre.classList.add('offerte');}else{var reste=SEUIL_GEN-total;barre.textContent=total>0?'Livraison 15 euro - encore '+reste+' euro pour la livraison offerte':'Livraison 15 euro - Offerte a partir de 125 euro de fleurs';barre.classList.remove('offerte');}var tags=document.getElementById('sel-tags');if(!ids.length){tags.innerHTML='<span style="font-size:11px;color:rgba(255,255,255,.2);font-style:italic">Aucune fleur choisie</span>';}else{tags.innerHTML=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return'<div class="sel-tag">'+f.e+' '+f.n.split(' ').slice(0,2).join(' ')+' <span style="opacity:.5">x'+sel[id]+'</span></div>';}).join('');}var msg=document.getElementById('msg-minimum');var btn=document.getElementById('btn-commander');if(total===0){msg.textContent='Minimum de commande : 75 euro';btn.classList.remove('vis');}else if(total<MINIMUM){msg.textContent='Encore '+(MINIMUM-total)+' euro pour atteindre le minimum de commande';btn.classList.remove('vis');}else{msg.textContent='';btn.classList.add('vis');}}
+function updateUI(){var total=getTotal();var geste=getGeste(total);var ids=Object.keys(sel);document.getElementById('total-montant').textContent=total+' euro';var gb=document.getElementById('geste-badge');var labels={essentiel:'Geste Essentiel',signature:'Geste Signature',genereux:'Geste Genereux'};gb.textContent=geste?labels[geste]:'';gb.className=geste||'';['essentiel','signature','genereux'].forEach(function(g){document.getElementById('bloc-'+g).classList.toggle('actif',geste===g);});var barre=document.getElementById('barre-livraison');if(total>=SEUIL_GEN){barre.textContent='Livraison offerte - Geste Genereux';barre.classList.add('offerte');}else{var reste=SEUIL_GEN-total;barre.textContent=total>0?'Livraison 15 euro - encore '+reste+' euro pour la livraison offerte':'Livraison 15 euro - Offerte a partir de 125 euro de fleurs';barre.classList.remove('offerte');}var tags=document.getElementById('sel-tags');if(!ids.length){tags.innerHTML='<span style="font-size:11px;color:var(--brm);font-style:italic">Aucune fleur choisie</span>';}else{tags.innerHTML=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return'<div class="sel-tag">'+f.e+' '+f.n.split(' ').slice(0,2).join(' ')+' <span style="opacity:.5">x'+sel[id]+'</span></div>';}).join('');}var msg=document.getElementById('msg-minimum');var btn=document.getElementById('btn-commander');if(total===0){msg.textContent='Minimum de commande : 75 euro';btn.classList.remove('vis');}else if(total<MINIMUM){msg.textContent='Encore '+(MINIMUM-total)+' euro pour atteindre le minimum de commande';btn.classList.remove('vis');}else{msg.textContent='';btn.classList.add('vis');}}
 
 document.querySelectorAll('.cat-btn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');catActive=btn.dataset.cat;buildGrille();});});
 
