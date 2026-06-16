@@ -8,22 +8,23 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --mjb-fond:#F5F1EA;
-  --mjb-bouton:#6A5563;
-  --mjb-hover:#574650;
+  --mjb-fond:#F9F2E8;
+  --mjb-corail:#E8A898;
+  --mjb-bouton:#C17A6A;
+  --mjb-hover:#A35A4A;
   --mjb-texte:#2F2B2B;
-  --mjb-accent:#B9A08C;
+  --mjb-accent:#B9824A;
   --mjb-charcoal:#2F2B2B;
-  /* alias retro-compatibles avec le code existant */
-  --iv:#F5F1EA;--iv2:#EDE6DC;--br:#2F2B2B;--brm:#6A5A52;--brl:#B9A08C;--vt:#6A5563;--vtl:#B9A08C
+  /* alias retro-compatibles */
+  --iv:#F9F2E8;--iv2:#EDE6DC;--br:#2F2B2B;--brm:#6A5040;--brl:#B9824A;--vt:#C17A6A;--vtl:#B9824A
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:var(--mjb-fond);color:var(--mjb-charcoal)}
+body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:linear-gradient(180deg,#F9F2E8 0%,#F5E8DC 25%,#F0D8C8 55%,#E8BFB0 80%,#E0A898 100%) fixed;background-attachment:fixed;color:var(--mjb-charcoal)}
 h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600}
 h1{font-size:64px;line-height:1.1}
 h2{font-size:42px;line-height:1.2}
 h3{font-size:28px;line-height:1.3}
-nav{position:sticky;top:0;z-index:200;background:var(--iv);border-bottom:1px solid var(--iv2);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px}
+nav{position:sticky;top:0;z-index:200;background:rgba(249,242,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(193,122,106,.15);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px}
 .nbrand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--br);text-decoration:none}
 .nlinks{display:flex;gap:24px;list-style:none}
 .nlinks a{font-size:11px;color:var(--brm);text-decoration:none;letter-spacing:.1em;text-transform:uppercase}
@@ -32,8 +33,9 @@ nav{position:sticky;top:0;z-index:200;background:var(--iv);border-bottom:1px sol
 .hero h1{font-size:clamp(40px,5vw,64px);line-height:1.1;font-weight:600;font-style:italic;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}
 .hero-sub{font-size:15px;color:var(--brm);margin-bottom:40px;max-width:390px;line-height:1.9}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-p{background:var(--vt);color:var(--iv);padding:14px 36px;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer}
-.btn-g{background:transparent;color:var(--brm);padding:14px 0;font-family:'DM Sans',sans-serif;font-size:11px;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.btn-p{background:var(--mjb-bouton);color:#F9F2E8;padding:14px 36px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.btn-p:hover{background:var(--mjb-hover)}
+.btn-g{background:transparent;color:var(--brm);padding:14px 0;font-family:'Inter',sans-serif;font-size:11px;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
 .hero-vis{position:relative;height:440px;background:var(--iv2);overflow:hidden}
 .hf{position:absolute;font-size:42px;opacity:0;animation:fi .8s forwards}
 @keyframes fi{to{opacity:1}}
@@ -98,7 +100,7 @@ section{padding:80px 5vw}
 #btn-commander.vis{opacity:1;pointer-events:all}
 #btn-commander:hover{background:var(--iv)}
 #msg-minimum{text-align:center;padding:8px 5vw 16px;font-size:11px;color:rgba(255,255,255,.25);font-style:italic;font-family:'Cormorant Garamond',serif;min-height:32px}
-.gammes-bg{background:var(--iv2)}
+.gammes-bg{background:rgba(249,242,232,.7)}
 .gammes-hdr{padding:70px 5vw 0}
 .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--iv2);margin-top:40px}
 .gcard{background:var(--iv);padding:48px 38px}
@@ -119,7 +121,7 @@ section{padding:80px 5vw}
 .ate-dot{width:7px;height:7px;border-radius:50%;background:var(--vtl);flex-shrink:0}
 .ate-info h4{font-size:13px;font-weight:400;margin-bottom:2px}
 .ate-info p{font-size:11px;color:var(--brl)}
-.abo{background:var(--vt);padding:80px 5vw}
+.abo{background:rgba(193,122,106,.85);backdrop-filter:blur(4px);padding:80px 5vw}
 .abo-inner{max-width:600px}
 .abo-lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--vtl);margin-bottom:18px}
 .abo-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,46px);font-weight:300;font-style:italic;margin-bottom:20px;color:var(--iv)}
@@ -195,7 +197,7 @@ footer{background:var(--br);padding:64px 5vw 32px}
 <div class="hero-caption">Dans un jardin, tout se melange.</div>
 </div>
 </section>
-<section id="concept" style="background:var(--iv2)">
+<section id="concept" style="background:rgba(249,242,232,.75);backdrop-filter:blur(2px)">\n
 <div class="slbl">Decouvrir le concept</div>
 <div class="concept-g">
 <div class="concept-t">
