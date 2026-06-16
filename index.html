@@ -47,9 +47,9 @@ section{padding:80px 5vw}
 .concept-t p{color:var(--brm);line-height:1.95;margin-bottom:18px;font-size:14px}
 .cite{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--br);margin-top:24px;padding-left:18px;border-left:2px solid var(--vtl);line-height:1.5}
 .pillars{display:flex;flex-direction:column;gap:16px}
-.pillar{padding:24px;border:1px solid var(--iv2)}
+.pillar{padding:24px;border:1px solid rgba(245,230,200,.3);background:rgba(245,230,200,.2)}
 .pillar h3{font-size:20px;margin-bottom:8px;font-style:italic}
-.pillar p{font-size:12px;color:var(--brm);line-height:1.85}
+.pillar p{font-size:14px;color:var(--br);line-height:1.85}
 #conf-section{background:transparent;padding:0}
 #conf-header{padding:56px 5vw 28px;text-align:center}
 #conf-header .stitle{color:var(--br)}
@@ -114,8 +114,8 @@ section{padding:80px 5vw}
 .gcard.feat .gdesc{color:rgba(245,230,200,.8)}
 .gcard.feat .gliv{color:rgba(245,230,200,.6)}
 .ate-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.ate-t p{color:var(--brm);line-height:1.95;margin-bottom:16px;font-size:14px}
-.ate-cite{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--br);margin:24px 0;padding-left:18px;border-left:2px solid var(--vtl);line-height:1.45}
+.ate-t p{color:var(--br);line-height:1.95;margin-bottom:16px;font-size:18px}
+.ate-cite{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--br);margin:24px 0;padding-left:18px;border-left:2px solid rgba(47,43,43,.3);line-height:1.6}
 .ate-list{display:flex;flex-direction:column;gap:1px}
 .ate-item{background:var(--iv2);padding:20px 24px;display:flex;align-items:center;gap:14px}
 .ate-dot{width:7px;height:7px;border-radius:50%;background:var(--vtl);flex-shrink:0}
@@ -130,7 +130,7 @@ section{padding:80px 5vw}
 .abo-r{padding:16px 24px;border:1px solid rgba(255,255,255,.13);font-size:11px;color:rgba(255,255,255,.5)}
 .abo-btn{background:var(--iv);color:var(--vt);padding:13px 34px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .faq-w{max-width:680px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--iv2);padding:22px 0}
+.faq-item{border-bottom:1px solid rgba(47,43,43,.15);padding:22px 0}
 .faq-q{font-family:'Cormorant Garamond',serif;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--br)}
 .faq-q::after{content:'...';font-family:'DM Sans',sans-serif;font-size:12px;color:var(--brl)}
 .faq-a{font-size:13px;color:var(--brm);line-height:1.95;max-height:0;overflow:hidden;transition:max-height .4s ease,padding-top .3s}
@@ -142,6 +142,14 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#2F2B2B 70%);padding:64px 5v
 .fcol h4{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--brl);margin-bottom:16px}
 .fcol a{display:block;font-size:11px;color:rgba(255,255,255,.42);text-decoration:none;margin-bottom:8px}
 .fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;font-size:10px;color:var(--brl);flex-wrap:wrap;gap:8px}
+/* SECTIONS DEGRADE INVERSE - textes adaptés */
+.sect-degrade-inverse .slbl{color:var(--br);opacity:.7}
+.sect-degrade-inverse .stitle{color:var(--br)}
+.sect-degrade-inverse .cite{color:var(--br);border-left-color:rgba(47,43,43,.4)}
+.sect-degrade-inverse .concept-t p{color:var(--br)}
+.sect-degrade-inverse .pillar{background:rgba(245,230,200,.25);border-color:rgba(47,43,43,.15)}
+.sect-degrade-inverse .pillar h3{color:var(--br)}
+.sect-degrade-inverse .pillar p{color:var(--br)}
 /* ÉTAPES PARCOURS */
 .etape-bloc{padding:56px 5vw 32px}
 .intentions-grille{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:32px 0 24px;max-width:600px;margin:0 auto}
@@ -236,7 +244,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#2F2B2B 70%);padding:64px 5v
 <div class="hero-caption">Dans un jardin, tout se m&eacute;lange.</div>
 </div>
 </section>
-<section id="concept" style="background:linear-gradient(180deg,#D4A090 0%,#2F2B2B 70%)">
+<section id="concept" class="sect-degrade-inverse" style="background:linear-gradient(180deg,#D4A090 0%,#2F2B2B 70%)">
 <div class="slbl">D&eacute;couvrir le concept</div>
 <div class="concept-g">
 <div class="concept-t">
@@ -381,7 +389,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#2F2B2B 70%);padding:64px 5v
 <div class="gcard"><div class="gnom">Genereux</div><div class="gprix">A partir de 125 &euro;</div><div class="gdesc">Un geste ample pour les moments rares.</div><div class="gliv" style="color:var(--vt);font-weight:500">Livraison offerte</div></div>
 </div>
 </div>
-<section id="ateliers" style="background:linear-gradient(180deg,#D4A090 0%,#E8C4A0 55%,#F2DFA8 100%)">
+<section id="ateliers" class="sect-degrade-inverse" style="background:linear-gradient(180deg,#D4A090 0%,#E8C4A0 55%,#F2DFA8 100%)">
 <div class="slbl">Les ateliers partenaires</div>
 <div class="ate-g">
 <div class="ate-t">
