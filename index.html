@@ -183,6 +183,29 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#2F2B2B 70%);padding:64px 5v
 .hero-vis{height:240px}.ggrid{grid-template-columns:1fr}
 .fgrid{grid-template-columns:1fr 1fr}.nlinks{display:none}
 }
+
+#modal-parcours.show{display:flex}
+#modal-parcours-inner{background:linear-gradient(180deg,#F2DFA8 0%,#E8C4A0 45%,#D4A090 100%);max-width:560px;width:100%;padding:40px;position:relative;margin:auto}
+#modal-parcours-inner .p-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--brm)}
+#modal-parcours-inner h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--br);margin-bottom:6px}
+#modal-parcours-inner .p-sous{font-size:13px;color:var(--brm);font-style:italic;margin-bottom:28px}
+.p-champ{margin-bottom:16px}
+.p-champ label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-bottom:6px}
+.p-champ input,.p-champ textarea,.p-champ select{width:100%;padding:12px;border:1px solid rgba(47,43,43,.2);background:rgba(249,242,232,.8);font-family:'Inter',sans-serif;font-size:14px;color:var(--br);outline:none;transition:border-color .2s}
+.p-champ input:focus,.p-champ textarea:focus{border-color:var(--mjb-bouton)}
+.p-champ textarea{resize:vertical;min-height:90px}
+.p-champ-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.p-sep{border:none;border-top:1px solid rgba(47,43,43,.1);margin:24px 0}
+.p-radio-group{display:flex;gap:16px;margin-top:8px}
+.p-radio{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer}
+.p-erreur{font-size:12px;color:#c05050;padding:10px;background:rgba(192,80,80,.08);border:1px solid rgba(192,80,80,.2);margin-bottom:16px;display:none}
+.p-btns{display:flex;gap:10px;margin-top:24px}
+.p-btn-p{flex:2;padding:14px;background:var(--mjb-bouton);color:#F9F2E8;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.p-btn-p:hover{background:var(--mjb-hover)}
+.p-btn-s{flex:1;padding:14px;background:transparent;border:1px solid rgba(47,43,43,.2);color:var(--brm);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.recap-ligne{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(47,43,43,.08);font-size:14px}
+.recap-ligne.total{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;border-bottom:none;margin-top:8px}
+.recap-check{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--brm);margin:20px 0;line-height:1.6;cursor:pointer}
 </style>
 </head>
 <body>
@@ -425,7 +448,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#2F2B2B 70%);padding:64px 5v
     </label>
     <div id="modal-btns" style="display:none">
       <button id="modal-btn-modifier" onclick="fermerModal()">&#8592; Modifier ma selection</button>
-      <button id="modal-btn-confirmer" onclick="confirmerCommande()">Continuer &#8594;</button>
+      <button id="modal-btn-confirmer" onclick="confirmerCommande()">Confier ma commande &#8594;</button>
     </div>
   </div>
 </div>
@@ -622,30 +645,7 @@ buildGrille();updateUI();
 </script>
 <!-- MODAL PARCOURS : MESSAGE + COORDONNÉES + RÉCAP -->
 <div id="modal-parcours" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.7);align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto">
-<style>
-#modal-parcours.show{display:flex}
-#modal-parcours-inner{background:linear-gradient(180deg,#F2DFA8 0%,#E8C4A0 45%,#D4A090 100%);max-width:560px;width:100%;padding:40px;position:relative;margin:auto}
-#modal-parcours-inner .p-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--brm)}
-#modal-parcours-inner h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--br);margin-bottom:6px}
-#modal-parcours-inner .p-sous{font-size:13px;color:var(--brm);font-style:italic;margin-bottom:28px}
-.p-champ{margin-bottom:16px}
-.p-champ label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-bottom:6px}
-.p-champ input,.p-champ textarea,.p-champ select{width:100%;padding:12px;border:1px solid rgba(47,43,43,.2);background:rgba(249,242,232,.8);font-family:'Inter',sans-serif;font-size:14px;color:var(--br);outline:none;transition:border-color .2s}
-.p-champ input:focus,.p-champ textarea:focus{border-color:var(--mjb-bouton)}
-.p-champ textarea{resize:vertical;min-height:90px}
-.p-champ-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.p-sep{border:none;border-top:1px solid rgba(47,43,43,.1);margin:24px 0}
-.p-radio-group{display:flex;gap:16px;margin-top:8px}
-.p-radio{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer}
-.p-erreur{font-size:12px;color:#c05050;padding:10px;background:rgba(192,80,80,.08);border:1px solid rgba(192,80,80,.2);margin-bottom:16px;display:none}
-.p-btns{display:flex;gap:10px;margin-top:24px}
-.p-btn-p{flex:2;padding:14px;background:var(--mjb-bouton);color:#F9F2E8;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
-.p-btn-p:hover{background:var(--mjb-hover)}
-.p-btn-s{flex:1;padding:14px;background:transparent;border:1px solid rgba(47,43,43,.2);color:var(--brm);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.recap-ligne{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(47,43,43,.08);font-size:14px}
-.recap-ligne.total{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;border-bottom:none;margin-top:8px}
-.recap-check{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--brm);margin:20px 0;line-height:1.6;cursor:pointer}
-</style>
+
 <div id="modal-parcours-inner">
   <button class="p-close" onclick="fermerParcours()">&#x2715;</button>
 
@@ -660,7 +660,7 @@ buildGrille();updateUI();
     </div>
     <div class="p-btns">
       <button class="p-btn-s" onclick="fermerParcours()">&#8592; Retour</button>
-      <button class="p-btn-p" onclick="allerCoordonnees()">Continuer &#8594;</button>
+      <button class="p-btn-p" onclick="allerCoordonnees()">Confier ma commande &#8594;</button>
     </div>
   </div>
 
