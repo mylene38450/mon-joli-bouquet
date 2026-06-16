@@ -19,12 +19,12 @@
   --iv:#F9F2E8;--iv2:#EDE6DC;--br:#2F2B2B;--brm:#6A5040;--brl:#B9824A;--vt:#C17A6A;--vtl:#B9824A
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:#F2DFA8;color:var(--mjb-charcoal)}
+body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);min-height:100vh;color:var(--mjb-charcoal)}
 h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600}
 h1{font-size:64px;line-height:1.1}
 h2{font-size:42px;line-height:1.2}
 h3{font-size:28px;line-height:1.3}
-nav{position:sticky;top:0;z-index:200;background:rgba(249,242,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(193,122,106,.15);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px}
+nav{position:sticky;top:0;z-index:200;background:rgba(242,223,168,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,160,144,.2);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px}
 .nbrand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--br);text-decoration:none}
 .nlinks{display:flex;gap:24px;list-style:none}
 .nlinks a{font-size:11px;color:var(--brm);text-decoration:none;letter-spacing:.1em;text-transform:uppercase}
@@ -47,7 +47,7 @@ section{padding:80px 5vw}
 .concept-t p{color:var(--brm);line-height:1.95;margin-bottom:18px;font-size:14px}
 .cite{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--br);margin-top:24px;padding-left:18px;border-left:2px solid var(--vtl);line-height:1.5}
 .pillars{display:flex;flex-direction:column;gap:16px}
-.pillar{padding:24px;border:1px solid rgba(245,230,200,.3);background:rgba(245,230,200,.2)}
+.pillar{padding:24px;border:1px solid rgba(47,43,43,.12);background:rgba(242,223,168,.25)}
 .pillar h3{font-size:20px;margin-bottom:8px;font-style:italic}
 .pillar p{font-size:14px;color:var(--br);line-height:1.85}
 #conf-section{background:transparent;padding:0}
@@ -103,7 +103,7 @@ section{padding:80px 5vw}
 .gammes-bg{background:rgba(249,242,232,.7)}
 .gammes-hdr{padding:70px 5vw 0}
 .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--iv2);margin-top:40px}
-.gcard{background:rgba(245,230,200,.7);padding:48px 38px}
+.gcard{background:rgba(242,223,168,.4);padding:48px 38px;backdrop-filter:blur(2px)}
 .gnom{font-family:'Cormorant Garamond',serif;font-size:32px;font-style:italic;font-weight:300;margin-bottom:6px}
 .gprix{font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:var(--brm);margin-bottom:18px}
 .gdesc{font-size:13px;color:var(--brm);line-height:1.95;margin-bottom:22px}
@@ -228,7 +228,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <li><a href="#conf-section" class="ncta">Commencer</a></li>
 </ul>
 </nav>
-<section id="top" class="hero" style="background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%)">
+<section id="top" class="hero">
 <div>
 <div class="slbl">Co-cr&eacute;ation florale artisanale</div>
 <h1>Mon joli bouquet</h1>
@@ -244,7 +244,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <div class="hero-caption">Dans un jardin, tout se m&eacute;lange.</div>
 </div>
 </section>
-<section id="concept" class="sect-degrade-inverse" style="background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%)">
+<section id="concept" class="sect-degrade-inverse">
 <div class="slbl">D&eacute;couvrir le concept</div>
 <div class="concept-g">
 <div class="concept-t">
@@ -262,7 +262,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 </div>
 </div>
 </section>
-<div id="conf-section" style="background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%)">
+<div id="conf-section">
 
 <!-- ÉTAPE 1 : INTENTION -->
 <div id="etape-intention" class="etape-bloc">
@@ -381,7 +381,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <button id="btn-commander" onclick="commander()">Visualiser mon bouquet</button>
 </div><!-- fin etape-banc -->
 </div><!-- fin conf-section -->
-<div class="gammes-bg" id="gammes" style="background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%)">
+<div class="gammes-bg" id="gammes">
 <div class="gammes-hdr"><div class="slbl">Nos gammes</div><h2 class="stitle">Trois niveaux de geste.</h2></div>
 <div class="ggrid">
 <div class="gcard"><div class="gnom">Essentiel</div><div class="gprix">75 &euro; &ndash; 94 &euro;</div><div class="gdesc">Un bouquet juste, sans superflu. Pour un geste sincere.</div><div class="gliv">Livraison 15 &euro; en sus</div></div>
@@ -389,7 +389,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <div class="gcard"><div class="gnom">Genereux</div><div class="gprix">A partir de 125 &euro;</div><div class="gdesc">Un geste ample pour les moments rares.</div><div class="gliv" style="color:var(--vt);font-weight:500">Livraison offerte</div></div>
 </div>
 </div>
-<section id="ateliers" class="sect-degrade-inverse" style="background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%)">
+<section id="ateliers" class="sect-degrade-inverse">
 <div class="slbl">Les ateliers partenaires</div>
 <div class="ate-g">
 <div class="ate-t">
@@ -404,7 +404,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 </div>
 </section>
 
-<section id="faq" style="background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%)">
+<section id="faq">
 <div class="slbl" style="text-align:center">Quelques rep&egrave;res</div>
 <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;text-align:center;margin-bottom:16px">Quelques rep&egrave;res</h2>
 <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:20px;color:var(--brm);margin-bottom:44px">Ce que vous vous demanderez peut-&ecirc;tre&hellip;</p>
