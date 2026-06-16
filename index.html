@@ -142,7 +142,28 @@ footer{background:var(--br);padding:64px 5vw 32px}
 .fcol h4{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--brl);margin-bottom:16px}
 .fcol a{display:block;font-size:11px;color:rgba(255,255,255,.42);text-decoration:none;margin-bottom:8px}
 .fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;font-size:10px;color:var(--brl);flex-wrap:wrap;gap:8px}
-/* MODAL GÉNÉRATION IMAGE */
+/* ÉTAPES PARCOURS */
+.etape-bloc{padding:56px 5vw 32px}
+.intentions-grille{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:32px 0 24px;max-width:600px;margin:0 auto}
+.intention-opt{cursor:pointer}
+.intention-opt input{display:none}
+.intention-opt span{display:block;padding:10px 22px;border:1px solid rgba(47,43,43,.2);font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--mjb-texte);transition:all .2s;background:rgba(249,242,232,.6)}
+.intention-opt input:checked+span{background:var(--mjb-bouton);color:#F9F2E8;border-color:var(--mjb-bouton)}
+.intention-opt span:hover{border-color:var(--mjb-bouton);background:rgba(193,122,106,.1)}
+.etape-note{text-align:center;font-size:14px;color:var(--brm);font-style:italic;font-family:'Cormorant Garamond',serif;max-width:500px;margin:0 auto 32px;line-height:1.8}
+.btn-etape{display:block;margin:0 auto 16px;padding:14px 48px;background:var(--mjb-bouton);color:#F9F2E8;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.btn-etape:hover{background:var(--mjb-hover)}
+.btn-etape-sec{display:block;margin:0 auto;padding:14px 32px;background:transparent;color:var(--brm);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(47,43,43,.2);cursor:pointer}
+.dest-grille{display:flex;flex-direction:column;gap:8px;max-width:560px;margin:24px auto}
+.dest-opt{cursor:pointer;padding:16px 20px;border:1px solid rgba(47,43,43,.15);background:rgba(249,242,232,.6);transition:all .2s;display:block}
+.dest-opt:hover{border-color:var(--mjb-bouton);background:rgba(193,122,106,.08)}
+.dest-opt input{display:none}
+.dest-opt input:checked~.dest-nom{color:var(--mjb-bouton)}
+.dest-nom{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;display:block;margin-bottom:3px}
+.dest-desc{font-size:13px;color:var(--brm);font-style:italic;display:block}
+.dest-sous{margin-top:12px;padding-top:12px;border-top:1px solid rgba(47,43,43,.1);display:flex;gap:12px;flex-wrap:wrap}
+.dest-sous-opt{font-size:12px;color:var(--brm);display:flex;align-items:center;gap:6px;cursor:pointer}
+/* FIN ÉTAPES */
 #modal-image{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:20px}
 #modal-image.show{display:flex}
 #modal-inner{background:var(--br);max-width:560px;width:100%;padding:40px;position:relative}
@@ -216,6 +237,81 @@ footer{background:var(--br);padding:64px 5vw 32px}
 </div>
 </section>
 <div id="conf-section">
+
+<!-- ÉTAPE 1 : INTENTION -->
+<div id="etape-intention" class="etape-bloc">
+  <div id="conf-header">
+    <div class="slbl">Etape 1 sur 2</div>
+    <h2 class="stitle">Chaque bouquet commence par une intention.</h2>
+    <p>Que souhaitez-vous transmettre aujourd'hui ?</p>
+  </div>
+  <div class="intentions-grille">
+    <label class="intention-opt"><input type="checkbox" name="intention" value="remercier"><span>Remercier</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="celebrer"><span>Celebrer</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="feliciter"><span>Feliciter</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="soutenir"><span>Soutenir</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="dire-je-taime"><span>Dire je t'aime</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="decorer"><span>Decorer un lieu</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="accueillir"><span>Accueillir</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="hommage"><span>Rendre hommage</span></label>
+    <label class="intention-opt"><input type="checkbox" name="intention" value="autre"><span>Une autre intention</span></label>
+  </div>
+  <p class="etape-note">Chaque intention peut s'exprimer de mille facons. Il n'existe pas de bonne ou de mauvaise reponse. Votre sensibilite suffit.</p>
+  <button class="btn-etape" onclick="allerEtape2()">Continuer &rarr;</button>
+</div>
+
+<!-- ÉTAPE 2 : DESTINATAIRE -->
+<div id="etape-destinataire" class="etape-bloc" style="display:none">
+  <div id="conf-header">
+    <div class="slbl">Etape 2 sur 2</div>
+    <h2 class="stitle">A qui s'adresse ce bouquet ?</h2>
+  </div>
+  <div class="dest-grille">
+    <label class="dest-opt">
+      <input type="radio" name="destinataire" value="moi">
+      <span class="dest-nom">A moi-meme</span>
+      <span class="dest-desc">Il n'est pas necessaire d'attendre une occasion pour s'entourer de fleurs.</span>
+    </label>
+    <label class="dest-opt">
+      <input type="radio" name="destinataire" value="proche">
+      <span class="dest-nom">A un proche</span>
+      <span class="dest-desc">Une attention personnelle, pensee specialement pour lui.</span>
+    </label>
+    <label class="dest-opt">
+      <input type="radio" name="destinataire" value="collaborateur">
+      <span class="dest-nom">A un collaborateur</span>
+      <span class="dest-desc">Une attention sincere qui valorise les liens du quotidien.</span>
+    </label>
+    <label class="dest-opt">
+      <input type="radio" name="destinataire" value="client">
+      <span class="dest-nom">A un client</span>
+      <span class="dest-desc">Une maniere elegante de prolonger une relation professionnelle.</span>
+    </label>
+    <label class="dest-opt">
+      <input type="radio" name="destinataire" value="partenaire">
+      <span class="dest-nom">A un partenaire</span>
+      <span class="dest-desc">Une attention choisie pour celebrer une relation de confiance.</span>
+    </label>
+    <label class="dest-opt" id="dest-entreprise-label">
+      <input type="radio" name="destinataire" value="entreprise" onclick="toggleEntreprise(true)">
+      <span class="dest-nom">A mon entreprise</span>
+      <span class="dest-desc">Les fleurs participent aussi a l'image et a l'atmosphere d'un lieu.</span>
+      <div class="dest-sous" id="dest-sous-entreprise" style="display:none">
+        <label class="dest-sous-opt"><input type="checkbox" name="lieu" value="hall"> Hall d'accueil</label>
+        <label class="dest-sous-opt"><input type="checkbox" name="lieu" value="bureau"> Bureau</label>
+        <label class="dest-sous-opt"><input type="checkbox" name="lieu" value="reunion"> Salle de reunion</label>
+      </div>
+    </label>
+  </div>
+  <p class="etape-note" style="margin-top:24px">Une intention, un destinataire. Il ne reste plus qu'a choisir les fleurs qui raconteront votre message.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;padding:0 5vw 32px">
+    <button class="btn-etape-sec" onclick="retourEtape1()">&larr; Retour</button>
+    <button class="btn-etape" onclick="allerBanc()">Composer mon bouquet &rarr;</button>
+  </div>
+</div>
+
+<!-- BANC DE FLEURS -->
+<div id="etape-banc" style="display:none">
 <div id="conf-header">
 <div class="slbl">Composer votre bouquet</div>
 <h2 class="stitle">Le banc de fleurs</h2>
@@ -256,7 +352,8 @@ footer{background:var(--br);padding:64px 5vw 32px}
 </div>
 <div id="msg-minimum"></div>
 <button id="btn-commander" onclick="commander()">Visualiser mon bouquet</button>
-</div>
+</div><!-- fin etape-banc -->
+</div><!-- fin conf-section -->
 <div class="gammes-bg" id="gammes">
 <div class="gammes-hdr"><div class="slbl">Nos gammes</div><h2 class="stitle">Trois niveaux de geste.</h2></div>
 <div class="ggrid">
@@ -293,13 +390,22 @@ footer{background:var(--br);padding:64px 5vw 32px}
 </div>
 </div>
 <section id="faq">
-<div class="slbl" style="text-align:center">Questions frequentes</div>
-<h2 class="stitle" style="text-align:center;margin-bottom:44px">Les reponses honnetes.</h2>
+<div class="slbl" style="text-align:center">Quelques reperes</div>
+<h2 class="stitle" style="text-align:center;margin-bottom:44px">Ce que vous vous demandez peut-etre.</h2>
 <div class="faq-w">
-<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Puis-je voir exactement a quoi ressemblera mon bouquet ?</div><p class="faq-a">Non, pas exactement. Chaque bouquet est interprete a partir de vos choix et du vivant disponible. Le resultat sera fidele a l'esprit, pas a une image figee.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Faut-il s'y connaitre en fleurs ?</div><p class="faq-a">Non. Votre sensibilite suffit. Le savoir-faire, c'est notre metier.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Pourquoi faire participer le client ?</div><p class="faq-a">Parce qu'un bouquet raconte souvent davantage que celui qui l'offre. Les fleuristes connaissent les fleurs. Les clients connaissent leur intention. C'est de cette rencontre que naissent les bouquets les plus singuliers. La creation est parfois plus belle lorsqu'elle se partage. Et oui, le client peut surprendre le fleuriste.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Le client nous inspire-t-il vraiment ?</div><p class="faq-a">Oui. Les fleuristes ont leurs habitudes, leurs reperes et leurs sensibilites. Mais certains choix nous emmenent la ou nous ne serions pas alles seuls. C'est aussi ce qui rend chaque bouquet unique.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Et si je me trompe dans mes choix ?</div><p class="faq-a">Vous ne pouvez pas vraiment vous tromper. Vous exprimez une intention. Nous en trouvons l'equilibre.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Est-ce grave si certaines fleurs se melangent ?</div><p class="faq-a">Non. Apres tout, dans la nature, tout se melange. C'est notre role d'interpreter ces associations pour qu'elles restent harmonieuses.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Les fleuristes vont-ils respecter mes choix ?</div><p class="faq-a">Oui. Votre selection est le point de depart de leur travail. Leur role n'est pas de la remplacer (sauf en cas de penurie exceptionnelle) mais de lui donner equilibre et coherence. Vous apportez l'intention. Ils apportent leur savoir-faire.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Pourquoi le bouquet peut-il etre legerement different du visuel ?</div><p class="faq-a">Parce qu'un bouquet n'est pas une image. Les fleurs evoluent, s'ouvrent, dialoguent differemment selon leur maturite et l'interpretation de l'artisan. C'est ce qui rend chaque composition unique.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Puis-je voir exactement a quoi ressemblera mon bouquet ?</div><p class="faq-a">Non, pas exactement. Chaque bouquet est interprete a partir de vos choix et du vivant disponible. Le resultat sera fidele a l'esprit, pas a une image figee. Pour lui donner equilibre, relief et harmonie, l'artisan peut egalement integrer des fleurs et des feuillages complementaires en accord avec votre composition.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Un bouquet n'est-il pas fait pour durer ?</div><p class="faq-a">Non. Un bouquet n'est pas fait pour durer. Il est fait pour etre juste.</p></div>
 <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Le prix que je vois est-il le prix final ?</div><p class="faq-a">Le prix affiche correspond exactement aux fleurs que vous avez choisies, tige par tige. La livraison est indiquee separement. Aucun frais cache.</p></div>
 <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Que se passe-t-il si une fleur n'est pas disponible ?</div><p class="faq-a">L'atelier vous contacte avant la composition pour proposer une alternative dans le meme esprit. Votre intention est preservee.</p></div>
 <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Est-ce fait pour moi ?</div><p class="faq-a">Si vous aimez choisir sans tout maitriser, oui. Si vous cherchez une copie exacte, probablement pas. Et c'est tres bien ainsi.</p></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Le langage des fleurs est-il toujours d'actualite ?</div><p class="faq-a">Le langage des fleurs est ne a une epoque ou les sentiments ne se disaient pas toujours librement. Au 19e siecle, certaines fleurs permettaient de transmettre discretement un message. Aujourd'hui, ces codes se sont largement perdus. Nous preferons retenir son intention : permettre a chacun d'exprimer quelque chose a travers les fleurs. Le reste vous appartient.</p></div>
 </div>
 </section>
 <footer>
@@ -340,6 +446,24 @@ footer{background:var(--br);padding:64px 5vw 32px}
 </div>
 
 <script>
+function allerEtape2(){
+  document.getElementById('etape-intention').style.display='none';
+  document.getElementById('etape-destinataire').style.display='block';
+  document.getElementById('conf-section').scrollIntoView({behavior:'smooth'});
+}
+function retourEtape1(){
+  document.getElementById('etape-destinataire').style.display='none';
+  document.getElementById('etape-intention').style.display='block';
+  document.getElementById('conf-section').scrollIntoView({behavior:'smooth'});
+}
+function allerBanc(){
+  document.getElementById('etape-destinataire').style.display='none';
+  document.getElementById('etape-banc').style.display='block';
+  document.getElementById('conf-section').scrollIntoView({behavior:'smooth'});
+}
+function toggleEntreprise(show){
+  document.getElementById('dest-sous-entreprise').style.display=show?'flex':'none';
+}
 var FLEURS=[
 {id:'lys-rose',n:'Lys oriental rose',e:'🌸',p:10,cat:'lys'},
 {id:'lys-blanc',n:'Lys oriental blanc',e:'🤍',p:10,cat:'lys'},
