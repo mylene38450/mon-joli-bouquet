@@ -30,7 +30,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(249,242,232,.92);backdrop-
 .nlinks a{font-size:11px;color:var(--brm);text-decoration:none;letter-spacing:.1em;text-transform:uppercase}
 .ncta{background:var(--vt)!important;color:var(--iv)!important;padding:8px 20px!important}
 .hero{padding:90px 5vw 70px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;min-height:85vh}
-.hero h1{font-size:clamp(40px,5vw,64px);line-height:1.1;font-weight:600;font-style:italic;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:clamp(32px,4vw,56px);line-height:1.1;font-weight:600;font-style:italic;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px;white-space:nowrap}
 .hero-sub{font-size:15px;color:var(--brm);margin-bottom:40px;max-width:390px;line-height:1.9}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn-p{background:var(--mjb-bouton);color:#F9F2E8;padding:14px 36px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
@@ -201,7 +201,7 @@ footer{background:linear-gradient(180deg,#C8705A 0%,#E8C4A0 55%,#F5E6C8 100%);pa
 <div>
 <div class="slbl">Co-cr&eacute;ation florale artisanale</div>
 <h1>Mon joli bouquet</h1>
-<p class="hero-sub">Le bouquet dont vous &ecirc;tes l'auteur.<br>Confectionn&eacute; par un artisan fleuriste.</p>
+<p class="hero-sub" style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px">Le bouquet dont vous &ecirc;tes l'auteur.<br>Confectionn&eacute; par un artisan fleuriste.</p>
 <p class="hero-sub" style="line-height:2.2">Vous choisissez l'inspiration.<br>L'artisan apporte son talent.<br>Ensemble, vous cr&eacute;ez un bouquet unique.<br>Il n'est pas n&eacute;cessaire de conna&icirc;tre les fleurs.<br>Laissez-vous simplement guider par ce qui vous pla&icirc;t.</p>
 <div class="hero-btns">
 <button class="btn-p" onclick="document.getElementById('conf-section').scrollIntoView({behavior:'smooth'})">Commencer ma creation</button>
@@ -315,7 +315,7 @@ footer{background:linear-gradient(180deg,#C8705A 0%,#E8C4A0 55%,#F5E6C8 100%);pa
 <div id="conf-header">
 <div class="slbl">Composer votre bouquet</div>
 <h2 class="stitle">Le banc de fleurs</h2>
-<p>Comme dans un atelier floral, laissez-vous guider par les fleurs qui vous attirent. Il n'existe pas de bonne ou mauvaise facon de composer un bouquet. Tout se melange dans le jardin.</p>
+<p style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px;max-width:600px;margin:0 auto">Comme dans un atelier floral, laissez-vous guider par les fleurs qui vous attirent.<br>Il n'existe pas de bonne ou de mauvaise fa&ccedil;on de composer un bouquet.<br>Tout se m&eacute;lange dans le jardin.</p>
 </div>
 <div id="barre-livraison">Livraison 15 &euro; &middot; Offerte a partir de 125 &euro; de fleurs</div>
 <div class="seuils-info">
@@ -366,17 +366,13 @@ footer{background:linear-gradient(180deg,#C8705A 0%,#E8C4A0 55%,#F5E6C8 100%);pa
 <div class="slbl">Les ateliers partenaires</div>
 <div class="ate-g">
 <div class="ate-t">
-<h2 class="stitle">Des artisans qui interpr&egrave;tent, pas des ex&eacute;cutants.</h2>
-<p>Mon Joli Bouquet s'appuie sur un r&eacute;seau restreint d'ateliers s&eacute;lectionn&eacute;s pour leur exigence<br>et leur capacit&eacute; &agrave; interpr&eacute;ter une intention sans la r&eacute;duire.</p>
-<blockquote class="ate-cite">L'artisan est auteur, pas ex&eacute;cutant.</blockquote>
-<p>Chaque atelier conserve son identit&eacute;, sa client&egrave;le, son rythme.<br>Les ateliers sont r&eacute;gl&eacute;s chaque semaine. Pas &agrave; 30 jours.<br>C'est un engagement, pas un avantage.</p>
+<h2 class="stitle">Les artisans qui donnent vie &agrave; vos cr&eacute;ations</h2>
+<blockquote class="ate-cite">Derri&egrave;re chaque bouquet se trouve un artisan fleuriste ind&eacute;pendant.<br><br>S&eacute;lectionn&eacute;s pour leur savoir-faire, leur sensibilit&eacute; et la qualit&eacute; de leurs compositions, nos ateliers partenaires interpr&egrave;tent les choix de nos clients pour donner vie &agrave; des cr&eacute;ations uniques.<br><br>Votre s&eacute;lection devient leur point de d&eacute;part.<br>Ils harmonisent les fleurs que vous avez choisies afin de leur donner &eacute;quilibre, mouvement et caract&egrave;re.</blockquote>
 </div>
-<div>
-<div class="ate-list">
-<div class="ate-item"><div class="ate-dot"></div><div class="ate-info"><h4>Atelier Grenoble Centre</h4><p>&Eacute;pure v&eacute;g&eacute;tale contemporaine &middot; Atelier pilote Phase 1</p></div></div>
-<div class="ate-item"><div class="ate-dot" style="background:#E8D5C8"></div><div class="ate-info"><h4>Atelier Lyon Presqu'ile</h4><p>Geste floral structur&eacute; &middot; Atelier partenaire agr&eacute;&eacute;</p></div></div>
-<div class="ate-item" style="opacity:.35"><div class="ate-dot" style="background:var(--brl)"></div><div class="ate-info"><h4>Prochainement &middot; Saint-Tropez</h4><p>Atelier signature &middot; Phase 3</p></div></div>
-</div>
+<div class="ate-t">
+<h2 class="stitle">Une autre mani&egrave;re de travailler ensemble</h2>
+<blockquote class="ate-cite">Chez Mon joli bouquet, le client apporte son intention.<br>L'artisan apporte son savoir-faire.<br>Le bouquet na&icirc;t de leur rencontre.</blockquote>
+<p>Ensemble, ils cr&eacute;ent quelque chose qu'aucun des deux n'aurait fait seul.</p>
 </div>
 </div>
 </section>
