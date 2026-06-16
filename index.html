@@ -558,13 +558,214 @@ function confirmerCommande(){
     check.focus();
     return;
   }
+  fermerModal();
+  ouvrirMessage();
+}
+
+function ouvrirMessage(){
+  document.getElementById('modal-parcours').classList.add('show');
+  afficherEtapeParcours('etape-message');
+}
+
+function afficherEtapeParcours(id){
+  ['etape-message','etape-coordonnees','etape-recap'].forEach(function(e){
+    document.getElementById(e).style.display='none';
+  });
+  document.getElementById(id).style.display='block';
+  document.getElementById('modal-parcours').scrollTop=0;
+}
+
+function allerCoordonnees(){
+  afficherEtapeParcours('etape-coordonnees');
+}
+
+function allerRecap(){
+  // Vérifier champs obligatoires
+  var obligatoires=['coord-nom-dest','coord-adresse','coord-telephone-dest','coord-date','coord-nom','coord-prenom','coord-email'];
+  var ok=true;
+  obligatoires.forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el.value.trim()){
+      el.style.borderColor='#e08a8a';
+      ok=false;
+    } else {
+      el.style.borderColor='rgba(47,43,43,.2)';
+    }
+  });
+  if(!ok){
+    document.getElementById('coord-erreur').style.display='block';
+    return;
+  }
+  // Construire récapitulatif
   var total=getTotal();
   var livraison=total>=SEUIL_GEN?0:LIVRAISON;
-  fermerModal();
-  alert('Merci.\n\nVotre bouquet sera disponible a la commande tres prochainement.\n\nTotal fleurs : '+total+' euro\n'+(feuilGenActif?'Feuillage genereux : 5 euro\n':'')+(livraison===0?'Livraison offerte':'Livraison : '+livraison+' euro')+'\n\nLancement Phase 1 - Grenoble - 2025');
+  var fleurs=Object.keys(sel).map(function(id){
+    var f=FLEURS.find(function(x){return x.id===id;});
+    return f.e+' '+f.n+' x'+sel[id]+' — '+(f.p*sel[id])+'€';
+  }).join('<br>');
+  document.getElementById('recap-fleurs').innerHTML=fleurs;
+  document.getElementById('recap-feuillage').innerHTML=feuilGenActif?'Feuillage généreux : 5€':'Feuillage minimum (inclus)';
+  document.getElementById('recap-total-fleurs').textContent=total+'€';
+  document.getElementById('recap-livraison').textContent=livraison===0?'Offerte':livraison+'€';
+  document.getElementById('recap-total-final').textContent=(total+(feuilGenActif?5:0)+livraison)+'€';
+  document.getElementById('recap-dest').textContent=document.getElementById('coord-nom-dest').value+' — '+document.getElementById('coord-adresse').value;
+  document.getElementById('recap-date').textContent=document.getElementById('coord-date').value;
+  var msg=document.getElementById('message-bouquet').value;
+  document.getElementById('recap-message').textContent=msg||'Aucun message';
+  afficherEtapeParcours('etape-recap');
+}
+
+function toggleEntrepriseCoord(){
+  var val=document.querySelector('input[name="achat-type"]:checked');
+  var bloc=document.getElementById('bloc-entreprise');
+  if(val&&val.value==='entreprise') bloc.style.display='block';
+  else bloc.style.display='none';
+}
+
+function fermerParcours(){
+  document.getElementById('modal-parcours').classList.remove('show');
 }
 
 buildGrille();updateUI();
+</script>
+<!-- MODAL PARCOURS : MESSAGE + COORDONNÉES + RÉCAP -->
+<div id="modal-parcours" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.7);align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto">
+<style>
+#modal-parcours.show{display:flex}
+#modal-parcours-inner{background:linear-gradient(180deg,#F9F2E8 0%,#F0D8C8 100%);max-width:560px;width:100%;padding:40px;position:relative;margin:auto}
+#modal-parcours-inner .p-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--brm)}
+#modal-parcours-inner h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--br);margin-bottom:6px}
+#modal-parcours-inner .p-sous{font-size:13px;color:var(--brm);font-style:italic;margin-bottom:28px}
+.p-champ{margin-bottom:16px}
+.p-champ label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-bottom:6px}
+.p-champ input,.p-champ textarea,.p-champ select{width:100%;padding:12px;border:1px solid rgba(47,43,43,.2);background:rgba(249,242,232,.8);font-family:'Inter',sans-serif;font-size:14px;color:var(--br);outline:none;transition:border-color .2s}
+.p-champ input:focus,.p-champ textarea:focus{border-color:var(--mjb-bouton)}
+.p-champ textarea{resize:vertical;min-height:90px}
+.p-champ-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.p-sep{border:none;border-top:1px solid rgba(47,43,43,.1);margin:24px 0}
+.p-radio-group{display:flex;gap:16px;margin-top:8px}
+.p-radio{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer}
+.p-erreur{font-size:12px;color:#c05050;padding:10px;background:rgba(192,80,80,.08);border:1px solid rgba(192,80,80,.2);margin-bottom:16px;display:none}
+.p-btns{display:flex;gap:10px;margin-top:24px}
+.p-btn-p{flex:2;padding:14px;background:var(--mjb-bouton);color:#F9F2E8;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.p-btn-p:hover{background:var(--mjb-hover)}
+.p-btn-s{flex:1;padding:14px;background:transparent;border:1px solid rgba(47,43,43,.2);color:var(--brm);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.recap-ligne{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(47,43,43,.08);font-size:14px}
+.recap-ligne.total{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;border-bottom:none;margin-top:8px}
+.recap-check{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--brm);margin:20px 0;line-height:1.6;cursor:pointer}
+</style>
+<div id="modal-parcours-inner">
+  <button class="p-close" onclick="fermerParcours()">&#x2715;</button>
+
+  <!-- ÉTAPE MESSAGE -->
+  <div id="etape-message">
+    <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--brm);margin-bottom:12px">&Eacute;tape 1 sur 3</div>
+    <h3>Accompagnez votre bouquet</h3>
+    <p class="p-sous">Souhaitez-vous joindre quelques mots&nbsp;?</p>
+    <div class="p-champ">
+      <label>Votre message (facultatif)</label>
+      <textarea id="message-bouquet" placeholder="Un mot, une phrase, une intention…"></textarea>
+    </div>
+    <div class="p-btns">
+      <button class="p-btn-s" onclick="fermerParcours()">&#8592; Retour</button>
+      <button class="p-btn-p" onclick="allerCoordonnees()">Continuer &#8594;</button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE COORDONNÉES -->
+  <div id="etape-coordonnees" style="display:none">
+    <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--brm);margin-bottom:12px">&Eacute;tape 2 sur 3</div>
+    <h3>O&ugrave; doit &ecirc;tre livr&eacute; votre bouquet&nbsp;?</h3>
+    <p class="p-sous">&nbsp;</p>
+    <div class="p-champ"><label>Nom du destinataire *</label><input type="text" id="coord-nom-dest" placeholder="Pr&eacute;nom Nom"></div>
+    <div class="p-champ"><label>Adresse de livraison *</label><input type="text" id="coord-adresse" placeholder="N° rue, ville, code postal"></div>
+    <div class="p-champ-row">
+      <div class="p-champ"><label>T&eacute;l&eacute;phone *</label><input type="tel" id="coord-telephone-dest" placeholder="06 00 00 00 00"></div>
+      <div class="p-champ"><label>Date souhait&eacute;e *</label><input type="date" id="coord-date"></div>
+    </div>
+    <div class="p-champ"><label>Instructions de livraison</label><input type="text" id="coord-instructions" placeholder="Code, &eacute;tage, pr&eacute;cisions…"></div>
+    <hr class="p-sep">
+    <h3>Vos coordonn&eacute;es</h3>
+    <p class="p-sous">&nbsp;</p>
+    <div class="p-champ-row">
+      <div class="p-champ"><label>Nom *</label><input type="text" id="coord-nom" placeholder="Nom"></div>
+      <div class="p-champ"><label>Pr&eacute;nom *</label><input type="text" id="coord-prenom" placeholder="Pr&eacute;nom"></div>
+    </div>
+    <div class="p-champ"><label>Email *</label><input type="email" id="coord-email" placeholder="vous@email.com"></div>
+    <div class="p-champ"><label>T&eacute;l&eacute;phone</label><input type="tel" id="coord-tel" placeholder="06 00 00 00 00"></div>
+    <div class="p-champ">
+      <label>Vous achetez en tant que</label>
+      <div class="p-radio-group">
+        <label class="p-radio"><input type="radio" name="achat-type" value="particulier" checked onclick="toggleEntrepriseCoord()"> Particulier</label>
+        <label class="p-radio"><input type="radio" name="achat-type" value="entreprise" onclick="toggleEntrepriseCoord()"> Entreprise</label>
+      </div>
+    </div>
+    <div id="bloc-entreprise" style="display:none;background:rgba(47,43,43,.04);padding:16px;margin-top:4px">
+      <div class="p-champ"><label>Nom de l'entreprise</label><input type="text" id="coord-entreprise-nom" placeholder="Raison sociale"></div>
+      <div class="p-champ-row">
+        <div class="p-champ"><label>SIRET (facultatif)</label><input type="text" id="coord-siret" placeholder="000 000 000 00000"></div>
+        <div class="p-champ"><label>N° intracommunautaire (facultatif)</label><input type="text" id="coord-tva" placeholder="FR00000000000"></div>
+      </div>
+      <div class="p-champ"><label>Nom du contact</label><input type="text" id="coord-contact" placeholder="Pr&eacute;nom Nom"></div>
+      <div class="p-champ"><label>Adresse de facturation</label><input type="text" id="coord-fact-adresse" placeholder="Adresse"></div>
+      <div class="p-champ">
+        <div class="p-radio-group" style="flex-direction:column;gap:8px">
+          <label class="p-radio"><input type="checkbox" id="facture-perso"> Je souhaite recevoir une facture</label>
+          <label class="p-radio"><input type="checkbox" id="facture-entreprise"> Facture au nom de mon entreprise</label>
+        </div>
+      </div>
+    </div>
+    <div id="coord-erreur" class="p-erreur">Merci de remplir tous les champs obligatoires (*) avant de continuer.</div>
+    <div class="p-btns">
+      <button class="p-btn-s" onclick="afficherEtapeParcours('etape-message')">&#8592; Retour</button>
+      <button class="p-btn-p" onclick="allerRecap()">V&eacute;rifier ma commande &#8594;</button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE RÉCAPITULATIF -->
+  <div id="etape-recap" style="display:none">
+    <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--brm);margin-bottom:12px">&Eacute;tape 3 sur 3</div>
+    <h3>R&eacute;capitulatif</h3>
+    <p class="p-sous">V&eacute;rifiez votre commande avant de confirmer.</p>
+    <div style="margin-bottom:20px">
+      <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-bottom:10px">Votre s&eacute;lection</div>
+      <div id="recap-fleurs" style="font-size:13px;color:var(--br);line-height:2"></div>
+      <div style="font-size:13px;color:var(--brm);margin-top:6px" id="recap-feuillage"></div>
+    </div>
+    <hr class="p-sep">
+    <div class="recap-ligne"><span>Total fleurs</span><span id="recap-total-fleurs"></span></div>
+    <div class="recap-ligne"><span>Livraison</span><span id="recap-livraison"></span></div>
+    <div class="recap-ligne total"><span>Total</span><span id="recap-total-final"></span></div>
+    <hr class="p-sep">
+    <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-bottom:10px">Livraison</div>
+    <div style="font-size:13px;color:var(--br);margin-bottom:4px" id="recap-dest"></div>
+    <div style="font-size:13px;color:var(--brm)" id="recap-date"></div>
+    <hr class="p-sep">
+    <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brm);margin-bottom:10px">Message joint</div>
+    <div style="font-size:13px;font-style:italic;color:var(--brm)" id="recap-message"></div>
+    <label class="recap-check">
+      <input type="checkbox" id="recap-cgv">
+      J'accepte les conditions g&eacute;n&eacute;rales de vente et je comprends que mon bouquet sera compos&eacute; par un artisan fleuriste qui pourra interpr&eacute;ter librement ma s&eacute;lection.
+    </label>
+    <div id="recap-erreur" class="p-erreur">Merci d'accepter les conditions avant de confirmer.</div>
+    <div class="p-btns">
+      <button class="p-btn-s" onclick="afficherEtapeParcours('etape-coordonnees')">&#8592; Modifier</button>
+      <button class="p-btn-p" onclick="validerCommande()">Confirmer ma commande &#8594;</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function validerCommande(){
+  var cgv=document.getElementById('recap-cgv');
+  if(!cgv.checked){
+    document.getElementById('recap-erreur').style.display='block';
+    return;
+  }
+  document.getElementById('modal-parcours-inner').innerHTML='<div style="text-align:center;padding:60px 20px"><div style="font-size:48px;margin-bottom:24px">&#10047;</div><h3 style="font-family:Cormorant Garamond,serif;font-size:32px;font-weight:600;color:var(--br);margin-bottom:16px">Merci.</h3><p style="font-size:15px;color:var(--brm);line-height:1.9">Votre bouquet est entre les mains de l\'atelier.<br>Vous recevrez une confirmation par email<br>dans les prochaines heures.</p><button class="p-btn-p" style="margin-top:32px;display:inline-block;padding:14px 40px" onclick="fermerParcours()">Fermer</button></div>';
+}
 </script>
 </body>
 </html>
