@@ -4,20 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mon Joli Bouquet</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--iv:#F7F3EE;--iv2:#EDE8E0;--br:#2C2018;--brm:#6B5B4E;--brl:#9E8E82;--vt:#3D5040;--vtl:#8FAF85}
+:root{
+  --mjb-fond:#F5F1EA;
+  --mjb-bouton:#6A5563;
+  --mjb-hover:#574650;
+  --mjb-texte:#2F2B2B;
+  --mjb-accent:#B9A08C;
+  --mjb-charcoal:#2F2B2B;
+  /* alias retro-compatibles avec le code existant */
+  --iv:#F5F1EA;--iv2:#EDE6DC;--br:#2F2B2B;--brm:#6A5A52;--brl:#B9A08C;--vt:#6A5563;--vtl:#B9A08C
+}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;background:var(--iv);color:var(--br)}
-h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400}
+body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:var(--mjb-fond);color:var(--mjb-charcoal)}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600}
+h1{font-size:64px;line-height:1.1}
+h2{font-size:42px;line-height:1.2}
+h3{font-size:28px;line-height:1.3}
 nav{position:sticky;top:0;z-index:200;background:var(--iv);border-bottom:1px solid var(--iv2);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px}
-.nbrand{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--br);text-decoration:none}
+.nbrand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--br);text-decoration:none}
 .nlinks{display:flex;gap:24px;list-style:none}
 .nlinks a{font-size:11px;color:var(--brm);text-decoration:none;letter-spacing:.1em;text-transform:uppercase}
 .ncta{background:var(--vt)!important;color:var(--iv)!important;padding:8px 20px!important}
 .hero{padding:90px 5vw 70px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;min-height:85vh}
-.hero h1{font-size:clamp(38px,4.5vw,62px);line-height:1.08;font-style:italic;font-weight:300;margin-bottom:24px}
+.hero h1{font-size:clamp(40px,5vw,64px);line-height:1.1;font-weight:600;font-style:italic;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}
 .hero-sub{font-size:15px;color:var(--brm);margin-bottom:40px;max-width:390px;line-height:1.9}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn-p{background:var(--vt);color:var(--iv);padding:14px 36px;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer}
@@ -28,7 +40,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--iv);border-bottom:1px sol
 .hero-caption{position:absolute;bottom:24px;left:24px;right:24px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--brm);border-top:1px solid rgba(44,32,24,.1);padding-top:12px}
 section{padding:80px 5vw}
 .slbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--brl);margin-bottom:18px}
-.stitle{font-size:clamp(28px,3vw,44px);font-weight:300;font-style:italic;margin-bottom:24px}
+.stitle{font-size:clamp(28px,3vw,42px);font-family:'Cormorant Garamond',serif;font-weight:600;margin-bottom:24px}
 .concept-g{display:grid;grid-template-columns:1fr 1fr;gap:64px}
 .concept-t p{color:var(--brm);line-height:1.95;margin-bottom:18px;font-size:14px}
 .cite{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--br);margin-top:24px;padding-left:18px;border-left:2px solid var(--vtl);line-height:1.5}
@@ -164,9 +176,10 @@ footer{background:var(--br);padding:64px 5vw 32px}
 </nav>
 <section id="top" class="hero">
 <div>
-<div class="slbl">Co-creation florale artisanale &middot; Grenoble</div>
-<h1>Composer son bouquet, accompagne par un atelier.</h1>
-<p class="hero-sub">Ici, vous ne choisissez pas un produit. Vous choisissez une direction. L'atelier interprete. Le vivant fait le reste.</p>
+<div class="slbl">Co-creation florale artisanale</div>
+<h1>Mon joli bouquet</h1>
+<p class="hero-sub">Le bouquet dont vous etes l'auteur.<br>Confectionne par un artisan fleuriste.</p>
+<p class="hero-sub">Vous choisissez l'inspiration. L'artisan apporte son talent. Ensemble, vous creez un bouquet unique. Il n'est pas necessaire de connaitre les fleurs. Laissez-vous simplement guider par ce qui vous plait.</p>
 <div class="hero-btns">
 <button class="btn-p" onclick="document.getElementById('conf-section').scrollIntoView({behavior:'smooth'})">Commencer ma creation</button>
 <button class="btn-g" onclick="document.getElementById('concept').scrollIntoView({behavior:'smooth'})">Decouvrir le concept</button>
@@ -183,26 +196,28 @@ footer{background:var(--br);padding:64px 5vw 32px}
 </div>
 </section>
 <section id="concept" style="background:var(--iv2)">
-<div class="slbl">Notre philosophie</div>
+<div class="slbl">Decouvrir le concept</div>
 <div class="concept-g">
 <div class="concept-t">
-<h2 class="stitle">Un bouquet n'est pas un produit. C'est un geste.</h2>
-<p>Vous choisissez des fleurs qui vous parlent. L'atelier interprete vos choix avec son savoir-faire, la saison, et ce qui est juste a ce moment-la.</p>
-<p>Vous n'avez rien a verifier. La responsabilite du juste appartient a l'artisan.</p>
-<blockquote class="cite">Je compose mon bouquet, pas fleur par fleur, mais intention par intention.</blockquote>
+<h2 class="stitle">Confectionne par un artisan fleuriste</h2>
+<p>Derriere chaque bouquet, il y a une intention : remercier, celebrer, soutenir, decorer, aimer, ou simplement faire plaisir.</p>
+<p>Chez Mon joli bouquet, vous ne choisissez pas un modele predefini. Nous avons imagine une experience inspiree du banc de fleurs d'un atelier floral.</p>
+<p>Vous avancez parmi les fleurs, vous choisissez celles qui vous parlent, celles qui vous touchent ou qui traduisent l'emotion que vous souhaitez partager.</p>
+<blockquote class="cite">Votre sensibilite suffit.</blockquote>
+<p>Chaque bouquet nait ainsi de la rencontre entre votre intention et le savoir-faire d'un artisan fleuriste. L'artisan fleuriste interprete ensuite vos choix pour creer un bouquet unique.</p>
 </div>
 <div class="pillars">
-<div class="pillar"><h3>Le client choisit le cap.</h3><p>Vous selectionnez les fleurs qui vous attirent. Sans regle. Sans mauvais choix.</p></div>
-<div class="pillar"><h3>L'atelier tient la barre.</h3><p>Un fleuriste interprete votre selection. Il equilibre, complete, signe. Il ne reproduit pas, il compose.</p></div>
-<div class="pillar"><h3>Le vivant fait le reste.</h3><p>Chaque bouquet est unique. Parce que la saison decide. Parce que la main decide.</p></div>
+<div class="pillar"><h3>Vous choisissez l'inspiration</h3><p>Une intention, un destinataire, des fleurs qui vous parlent. Sans regle. Sans mauvais choix.</p></div>
+<div class="pillar"><h3>L'artisan apporte son talent</h3><p>Le fleuriste interprete votre selection. Il equilibre, complete, signe.</p></div>
+<div class="pillar"><h3>Cree par vous, sublime par nous</h3><p>Ensemble, vous creez un bouquet unique.</p></div>
 </div>
 </div>
 </section>
 <div id="conf-section">
 <div id="conf-header">
-<div class="slbl">Configurateur</div>
+<div class="slbl">Composer votre bouquet</div>
 <h2 class="stitle">Le banc de fleurs</h2>
-<p>Cliquez sur les fleurs qui vous parlent. Ajustez les quantites. Le prix se compose avec vous.</p>
+<p>Comme dans un atelier floral, laissez-vous guider par les fleurs qui vous attirent. Il n'existe pas de bonne ou mauvaise facon de composer un bouquet. Tout se melange dans le jardin.</p>
 </div>
 <div id="barre-livraison">Livraison 15 &euro; &middot; Offerte a partir de 125 &euro; de fleurs</div>
 <div class="seuils-info">
@@ -238,7 +253,7 @@ footer{background:var(--br);padding:64px 5vw 32px}
 </div>
 </div>
 <div id="msg-minimum"></div>
-<button id="btn-commander" onclick="commander()">Confier mon bouquet a l'atelier</button>
+<button id="btn-commander" onclick="commander()">Visualiser mon bouquet</button>
 </div>
 <div class="gammes-bg" id="gammes">
 <div class="gammes-hdr"><div class="slbl">Nos gammes</div><h2 class="stitle">Trois niveaux de geste.</h2></div>
@@ -310,10 +325,14 @@ footer{background:var(--br);padding:64px 5vw 32px}
         <p style="font-size:13px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-top:16px">L'atelier imagine votre bouquet&hellip;</p>
       </div>
     </div>
-    <div id="modal-legende">Illustration d'interpretation &mdash; le fleuriste compose librement autour de ces intentions.</div>
+    <div id="modal-legende">Illustration d'interpretation &mdash; le fleuriste compose librement autour de ces intentions.<br><br>Le vivant conserve toujours sa part de liberte. Si l'une des fleurs choisies n'est exceptionnellement pas disponible, l'artisan fleuriste selectionnera une alternative de meme esprit afin de preserver l'equilibre et l'intention de votre bouquet.</div>
+    <label style="display:flex;align-items:flex-start;gap:8px;font-size:10px;color:rgba(255,255,255,.45);margin-bottom:18px;cursor:pointer;line-height:1.6">
+      <input type="checkbox" id="modal-check-dispo" style="margin-top:2px">
+      J'ai pris connaissance que certaines fleurs peuvent etre remplacees par une variete equivalente en cas d'indisponibilite exceptionnelle.
+    </label>
     <div id="modal-btns" style="display:none">
       <button id="modal-btn-modifier" onclick="fermerModal()">&#8592; Modifier ma selection</button>
-      <button id="modal-btn-confirmer" onclick="confirmerCommande()">Confier mon bouquet &#8594;</button>
+      <button id="modal-btn-confirmer" onclick="confirmerCommande()">Continuer &#8594;</button>
     </div>
   </div>
 </div>
@@ -414,6 +433,12 @@ async function commander(){
 function fermerModal(){document.getElementById('modal-image').classList.remove('show');}
 
 function confirmerCommande(){
+  var check=document.getElementById('modal-check-dispo');
+  if(!check.checked){
+    check.parentElement.style.color='#e08a8a';
+    check.focus();
+    return;
+  }
   var total=getTotal();
   var livraison=total>=SEUIL_GEN?0:LIVRAISON;
   fermerModal();
