@@ -19,7 +19,7 @@
   --iv:#F9F2E8;--iv2:#EDE6DC;--br:#2F2B2B;--brm:#6A5040;--brl:#B9824A;--vt:#C17A6A;--vtl:#B9824A
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);min-height:100vh;color:var(--mjb-charcoal)}
+body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:#F2DFA8;min-height:100vh;color:var(--mjb-charcoal)}
 h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600}
 h1{font-size:64px;line-height:1.1}
 h2{font-size:42px;line-height:1.2}
@@ -100,7 +100,7 @@ section{padding:80px 5vw}
 #btn-commander.vis{opacity:1;pointer-events:all}
 #btn-commander:hover{background:var(--iv)}
 #msg-minimum{text-align:center;padding:8px 5vw 16px;font-size:11px;color:var(--brm);font-style:italic;font-family:'Cormorant Garamond',serif;min-height:32px}
-.gammes-bg{background:rgba(249,242,232,.7)}
+.gammes-bg{}
 .gammes-hdr{padding:70px 5vw 0}
 .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--iv2);margin-top:40px}
 .gcard{background:rgba(242,223,168,.4);padding:48px 38px;backdrop-filter:blur(2px)}
@@ -150,6 +150,17 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 .sect-degrade-inverse .pillar{background:rgba(245,230,200,.25);border-color:rgba(47,43,43,.15)}
 .sect-degrade-inverse .pillar h3{color:var(--br)}
 .sect-degrade-inverse .pillar p{color:var(--br)}
+.sect-vanille{background:linear-gradient(180deg,#F2DFA8 0%,#E8CDB8 100%)}
+.sect-saumon{background:linear-gradient(180deg,#E8CDB8 0%,#D4A090 100%)}
+.sect-retour{background:linear-gradient(180deg,#D4A090 0%,#E8CDB8 100%)}
+.sect-vanille2{background:linear-gradient(180deg,#E8CDB8 0%,#F2DFA8 100%)}
+.sect-fond{background-image:url('https://raw.githubusercontent.com/mylene38450/mon-joli-bouquet/main/images/fond.jpg');background-size:cover;background-position:center;position:relative}
+.sect-fond::before{content:'';position:absolute;inset:0;background:rgba(242,223,168,.82);z-index:0}
+.sect-fond>*{position:relative;z-index:1}
+.gcard-photo{position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end}
+.gcard-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;z-index:0}
+.gcard-photo>*:not(img){position:relative;z-index:1}
+
 /* ÉTAPES PARCOURS */
 .etape-bloc{padding:56px 5vw 32px}
 .intentions-grille{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:32px 0 24px;max-width:600px;margin:0 auto}
@@ -228,7 +239,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <li><a href="#conf-section" class="ncta">Commencer</a></li>
 </ul>
 </nav>
-<section id="top" class="hero">
+<section id="top" class="hero sect-vanille">
 <div>
 <div class="slbl">Co-cr&eacute;ation florale artisanale</div>
 <h1>Mon joli bouquet</h1>
@@ -244,7 +255,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <div class="hero-caption">Dans un jardin, tout se m&eacute;lange.</div>
 </div>
 </section>
-<section id="concept" class="sect-degrade-inverse">
+<section id="concept" class="sect-degrade-inverse sect-saumon">
 <div class="slbl">D&eacute;couvrir le concept</div>
 <div class="concept-g">
 <div class="concept-t">
@@ -262,7 +273,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 </div>
 </div>
 </section>
-<div id="conf-section">
+<div id="conf-section" class="sect-retour">
 
 <!-- ÉTAPE 1 : INTENTION -->
 <div id="etape-intention" class="etape-bloc">
@@ -381,15 +392,15 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <button id="btn-commander" onclick="commander()">Visualiser mon bouquet</button>
 </div><!-- fin etape-banc -->
 </div><!-- fin conf-section -->
-<div class="gammes-bg" id="gammes">
+<div class="gammes-bg sect-fond" id="gammes">
 <div class="gammes-hdr"><div class="slbl">Nos gammes</div><h2 class="stitle">Trois niveaux de geste.</h2></div>
 <div class="ggrid">
-<div class="gcard"><div class="gnom">Essentiel</div><div class="gprix">75 &euro; &ndash; 94 &euro;</div><div class="gdesc">Un bouquet juste, sans superflu. Pour un geste sincere.</div><div class="gliv">Livraison 15 &euro; en sus</div></div>
-<div class="gcard feat"><div class="slbl" style="color:var(--vtl)">Recommande</div><div class="gnom">Signature</div><div class="gprix">95 &euro; &ndash; 124 &euro;</div><div class="gdesc">Notre coeur de gamme. Plus de matiere, plus de nuances.</div><div class="gliv">Livraison 15 &euro; en sus</div></div>
-<div class="gcard"><div class="gnom">Genereux</div><div class="gprix">A partir de 125 &euro;</div><div class="gdesc">Un geste ample pour les moments rares.</div><div class="gliv" style="color:var(--vt);font-weight:500">Livraison offerte</div></div>
+<div class="gcard gcard-photo"><img src="https://raw.githubusercontent.com/mylene38450/mon-joli-bouquet/main/images/essentiel.jpg" alt="Bouquet Essentiel"><div class="gnom">Essentiel</div><div class="gprix">75 &euro; &ndash; 94 &euro;</div><div class="gdesc">Un bouquet juste, sans superflu. Pour un geste sincere.</div><div class="gliv">Livraison 15 &euro; en sus</div></div>
+<div class="gcard feat gcard-photo"><img src="https://raw.githubusercontent.com/mylene38450/mon-joli-bouquet/main/images/signature.jpg" alt="Bouquet Signature"><div class="slbl" style="color:var(--vtl)">Recommande</div><div class="gnom">Signature</div><div class="gprix">95 &euro; &ndash; 124 &euro;</div><div class="gdesc">Notre coeur de gamme. Plus de matiere, plus de nuances.</div><div class="gliv">Livraison 15 &euro; en sus</div></div>
+<div class="gcard gcard-photo"><img src="https://raw.githubusercontent.com/mylene38450/mon-joli-bouquet/main/images/genereux.jpg" alt="Bouquet Généreux"><div class="gnom">Genereux</div><div class="gprix">A partir de 125 &euro;</div><div class="gdesc">Un geste ample pour les moments rares.</div><div class="gliv" style="color:var(--vt);font-weight:500">Livraison offerte</div></div>
 </div>
 </div>
-<section id="ateliers" class="sect-degrade-inverse">
+<section id="ateliers" class="sect-degrade-inverse sect-retour">
 <div class="slbl">Les ateliers partenaires</div>
 <div class="ate-g">
 <div class="ate-t">
@@ -404,7 +415,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="sect-vanille2">
 <div class="slbl" style="text-align:center">Quelques rep&egrave;res</div>
 <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;text-align:center;margin-bottom:16px">Quelques rep&egrave;res</h2>
 <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:20px;color:var(--brm);margin-bottom:44px">Ce que vous vous demanderez peut-&ecirc;tre&hellip;</p>
