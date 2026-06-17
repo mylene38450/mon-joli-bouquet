@@ -19,7 +19,7 @@
   --iv:#F9F2E8;--iv2:#EDE6DC;--br:#2F2B2B;--brm:#6A5040;--brl:#B9824A;--vt:#C17A6A;--vtl:#B9824A
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:#F2DFA8;min-height:100vh;color:var(--mjb-charcoal)}
+body{font-family:'Inter',sans-serif;font-weight:300;font-size:18px;line-height:1.8;background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 40%,#F2DFA8 65%,#D4A090 85%,#EDD5C0 100%);background-attachment:fixed;min-height:100vh;color:var(--mjb-charcoal)}
 h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600}
 h1{font-size:64px;line-height:1.1}
 h2{font-size:42px;line-height:1.2}
@@ -150,10 +150,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 .sect-degrade-inverse .pillar{background:rgba(245,230,200,.25);border-color:rgba(47,43,43,.15)}
 .sect-degrade-inverse .pillar h3{color:var(--br)}
 .sect-degrade-inverse .pillar p{color:var(--br)}
-.sect-vanille{background:linear-gradient(180deg,#F2DFA8 0%,#E8CDB8 100%)}
-.sect-saumon{background:linear-gradient(180deg,#E8CDB8 0%,#D4A090 100%)}
-.sect-retour{background:linear-gradient(180deg,#D4A090 0%,#E8CDB8 100%)}
-.sect-vanille2{background:linear-gradient(180deg,#E8CDB8 0%,#F2DFA8 100%)}
+/* dégradé continu géré par body */
 .sect-fond{background-image:url('https://raw.githubusercontent.com/mylene38450/mon-joli-bouquet/main/images/fond.jpg');background-size:cover;background-position:center;position:relative}
 .sect-fond::before{content:'';position:absolute;inset:0;background:rgba(242,223,168,.82);z-index:0}
 .sect-fond>*{position:relative;z-index:1}
@@ -239,7 +236,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <li><a href="#conf-section" class="ncta">Commencer</a></li>
 </ul>
 </nav>
-<section id="top" class="hero sect-vanille">
+<section id="top" class="hero">
 <div>
 <div class="slbl">Co-cr&eacute;ation florale artisanale</div>
 <h1>Mon joli bouquet</h1>
@@ -255,7 +252,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <div class="hero-caption">Dans un jardin, tout se m&eacute;lange.</div>
 </div>
 </section>
-<section id="concept" class="sect-degrade-inverse sect-saumon">
+<section id="concept" class="sect-degrade-inverse">
 <div class="slbl">D&eacute;couvrir le concept</div>
 <div class="concept-g">
 <div class="concept-t">
@@ -400,7 +397,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <div class="gcard gcard-photo"><img src="https://raw.githubusercontent.com/mylene38450/mon-joli-bouquet/main/images/genereux.jpg" alt="Bouquet Généreux"><div class="gnom">Genereux</div><div class="gprix">A partir de 125 &euro;</div><div class="gdesc">Un geste ample pour les moments rares.</div><div class="gliv" style="color:var(--vt);font-weight:500">Livraison offerte</div></div>
 </div>
 </div>
-<section id="ateliers" class="sect-degrade-inverse sect-retour">
+<section id="ateliers" class="sect-degrade-inverse">
 <div class="slbl">Les ateliers partenaires</div>
 <div class="ate-g">
 <div class="ate-t">
