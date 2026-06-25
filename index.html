@@ -568,7 +568,7 @@ async function commander(){
   modal.classList.add('show');
   var prompt=buildPrompt();
   try{
-    var response=await fetch('https://mjb-proxy-final.vercel.app/api/generate-image',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:prompt})});
+    var response=await fetch('https://mjb-proxy.vercel.app/api/generate-image',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:prompt})});
     var data=await response.json();
     if(data.imageUrl){
       var img=new Image();
