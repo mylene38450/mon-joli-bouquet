@@ -556,7 +556,7 @@ function buildPrompt(){
     var f=FLEURS.find(function(x){return x.id===id;});
     if(f) parts.push(sel[id]+' '+f.n);
   });
-  return 'A beautiful artisan florist bouquet with '+parts.join(', ')+'. Loose romantic style, flat lay on linen background, natural light, French artisan florist aesthetic, soft pastel tones, no text, photorealistic.';
+return 'Photorealistic flat lay bouquet on neutral linen background, natural light. The bouquet contains EXACTLY these flowers and quantities: '+parts.join(', ')+' . French artisan florist style, soft pastel tones, no text, no labels.';
 }
 
 async function commander(){
