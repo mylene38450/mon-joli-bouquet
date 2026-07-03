@@ -454,15 +454,16 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 <div id="modal-image">
   <div id="modal-inner">
     <button id="modal-close" onclick="fermerModal()">&#x2715;</button>
-    <div id="modal-titre">Votre esquisse florale</div>
-    <div id="modal-sous">Cette esquisse revele l'harmonie de votre selection. Notre artisan fleuriste realisera votre bouquet avec les fleurs et les quantites choisies, en leur donnant mouvement, equilibre et elegance.</div>
+    <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--mjb-accent);margin-bottom:8px">Votre selection &#x2714;&#xFE0F;</div>
+    <div id="modal-titre">Votre bouquet commence ici</div>
+    <div id="modal-sous">Cette illustration, realisee a partir de votre selection, vous permet d'apprecier l'harmonie des fleurs, des couleurs et des volumes de votre futur bouquet.<br><br>Notre artisan fleuriste realisera ensuite votre creation avec les varietes et les quantites que vous avez choisies, en lui donnant son mouvement, son equilibre et son elegance.</div>
     <div id="modal-img-zone">
       <div id="modal-spinner" style="text-align:center;color:rgba(255,255,255,.3)">
         <div style="font-size:48px;animation:fi 1s infinite alternate">&#10047;</div>
         <p style="font-size:13px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-top:16px">L'atelier imagine votre bouquet&hellip;</p>
       </div>
     </div>
-    <div id="modal-legende">Illustration d'interpretation &mdash; le fleuriste compose librement autour de ces intentions.<br><br>Le vivant conserve toujours sa part de liberte. Si l'une des fleurs choisies n'est exceptionnellement pas disponible, l'artisan fleuriste selectionnera une alternative de meme esprit afin de preserver l'equilibre et l'intention de votre bouquet.</div>
+    <div id="modal-legende">Illustration d'ambiance &mdash; visuel non contractuel. Le fleuriste compose librement autour de ces intentions.<br><br>Le vivant conserve toujours sa part de liberte. Si l'une des fleurs choisies n'est exceptionnellement pas disponible, l'artisan fleuriste selectionnera une alternative de meme esprit afin de preserver l'equilibre et l'intention de votre bouquet.</div>
     <label style="display:flex;align-items:flex-start;gap:8px;font-size:10px;color:rgba(255,255,255,.45);margin-bottom:18px;cursor:pointer;line-height:1.6">
       <input type="checkbox" id="modal-check-dispo" style="margin-top:2px">
       J'ai pris connaissance que certaines fleurs peuvent etre remplacees par une variete equivalente en cas d'indisponibilite exceptionnelle.
@@ -557,7 +558,7 @@ function buildPrompt(){
     var f=FLEURS.find(function(x){return x.id===id;});
     if(f){parts.push(sel[id]+' '+f.n);total+=sel[id];}
   });
-  return 'An elegant floral sketch illustrating the harmony of colors, textures and volumes from this selection: '+parts.join(', ')+'. This is a mood sketch to help the client visualize the style, not an exact reproduction of quantities. French artisan florist aesthetic, loose romantic style, flat lay on linen background, natural light, soft pastel tones, airy movement, no text.';
+  return 'You are the official illustrator for Maison Mon Joli Bouquet. Based on this flower selection: '+parts.join(', ')+', create a realistic and elegant illustration allowing the client to picture the general harmony of their future bouquet. This is an ambiance illustration, not a contractual representation. Do not aim to reproduce the exact number of flowers, but faithfully render the selected varieties, colors, spirit, volumes and overall balance. Use exclusively the flower varieties listed above, do not introduce any other flower or foliage that was not selected. Proportions may be approximate, but the represented species must match the client selection exactly. The bouquet should be round, generous, natural, slightly twisted, elegant, French artisanal style, photographed on a light linen background with soft natural light. Avoid excessive styling. No text.';
 }
 
 async function commander(){
