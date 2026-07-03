@@ -552,11 +552,12 @@ document.querySelectorAll('.cat-btn').forEach(function(btn){btn.addEventListener
 
 function buildPrompt(){
   var parts=[];
+  var total=0;
   Object.keys(sel).forEach(function(id){
     var f=FLEURS.find(function(x){return x.id===id;});
-    if(f) parts.push(sel[id]+' '+f.n);
+    if(f){parts.push(sel[id]+' '+f.n);total+=sel[id];}
   });
-  return 'A beautiful artisan florist bouquet with '+parts.join(', ')+'. Loose romantic style, flat lay on linen background, natural light, French artisan florist aesthetic, soft pastel tones, no text, photorealistic.';
+  return 'A photorealistic artisan florist bouquet containing exactly '+total+' flower stems in total: '+parts.join(', ')+'. Count each stem precisely and do not add extra flowers. Loose romantic style, flat lay on linen background, natural light, French artisan florist aesthetic, soft pastel tones, no text.';
 }
 
 async function commander(){
