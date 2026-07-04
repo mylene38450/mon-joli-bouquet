@@ -808,7 +808,12 @@ async function validerCommande(){
   var total=getTotal();
   var livraison=total>=SEUIL_GEN?0:LIVRAISON;
   var montantFinal=total+(feuilGenActif?5:0)+livraison;
-  var email=document.getElementById('coord-email').value;
+  var email=document.getElementById('coord-email').value.trim();
+  var emailValide=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if(!emailValide){
+    alert('Merci de renseigner une adresse email valide avant de continuer.');
+    return;
+  }
 
   try{
     var response=await fetch('https://mjb-proxy.vercel.app/api/create-checkout-session',{
