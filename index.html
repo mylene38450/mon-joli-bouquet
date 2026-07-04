@@ -601,7 +601,9 @@ function confirmerCommande(){
 }
 
 function ouvrirMessage(){
-  document.getElementById('modal-parcours').classList.add('show');
+  var mp=document.getElementById('modal-parcours');
+  mp.style.display='flex';
+  mp.classList.add('show');
   afficherEtapeParcours('etape-message');
 }
 
@@ -661,7 +663,9 @@ function toggleEntrepriseCoord(){
 }
 
 function fermerParcours(){
-  document.getElementById('modal-parcours').classList.remove('show');
+  var mp=document.getElementById('modal-parcours');
+  mp.classList.remove('show');
+  mp.style.display='none';
 }
 
 buildGrille();updateUI();
