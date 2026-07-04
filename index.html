@@ -662,6 +662,21 @@ function toggleEntrepriseCoord(){
   else bloc.style.display='none';
 }
 
+function afficherConfirmationPaiement(){
+  var params=new URLSearchParams(window.location.search);
+  if(params.get('paiement')==='succes'){
+    var overlay=document.createElement('div');
+    overlay.style.cssText='position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:20px';
+    overlay.innerHTML='<div style="background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);max-width:480px;width:100%;padding:48px 40px;text-align:center;border-radius:4px"><div style="font-size:48px;margin-bottom:20px">&#10047;</div><h3 style="font-family:\'Cormorant Garamond\',serif;font-size:30px;font-weight:600;color:var(--br);margin-bottom:16px">Merci.</h3><p style="font-size:15px;color:var(--brm);line-height:1.9">Votre paiement a bien &eacute;t&eacute; enregistr&eacute;.<br>Votre bouquet est entre les mains de l\'atelier.<br>Vous recevrez une confirmation par email dans les prochaines heures.</p><button class="p-btn-p" style="margin-top:28px;display:inline-block;padding:14px 40px" onclick="this.closest(\'div[style*=fixed]\').remove();window.history.replaceState({},document.title,window.location.pathname)">Fermer</button></div>';
+    document.body.appendChild(overlay);
+  } else if(params.get('paiement')==='annule'){
+    var overlay2=document.createElement('div');
+    overlay2.style.cssText='position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:20px';
+    overlay2.innerHTML='<div style="background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);max-width:480px;width:100%;padding:48px 40px;text-align:center;border-radius:4px"><h3 style="font-family:\'Cormorant Garamond\',serif;font-size:26px;font-weight:600;color:var(--br);margin-bottom:16px">Paiement annul&eacute;</h3><p style="font-size:15px;color:var(--brm);line-height:1.9">Votre commande n\'a pas &eacute;t&eacute; finalis&eacute;e.<br>Vous pouvez reprendre votre s&eacute;lection quand vous le souhaitez.</p><button class="p-btn-p" style="margin-top:28px;display:inline-block;padding:14px 40px" onclick="this.closest(\'div[style*=fixed]\').remove();window.history.replaceState({},document.title,window.location.pathname)">Fermer</button></div>';
+    document.body.appendChild(overlay2);
+  }
+}
+window.addEventListener('DOMContentLoaded', afficherConfirmationPaiement);
 function fermerParcours(){
   var mp=document.getElementById('modal-parcours');
   mp.classList.remove('show');
