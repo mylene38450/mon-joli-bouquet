@@ -624,7 +624,12 @@ async function commander(){
   var modal=document.getElementById('modal-image');
   var imgZone=document.getElementById('modal-img-zone');
   var btns=document.getElementById('modal-btns');
-  imgZone.innerHTML='<div style="text-align:center;color:var(--brm)"><div style="font-size:52px;animation:fleurPulse 2.2s ease-in-out infinite">&#127801;</div><p id="modal-attente-texte2" style="font-size:13px;font-style:italic;font-family:Cormorant Garamond,serif;margin-top:16px;color:var(--brm)">L\'atelier imagine votre bouquet&hellip;</p></div>';
+  imgZone.innerHTML='<div style="text-align:center;color:var(--brm)"><div style="id="modal-fleur-icone" style="font-size:52px;display:inline-block">&#127801;</div><p id="modal-attente-texte2" style="font-size:13px;font-style:italic;font-family:Cormorant Garamond,serif;margin-top:16px;color:var(--brm)">L\'atelier imagine votre bouquet&hellip;</p></div>';
+  var fleurIcone=document.getElementById('modal-fleur-icone');
+  if(fleurIcone){
+    void fleurIcone.offsetWidth;
+    fleurIcone.style.animation='fleurPulse 2.2s ease-in-out infinite';
+  }
   (function(){
     var messages2=['L\'atelier imagine votre bouquet&hellip;','Nous harmonisons les couleurs&hellip;','Nous &eacute;quilibrons les volumes&hellip;','Votre esquisse est presque pr&ecirc;te&hellip;'];
     var j=0;
