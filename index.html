@@ -624,7 +624,16 @@ async function commander(){
   var modal=document.getElementById('modal-image');
   var imgZone=document.getElementById('modal-img-zone');
   var btns=document.getElementById('modal-btns');
-  imgZone.innerHTML='<div style="text-align:center;color:rgba(255,255,255,.3)"><div style="font-size:48px">&#10047;</div><p style="font-size:13px;font-style:italic;font-family:Cormorant Garamond,serif;margin-top:16px">L\'Votre s&#233;lection de Fleurs est r&#233;v&#233;l&#233;e ; le geste de notre artisan Fleuriste lui donnera sa forme et son &#233;l&#233;gance pour cr&#233;er un Bouquet unique.</p></div>';
+  imgZone.innerHTML='<div style="text-align:center;color:var(--brm)"><div style="font-size:52px;animation:fleurPulse 2.2s ease-in-out infinite">&#127801;</div><p id="modal-attente-texte2" style="font-size:13px;font-style:italic;font-family:Cormorant Garamond,serif;margin-top:16px;color:var(--brm)">L\'atelier imagine votre bouquet&hellip;</p></div>';
+  (function(){
+    var messages2=['L\'atelier imagine votre bouquet&hellip;','Nous harmonisons les couleurs&hellip;','Nous &eacute;quilibrons les volumes&hellip;','Votre esquisse est presque pr&ecirc;te&hellip;'];
+    var j=0;
+    var interval2=setInterval(function(){
+      j=(j+1)%messages2.length;
+      var el2=document.getElementById('modal-attente-texte2');
+      if(el2){ el2.innerHTML=messages2[j]; } else { clearInterval(interval2); }
+    },3500);
+  })();
   btns.style.display='none';
   modal.classList.add('show');
   var prompt=buildPrompt();
@@ -637,11 +646,11 @@ async function commander(){
       img.src=data.imageUrl;
       img.style.cssText='width:100%;height:100%;object-fit:cover';
     }else{
-      imgZone.innerHTML='<p style="color:rgba(255,255,255,.4);font-size:12px;padding:20px;text-align:center">L\'illustration n\'a pas pu etre generee.<br>Vous pouvez tout de meme confirmer.</p>';
+      imgZone.innerHTML='<p style="color:var(--brm);font-size:12px;padding:20px;text-align:center">L\'illustration n\'a pas pu etre generee.<br>Vous pouvez tout de meme confirmer.</p>';
       btns.style.display='flex';
     }
   }catch(err){
-    imgZone.innerHTML='<p style="color:rgba(255,255,255,.4);font-size:12px;padding:20px;text-align:center">L\'illustration n\'a pas pu etre generee.<br>Vous pouvez tout de meme confirmer.</p>';
+    imgZone.innerHTML='<p style="color:var(--brm);font-size:12px;padding:20px;text-align:center">L\'illustration n\'a pas pu etre generee.<br>Vous pouvez tout de meme confirmer.</p>';
     btns.style.display='flex';
   }
 }
