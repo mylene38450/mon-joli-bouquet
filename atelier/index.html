@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier MJB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  :root {
+    --vanille: #F2DFA8;
+    --saumon: #D4A090;
+    --creme: #FBF8F3;
+    --texte: #3A312A;
+    --texte-doux: #7A6F63;
+    --carte: #FFFFFF;
+    --bordure: #E8E1D4;
+    --succes: #6B8F71;
+    --danger: #C0604F;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--creme);
+    color: var(--texte);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .titre-serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    margin: 0;
+  }
+  .ecran {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+  }
+  .ecran.actif { display: block; }
+
+  /* ---------- Connexion ---------- */
+  #ecran-connexion.actif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, var(--vanille), var(--saumon));
+    padding: 24px;
+  }
+  .carte-connexion {
+    background: var(--carte);
+    border-radius: 24px;
+    padding: 44px 32px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(58,49,42,0.15);
+  }
+  .logo-rond {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, var(--vanille), var(--saumon));
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+  }
+  .carte-connexion h1 { font-size: 22px; margin-bottom: 4px; }
+  .carte-connexion p.sous-titre { color: var(--texte-doux); font-size: 13px; margin-bottom: 28px; }
+  input, textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--bordure);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    margin-bottom: 12px;
+    background: var(--creme);
+    color: var(--texte);
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--saumon); }
+  button {
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    border: none;
+  }
+  .bouton-principal {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background: linear-gradient(160deg, var(--vanille), var(--saumon));
+    color: #4A3527;
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 6px;
+  }
+  .bouton-secondaire {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--creme);
+    border: 1px solid var(--bordure);
+    color: var(--texte);
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .bouton-danger {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    background: none;
+    color: var(--danger);
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .message-erreur {
+    color: var(--danger);
+    font-size: 13px;
+    margin-bottom: 12px;
+    display: none;
+  }
+
+  /* ---------- Structure générale app ---------- */
+  .entete {
+    background: var(--carte);
+    border-bottom: 1px solid var(--bordure);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .entete-titre { display: flex; align-items: center; gap: 10px; }
+  .entete-titre .logo-rond { width: 34px; height: 34px; margin: 0; font-size: 16px; }
+  .lien-deconnexion { color: var(--texte-doux); font-size: 13px; background: none; }
+  .conteneur {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+
+  /* ---------- Tableau de bord ---------- */
+  .accueil-titre { font-size: 22px; margin-bottom: 2px; }
+  .accueil-date { color: var(--texte-doux); font-size: 13px; margin-bottom: 20px; }
+  .stats-grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .stat-carte {
+    background: var(--carte);
+    border-radius: 12px;
+    padding: 14px 8px;
+    text-align: center;
+    border: 1px solid var(--bordure);
+  }
+  .stat-nombre { font-size: 22px; font-weight: 700; margin: 6px 0 2px; }
+  .stat-label { font-size: 11px; color: var(--texte-doux); line-height: 1.3; }
+  .liste-titre { font-size: 13px; color: var(--texte-doux); margin-bottom: 10px; }
+  .carte-creation {
+    background: var(--carte);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    border: 1px solid var(--bordure);
+    border-left: 3px solid var(--bordure);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+  }
+  .carte-creation.urgent { border-left-color: var(--danger); }
+  .carte-creation .num { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+  .carte-creation .intent { font-size: 13px; color: var(--texte-doux); margin-bottom: 6px; }
+  .badge {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+  .badge-recue { background: #EFEBE3; color: #7A6F63; }
+  .badge-acceptee { background: #E3ECE4; color: #4E6E52; }
+  .badge-en_preparation { background: #FBEAD7; color: #96601E; }
+  .badge-photo_envoyee { background: #E3E9F2; color: #3D5A80; }
+  .badge-expediee { background: #E3ECE4; color: #4E6E52; }
+  .badge-urgent { background: #F6E1DD; color: var(--danger); }
+  .ouvrir-btn {
+    flex-shrink: 0;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--bordure);
+    background: var(--creme);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .vide {
+    text-align: center;
+    color: var(--texte-doux);
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+
+  /* ---------- Fiche de création ---------- */
+  .retour-btn {
+    background: none;
+    color: var(--texte-doux);
+    font-size: 13px;
+    margin-bottom: 14px;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .bloc {
+    background: var(--carte);
+    border: 1px solid var(--bordure);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .bloc-label { font-size: 11px; color: var(--texte-doux); margin-bottom: 8px; text-transform: none; }
+  .intention-texte { font-size: 16px; font-weight: 500; margin-bottom: 10px; line-height: 1.4; }
+  .meta-ligne { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--texte-doux); }
+  .destinataire-nom { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .destinataire-detail { font-size: 13px; color: var(--texte-doux); margin-bottom: 2px; }
+  .fleur-ligne { display: flex; justify-content: space-between; font-size: 14px; padding: 4px 0; }
+  .carte-message-texte {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .actions-colonne { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .actions-colonne button { padding: 15px; border-radius: 10px; font-size: 15px; font-weight: 500; }
+  .btn-action-defaut { background: var(--creme); border: 1px solid var(--bordure); color: var(--texte); }
+  .btn-action-principale { background: linear-gradient(160deg, var(--vanille), var(--saumon)); color: #4A3527; font-weight: 700; }
+
+  /* ---------- Signalement ---------- */
+  .motif-liste { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .motif-option {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--carte); border: 1px solid var(--bordure);
+    border-radius: 12px; padding: 13px 16px; cursor: pointer; font-size: 14px;
+  }
+  .motif-option input { width: auto; margin: 0; }
+
+  #zone-impression { display: none; }
+  @media print {
+    body * { visibility: hidden; }
+    #zone-impression, #zone-impression * { visibility: visible; }
+    #zone-impression { display: block; position: absolute; top: 0; left: 0; width: 100%; padding: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ECRAN CONNEXION ============ -->
+<div id="ecran-connexion" class="ecran actif">
+  <div class="carte-connexion">
+    <div class="logo-rond">🌿</div>
+    <h1>Bienvenue dans votre Atelier</h1>
+    <p class="sous-titre">Mon Joli Bouquet</p>
+    <p class="message-erreur" id="erreur-connexion"></p>
+    <input type="email" id="champ-email" placeholder="votre@email.com" autocomplete="username">
+    <input type="password" id="champ-motdepasse" placeholder="Mot de passe" autocomplete="current-password">
+    <button class="bouton-principal" id="btn-connexion">Entrer dans mon Atelier</button>
+  </div>
+</div>
+
+<!-- ============ ECRAN TABLEAU DE BORD ============ -->
+<div id="ecran-dashboard" class="ecran">
+  <div class="entete">
+    <div class="entete-titre">
+      <div class="logo-rond">🌿</div>
+      <strong id="nom-atelier-entete">Atelier</strong>
+    </div>
+    <button class="lien-deconnexion" id="btn-deconnexion">Se déconnecter</button>
+  </div>
+  <div class="conteneur">
+    <p class="accueil-titre titre-serif" id="texte-bonjour">Bonjour</p>
+    <p class="accueil-date" id="texte-date"></p>
+
+    <div class="stats-grille">
+      <div class="stat-carte">
+        <div class="stat-nombre" id="stat-a-realiser">0</div>
+        <div class="stat-label">créations à réaliser</div>
+      </div>
+      <div class="stat-carte">
+        <div class="stat-nombre" id="stat-photos">0</div>
+        <div class="stat-label">photos à envoyer</div>
+      </div>
+      <div class="stat-carte">
+        <div class="stat-nombre" id="stat-expeditions">0</div>
+        <div class="stat-label">expéditions</div>
+      </div>
+    </div>
+
+    <p class="liste-titre">Vos créations, triées par urgence</p>
+    <div id="liste-creations"></div>
+  </div>
+</div>
+
+<!-- ============ ECRAN FICHE DE CREATION ============ -->
+<div id="ecran-fiche" class="ecran">
+  <div class="conteneur" style="padding-top:20px;">
+    <button class="retour-btn" id="btn-retour-fiche">&larr; Retour</button>
+
+    <div class="bloc">
+      <p class="bloc-label" id="fiche-numero">Création n°</p>
+      <p class="intention-texte" id="fiche-intention"></p>
+      <div class="meta-ligne">
+        <span id="fiche-livraison"></span>
+        <span id="fiche-gamme"></span>
+        <span id="fiche-prix"></span>
+      </div>
+    </div>
+
+    <div class="bloc">
+      <p class="bloc-label">Destinataire</p>
+      <p class="destinataire-nom" id="fiche-destinataire-nom"></p>
+      <p class="destinataire-detail" id="fiche-adresse"></p>
+      <p class="destinataire-detail" id="fiche-digicode"></p>
+      <p class="destinataire-detail" id="fiche-telephone"></p>
+    </div>
+
+    <div class="bloc">
+      <p class="bloc-label">Sélection florale</p>
+      <div id="fiche-fleurs"></div>
+    </div>
+
+    <div class="bloc" id="bloc-esquisse" style="display:none;">
+      <p class="bloc-label">Esquisse florale — inspiration</p>
+      <img id="fiche-esquisse-img" style="width:100%; border-radius:10px;">
+    </div>
+
+    <div class="bloc">
+      <p class="bloc-label">Carte message</p>
+      <p class="carte-message-texte" id="fiche-message"></p>
+      <button class="bouton-secondaire" id="btn-imprimer">🖨 Imprimer la carte</button>
+    </div>
+
+    <div class="actions-colonne" id="zone-actions"></div>
+  </div>
+</div>
+
+<!-- ============ ECRAN SIGNALEMENT ============ -->
+<div id="ecran-signalement" class="ecran">
+  <div class="conteneur" style="padding-top:20px;">
+    <button class="retour-btn" id="btn-retour-signalement">&larr; Retour</button>
+    <h2 style="font-size:18px; margin-bottom:4px;">Signaler un problème</h2>
+    <p style="color:var(--texte-doux); font-size:13px; margin-bottom:20px;" id="signalement-numero"></p>
+
+    <div class="motif-liste">
+      <label class="motif-option"><input type="radio" name="motif" value="Fleur indisponible"> Fleur indisponible</label>
+      <label class="motif-option"><input type="radio" name="motif" value="Difficulté de livraison"> Difficulté de livraison</label>
+      <label class="motif-option"><input type="radio" name="motif" value="Problème d'adresse"> Problème d'adresse</label>
+      <label class="motif-option"><input type="radio" name="motif" value="Autre"> Autre</label>
+    </div>
+    <p class="bloc-label">Commentaire (facultatif)</p>
+    <textarea id="signalement-commentaire" rows="3" placeholder="Précisez si besoin..."></textarea>
+    <button class="bouton-principal" id="btn-envoyer-signalement">Envoyer le signalement</button>
+  </div>
+</div>
+
+<!-- Zone cachée utilisée uniquement au moment de l'impression -->
+<div id="zone-impression"></div>
+
+<script>
+  // ---------- Connexion à Supabase ----------
+  const SUPABASE_URL = 'https://lsmwdqkcoavigmfgpfqk.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_awdqpRugKaMkuYp82ivrwg_UkhNErSj';
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  let atelierActuel = null;
+  let creationsActuelles = [];
+  let creationOuverte = null;
+
+  const STATUTS_LABELS = {
+    recue: 'Reçue',
+    acceptee: 'Acceptée',
+    en_preparation: 'En préparation',
+    photo_envoyee: 'Photo envoyée',
+    expediee: 'Expédiée'
+  };
+
+  function afficherEcran(id) {
+    document.querySelectorAll('.ecran').forEach(e => e.classList.remove('actif'));
+    document.getElementById(id).classList.add('actif');
+  }
+
+  // ---------- Connexion ----------
+  document.getElementById('btn-connexion').addEventListener('click', connecter);
+  document.getElementById('champ-motdepasse').addEventListener('keydown', e => { if (e.key === 'Enter') connecter(); });
+
+  async function connecter() {
+    const email = document.getElementById('champ-email').value.trim();
+    const motdepasse = document.getElementById('champ-motdepasse').value;
+    const erreurEl = document.getElementById('erreur-connexion');
+    erreurEl.style.display = 'none';
+
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password: motdepasse });
+    if (error) {
+      erreurEl.textContent = "Email ou mot de passe incorrect.";
+      erreurEl.style.display = 'block';
+      return;
+    }
+    await chargerAtelier();
+  }
+
+  document.getElementById('btn-deconnexion').addEventListener('click', async () => {
+    await supabase.auth.signOut();
+    afficherEcran('ecran-connexion');
+  });
+
+  // ---------- Chargement de l'atelier connecté ----------
+  async function chargerAtelier() {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) { afficherEcran('ecran-connexion'); return; }
+
+    const { data: atelier, error } = await supabase
+      .from('ateliers')
+      .select('*')
+      .eq('auth_id', user.id)
+      .single();
+
+    if (error || !atelier) {
+      document.getElementById('erreur-connexion').textContent = "Aucun atelier associé à ce compte.";
+      document.getElementById('erreur-connexion').style.display = 'block';
+      afficherEcran('ecran-connexion');
+      return;
+    }
+
+    atelierActuel = atelier;
+    document.getElementById('nom-atelier-entete').textContent = atelier.nom_atelier;
+    document.getElementById('texte-bonjour').textContent = 'Bonjour ' + atelier.nom_atelier.split(' ')[0];
+    document.getElementById('texte-date').textContent = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+
+    await chargerCreations();
+    afficherEcran('ecran-dashboard');
+  }
+
+  // ---------- Chargement des créations ----------
+  async function chargerCreations() {
+    const { data, error } = await supabase
+      .from('creations')
+      .select('*')
+      .eq('atelier_id', atelierActuel.id)
+      .order('date_livraison', { ascending: true });
+
+    creationsActuelles = data || [];
+    renderDashboard();
+  }
+
+  function renderDashboard() {
+    const aRealiser = creationsActuelles.filter(c => ['recue', 'acceptee', 'en_preparation'].includes(c.statut));
+    const photos = creationsActuelles.filter(c => c.statut === 'en_preparation');
+    const expeditions = creationsActuelles.filter(c => c.statut === 'photo_envoyee');
+
+    document.getElementById('stat-a-realiser').textContent = aRealiser.length;
+    document.getElementById('stat-photos').textContent = photos.length;
+    document.getElementById('stat-expeditions').textContent = expeditions.length;
+
+    const liste = document.getElementById('liste-creations');
+    liste.innerHTML = '';
+
+    if (creationsActuelles.length === 0) {
+      liste.innerHTML = '<p class="vide">Aucune création pour le moment.</p>';
+      return;
+    }
+
+    const actives = creationsActuelles.filter(c => c.statut !== 'expediee');
+    actives.forEach(c => {
+      const estUrgent = c.creneau_livraison && c.creneau_livraison.toLowerCase().includes('avant');
+      const div = document.createElement('div');
+      div.className = 'carte-creation' + (estUrgent ? ' urgent' : '');
+      div.innerHTML = `
+        <div style="min-width:0;">
+          <div class="num">Création n°${c.numero}</div>
+          <div class="intent">${c.intention || ''}</div>
+          <span class="badge ${estUrgent ? 'badge-urgent' : 'badge-' + c.statut}">${estUrgent ? 'Livraison ' + c.creneau_livraison : STATUTS_LABELS[c.statut]}</span>
+        </div>
+        <button class="ouvrir-btn">Ouvrir</button>
+      `;
+      div.addEventListener('click', () => ouvrirFiche(c));
+      liste.appendChild(div);
+    });
+  }
+
+  // ---------- Fiche de création ----------
+  function ouvrirFiche(creation) {
+    creationOuverte = creation;
+    document.getElementById('fiche-numero').textContent = 'Création n°' + creation.numero;
+    document.getElementById('fiche-intention').textContent = creation.intention || '';
+    document.getElementById('fiche-livraison').textContent = '📅 ' + (creation.date_livraison || '') + (creation.creneau_livraison ? ', ' + creation.creneau_livraison : '');
+    document.getElementById('fiche-gamme').textContent = '🌸 ' + (creation.gamme || '');
+    document.getElementById('fiche-prix').textContent = creation.prix ? creation.prix + ' €' : '';
+
+    document.getElementById('fiche-destinataire-nom').textContent = creation.destinataire_nom || '';
+    document.getElementById('fiche-adresse').textContent = creation.adresse || '';
+    document.getElementById('fiche-digicode').textContent = creation.digicode ? 'Digicode ' + creation.digicode : '';
+    document.getElementById('fiche-telephone').textContent = creation.telephone || '';
+
+    const fleursDiv = document.getElementById('fiche-fleurs');
+    fleursDiv.innerHTML = '';
+    (creation.selection_florale || '').split(',').forEach(f => {
+      const p = document.createElement('div');
+      p.className = 'fleur-ligne';
+      p.innerHTML = `<span>${f.trim()}</span>`;
+      fleursDiv.appendChild(p);
+    });
+
+    if (creation.url_esquisse) {
+      document.getElementById('bloc-esquisse').style.display = 'block';
+      document.getElementById('fiche-esquisse-img').src = creation.url_esquisse;
+    } else {
+      document.getElementById('bloc-esquisse').style.display = 'none';
+    }
+
+    document.getElementById('fiche-message').textContent = creation.message_carte || '';
+
+    renderActions(creation);
+    afficherEcran('ecran-fiche');
+  }
+
+  function renderActions(creation) {
+    const zone = document.getElementById('zone-actions');
+    zone.innerHTML = '';
+
+    const etapes = {
+      recue: { label: "J'accepte la création", suivant: 'acceptee', classe: 'btn-action-principale' },
+      acceptee: { label: 'Bouquet terminé', suivant: 'en_preparation', classe: 'btn-action-principale' },
+      en_preparation: { label: 'Prendre la photo', suivant: 'photo_envoyee', classe: 'btn-action-principale' },
+      photo_envoyee: { label: 'Remis au transporteur', suivant: 'expediee', classe: 'btn-action-principale' },
+      expediee: null
+    };
+
+    const etape = etapes[creation.statut];
+    if (etape) {
+      const btn = document.createElement('button');
+      btn.className = etape.classe;
+      btn.textContent = etape.label;
+      btn.addEventListener('click', () => changerStatut(creation.id, etape.suivant));
+      zone.appendChild(btn);
+    } else {
+      const p = document.createElement('p');
+      p.style.textAlign = 'center';
+      p.style.color = 'var(--succes)';
+      p.style.fontSize = '14px';
+      p.textContent = 'Cette création a été expédiée.';
+      zone.appendChild(p);
+    }
+
+    const btnProbleme = document.createElement('button');
+    btnProbleme.className = 'bouton-danger';
+    btnProbleme.textContent = 'Signaler un problème';
+    btnProbleme.addEventListener('click', () => ouvrirSignalement(creation));
+    zone.appendChild(btnProbleme);
+  }
+
+  async function changerStatut(id, nouveauStatut) {
+    const { error } = await supabase.from('creations').update({ statut: nouveauStatut }).eq('id', id);
+    if (error) { alert("Une erreur est survenue, réessaie."); return; }
+    await chargerCreations();
+    const creationMaj = creationsActuelles.find(c => c.id === id);
+    if (creationMaj) ouvrirFiche(creationMaj);
+  }
+
+  document.getElementById('btn-retour-fiche').addEventListener('click', () => afficherEcran('ecran-dashboard'));
+
+  // ---------- Impression carte ----------
+  document.getElementById('btn-imprimer').addEventListener('click', () => {
+    const zone = document.getElementById('zone-impression');
+    zone.innerHTML = `<div style="font-family:'Cormorant Garamond',serif; font-size:22px; line-height:1.8; text-align:center; padding:60px;">${(creationOuverte.message_carte || '').replace(/\n/g, '<br>')}</div>`;
+    window.print();
+  });
+
+  // ---------- Signalement ----------
+  function ouvrirSignalement(creation) {
+    document.getElementById('signalement-numero').textContent = 'Création n°' + creation.numero;
+    afficherEcran('ecran-signalement');
+  }
+
+  document.getElementById('btn-retour-signalement').addEventListener('click', () => ouvrirFiche(creationOuverte));
+
+  document.getElementById('btn-envoyer-signalement').addEventListener('click', async () => {
+    const motifSelectionne = document.querySelector('input[name="motif"]:checked');
+    if (!motifSelectionne) { alert('Choisis un motif avant d\'envoyer.'); return; }
+    const commentaire = document.getElementById('signalement-commentaire').value;
+
+    const { error } = await supabase.from('incidents').insert({
+      creation_id: creationOuverte.id,
+      type_probleme: motifSelectionne.value,
+      commentaire: commentaire
+    });
+
+    if (error) { alert("Une erreur est survenue, réessaie."); return; }
+    document.getElementById('signalement-commentaire').value = '';
+    document.querySelectorAll('input[name="motif"]').forEach(r => r.checked = false);
+    ouvrirFiche(creationOuverte);
+  });
+
+  // ---------- Vérifie si déjà connectée au chargement de la page ----------
+  (async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) await chargerAtelier();
+  })();
+</script>
+</body>
+</html>
