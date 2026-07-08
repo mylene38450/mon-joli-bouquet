@@ -186,7 +186,7 @@ footer{background:linear-gradient(180deg,#D4A090 0%,#F2DFA8 100%);padding:64px 5
 .dest-sous{margin-top:12px;padding-top:12px;border-top:1px solid rgba(47,43,43,.1);display:flex;gap:12px;flex-wrap:wrap}
 .dest-sous-opt{font-size:12px;color:var(--brm);display:flex;align-items:center;gap:6px;cursor:pointer}
 /* FIN ÉTAPES */
-#modal-image{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:20px}
+#modal-image{display:none;position:fixed;inset:0;z-index:1000;background:rgba(60,45,35,.55);align-items:center;justify-content:center;padding:20px}
 #modal-image.show{display:flex}
 #modal-inner{background:linear-gradient(135deg,#F2DFA8 0%,#D4A090 100%);max-width:560px;width:100%;padding:40px;position:relative;max-height:90vh;overflow-y:auto}
 #modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--brm);font-size:20px;cursor:pointer;line-height:1}
@@ -627,8 +627,12 @@ async function commander(){
   imgZone.innerHTML='<div style="text-align:center;color:var(--brm)"><div style="id="modal-fleur-icone" style="font-size:52px;display:inline-block">&#127801;</div><p id="modal-attente-texte2" style="font-size:13px;font-style:italic;font-family:Cormorant Garamond,serif;margin-top:16px;color:var(--brm)">L\'atelier imagine votre bouquet&hellip;</p></div>';
   var fleurIcone=document.getElementById('modal-fleur-icone');
   if(fleurIcone){
-    void fleurIcone.offsetWidth;
-    fleurIcone.style.animation='fleurPulse 2.2s ease-in-out infinite';
+    fleurIcone.style.animation='none';
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        fleurIcone.style.animation='fleurPulse 2.2s ease-in-out infinite';
+      });
+    });
   }
   (function(){
     var messages2=['L\'atelier imagine votre bouquet&hellip;','Nous harmonisons les couleurs&hellip;','Nous &eacute;quilibrons les volumes&hellip;','Votre esquisse est presque pr&ecirc;te&hellip;'];
