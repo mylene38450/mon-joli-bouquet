@@ -338,6 +338,11 @@
       <img id="fiche-esquisse-img" style="width:100%; border-radius:10px;">
     </div>
 
+    <div class="bloc" id="bloc-photo-finale" style="display:none;">
+      <p class="bloc-label">Photo du bouquet réalisé</p>
+      <img id="fiche-photo-finale-img" style="width:100%; border-radius:10px;">
+    </div>
+
     <div class="bloc">
       <p class="bloc-label">Carte message</p>
       <p class="carte-message-texte" id="fiche-message"></p>
@@ -369,6 +374,9 @@
 
 <!-- Zone cachée utilisée uniquement au moment de l'impression -->
 <div id="zone-impression"></div>
+
+<!-- Champ caché utilisé pour déclencher l'appareil photo -->
+<input type="file" id="input-photo" accept="image/*" capture="environment" style="display:none;">
 
 <script>
   // ---------- Connexion à Supabase ----------
@@ -521,6 +529,13 @@
       document.getElementById('bloc-esquisse').style.display = 'none';
     }
 
+    if (creation.url_photo_finale) {
+      document.getElementById('bloc-photo-finale').style.display = 'block';
+      document.getElementById('fiche-photo-finale-img').src = creation.url_photo_finale;
+    } else {
+      document.getElementById('bloc-photo-finale').style.display = 'none';
+    }
+
     document.getElementById('fiche-message').textContent = creation.message_carte || '';
 
     renderActions(creation);
@@ -534,7 +549,7 @@
     const etapes = {
       recue: { label: "J'accepte la création", suivant: 'acceptee', classe: 'btn-action-principale' },
       acceptee: { label: 'Bouquet terminé', suivant: 'en_preparation', classe: 'btn-action-principale' },
-      en_preparation: { label: 'Prendre la photo', suivant: 'photo_envoyee', classe: 'btn-action-principale' },
+      en_preparation: { label: 'Prendre la photo', suivant: 'photo_envoyee', classe: 'btn-action-principale', photo: true },
       photo_envoyee: { label: 'Remis au transporteur', suivant: 'expediee', classe: 'btn-action-principale' },
       expediee: null
     };
@@ -544,7 +559,11 @@
       const btn = document.createElement('button');
       btn.className = etape.classe;
       btn.textContent = etape.label;
-      btn.addEventListener('click', () => changerStatut(creation.id, etape.suivant));
+      if (etape.photo) {
+        btn.addEventListener('click', () => declencherPrisePhoto(creation.id));
+      } else {
+        btn.addEventListener('click', () => changerStatut(creation.id, etape.suivant));
+      }
       zone.appendChild(btn);
     } else {
       const p = document.createElement('p');
@@ -571,6 +590,55 @@
   }
 
   document.getElementById('btn-retour-fiche').addEventListener('click', () => afficherEcran('ecran-dashboard'));
+
+  // ---------- Prise de photo réelle ----------
+  let creationPourPhoto = null;
+
+  function declencherPrisePhoto(creationId) {
+    creationPourPhoto = creationId;
+    document.getElementById('input-photo').click();
+  }
+
+  document.getElementById('input-photo').addEventListener('change', async (e) => {
+    const fichier = e.target.files[0];
+    if (!fichier || !creationPourPhoto) return;
+
+    const boutonsActions = document.getElementById('zone-actions');
+    boutonsActions.innerHTML = '<p style="text-align:center; color:var(--texte-doux); font-size:14px;">Envoi de la photo en cours...</p>';
+
+    const cheminFichier = `${atelierActuel.id}/${creationPourPhoto}-${Date.now()}.jpg`;
+
+    const { error: erreurUpload } = await supabaseClient
+      .storage
+      .from('photos-bouquets')
+      .upload(cheminFichier, fichier);
+
+    if (erreurUpload) {
+      alert("L'envoi de la photo a échoué, réessaie.");
+      ouvrirFiche(creationOuverte);
+      return;
+    }
+
+    const { data: urlPublique } = supabaseClient
+      .storage
+      .from('photos-bouquets')
+      .getPublicUrl(cheminFichier);
+
+    const { error: erreurMaj } = await supabaseClient
+      .from('creations')
+      .update({ statut: 'photo_envoyee', url_photo_finale: urlPublique.publicUrl })
+      .eq('id', creationPourPhoto);
+
+    if (erreurMaj) {
+      alert("La photo a été envoyée mais la mise à jour a échoué, réessaie.");
+    }
+
+    creationPourPhoto = null;
+    e.target.value = '';
+    await chargerCreations();
+    const creationMaj = creationsActuelles.find(c => c.id === creationOuverte.id);
+    if (creationMaj) ouvrirFiche(creationMaj);
+  });
 
   // ---------- Impression carte ----------
   document.getElementById('btn-imprimer').addEventListener('click', () => {
