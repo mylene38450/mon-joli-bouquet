@@ -56,7 +56,7 @@ section{padding:48px 5vw}
 #conf-header .stitle{color:var(--br)}
 #conf-header .slbl{color:var(--brm)}
 #conf-header p{color:var(--brm);font-size:15px}
-#barre-livraison{background:rgba(200,112,90,.12);border-top:1px solid rgba(193,122,106,.25);border-bottom:1px solid rgba(193,122,106,.25);padding:10px 5vw;text-align:center;font-size:12px;color:var(--vtl);letter-spacing:.05em;transition:all .4s}
+#barre-livraison{background:rgba(200,112,90,.16);border-top:1px solid rgba(193,122,106,.3);border-bottom:1px solid rgba(193,122,106,.3);padding:12px 5vw;text-align:center;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--vtl);transition:all .4s}
 #barre-livraison.offerte{background:rgba(193,122,106,.3);color:#F5E6C8}
 .seuils-info{display:flex;gap:1px;margin:0 5vw 16px}
 .seuil-bloc{flex:1;padding:10px 8px;text-align:center;background:rgba(245,230,200,.4);border:1px solid rgba(193,122,106,.15)}
@@ -236,22 +236,22 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 <a href="#top" class="nbrand">Mon Joli Bouquet</a>
 <ul class="nlinks">
 <li><a href="#concept">Concept</a></li>
-<li><a href="#conf-section">Composer</a></li>
+<li><a href="#conf-section">Choisir vos fleurs</a></li>
 <li><a href="#gammes">Gammes</a></li>
 <li><a href="#ateliers">Ateliers</a></li>
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#" onclick="ouvrirLangageFleurs();return false;">Langage des fleurs</a></li>
-<li><a href="#conf-section" class="ncta">Commencer</a></li>
+<li><a href="#conf-section" class="ncta">Commencer mon bouquet</a></li>
 </ul>
 </nav>
 <section id="top" class="hero sect-vanille">
 <div>
 <div class="slbl">Co-cr&eacute;ation florale artisanale</div>
 <h1>Mon joli bouquet</h1>
-<p class="hero-sub" style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px">Le bouquet dont vous &ecirc;tes l'auteur.<br>Confectionn&eacute; par un artisan fleuriste.</p>
+<p class="hero-sub" style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px">Le bouquet dont vous &ecirc;tes l'auteur, cr&eacute;&eacute; par un artisan fleuriste &agrave; partir de votre inspiration.</p>
 <p class="hero-sub" style="line-height:2.2">Vous choisissez l'inspiration.<br>L'artisan apporte son talent.<br>Ensemble, vous cr&eacute;ez un bouquet unique.<br>Il n'est pas n&eacute;cessaire de conna&icirc;tre les fleurs.<br>Laissez-vous simplement guider par ce qui vous pla&icirc;t.</p>
 <div class="hero-btns">
-<button class="btn-p" onclick="document.getElementById('conf-section').scrollIntoView({behavior:'smooth'})">Commencer ma creation</button>
+<button class="btn-p" onclick="document.getElementById('conf-section').scrollIntoView({behavior:'smooth'})">Commencer mon bouquet</button>
 <button class="btn-g" onclick="document.getElementById('concept').scrollIntoView({behavior:'smooth'})">Decouvrir le concept</button>
 </div>
 </div>
@@ -267,7 +267,7 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 <h2 class="stitle">Confectionn&eacute; par un artisan fleuriste</h2>
 <p>Derri&egrave;re chaque bouquet, il y a une intention :<br>remercier, c&eacute;l&eacute;brer, soutenir, d&eacute;corer, aimer,<br>ou simplement faire plaisir.</p>
 <p>Chez Mon joli bouquet, vous ne choisissez pas un mod&egrave;le pr&eacute;d&eacute;fini.<br>Nous avons imagin&eacute; une exp&eacute;rience inspir&eacute;e du banc de fleurs d'un atelier floral.</p>
-<p>Vous avancez parmi les fleurs, vous choisissez celles qui vous parlent,<br>celles qui vous touchent ou qui traduisent l'&eacute;motion que vous souhaitez partager.</p>
+<p>Vous choisissez les fleurs qui vous parlent.</p>
 <blockquote class="cite">Votre sensibilit&eacute; suffit.</blockquote>
 <p>Chaque bouquet na&icirc;t ainsi de la rencontre<br>entre votre intention et le savoir-faire d'un artisan fleuriste.<br>L'artisan fleuriste interpr&egrave;te ensuite vos choix<br>pour cr&eacute;er un bouquet unique.</p>
 </div>
@@ -280,84 +280,13 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 </section>
 <div id="conf-section" class="sect-retour">
 
-<!-- ÉTAPE 1 : INTENTION -->
-<div id="etape-intention" class="etape-bloc">
-  <div id="conf-header">
-    <div class="slbl">&Eacute;tape 1 sur 2</div>
-    <h2 class="stitle">Chaque bouquet commence par une intention.</h2>
-    <p style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px">Que souhaitez-vous transmettre aujourd'hui&nbsp;?</p>
-  </div>
-  <div class="intentions-grille">
-    <label class="intention-opt"><input type="checkbox" name="intention" value="remercier"><span>Remercier</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="celebrer"><span>C&eacute;l&eacute;brer</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="feliciter"><span>F&eacute;liciter</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="soutenir"><span>Soutenir</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="dire-je-taime"><span>Dire je t'aime</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="decorer"><span>D&eacute;corer un lieu</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="accueillir"><span>Accueillir</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="hommage"><span>Rendre hommage</span></label>
-    <label class="intention-opt"><input type="checkbox" name="intention" value="autre"><span>Une autre intention</span></label>
-  </div>
-  <p class="etape-note">Chaque intention peut s'exprimer de mille fa&ccedil;ons.<br>Il n'existe pas de bonne ou de mauvaise r&eacute;ponse.<br>Votre sensibilit&eacute; suffit.</p>
-  <button class="btn-etape" onclick="allerEtape2()">Continuer &rarr;</button>
-</div>
-
-<!-- ÉTAPE 2 : DESTINATAIRE -->
-<div id="etape-destinataire" class="etape-bloc" style="display:none">
-  <div id="conf-header">
-    <div class="slbl">&Eacute;tape 2 sur 2</div>
-    <h2 class="stitle">&Agrave; qui s'adresse ce bouquet&nbsp;?</h2>
-  </div>
-  <div class="dest-grille">
-    <label class="dest-opt">
-      <input type="radio" name="destinataire" value="moi">
-      <span class="dest-nom">A moi-meme</span>
-      <span class="dest-desc">Il n'est pas n&eacute;cessaire d'attendre une occasion pour s'entourer de fleurs.</span>
-    </label>
-    <label class="dest-opt">
-      <input type="radio" name="destinataire" value="proche">
-      <span class="dest-nom">A un proche</span>
-      <span class="dest-desc">Une attention personnelle, pens&eacute;e sp&eacute;cialement pour lui.</span>
-    </label>
-    <label class="dest-opt">
-      <input type="radio" name="destinataire" value="collaborateur">
-      <span class="dest-nom">A un collaborateur</span>
-      <span class="dest-desc">Une attention sinc&egrave;re qui valorise les liens du quotidien.</span>
-    </label>
-    <label class="dest-opt">
-      <input type="radio" name="destinataire" value="client">
-      <span class="dest-nom">A un client</span>
-      <span class="dest-desc">Une mani&egrave;re &eacute;l&eacute;gante de prolonger une relation professionnelle.</span>
-    </label>
-    <label class="dest-opt">
-      <input type="radio" name="destinataire" value="partenaire">
-      <span class="dest-nom">A un partenaire</span>
-      <span class="dest-desc">Une attention choisie pour c&eacute;l&eacute;brer une relation de confiance.</span>
-    </label>
-    <label class="dest-opt" id="dest-entreprise-label">
-      <input type="radio" name="destinataire" value="entreprise" onclick="toggleEntreprise(true)">
-      <span class="dest-nom">A mon entreprise</span>
-      <span class="dest-desc">Les fleurs participent aussi &agrave; l'image et &agrave; l'atmosph&egrave;re d'un lieu.</span>
-      <div class="dest-sous" id="dest-sous-entreprise" style="display:none">
-        <label class="dest-sous-opt"><input type="checkbox" name="lieu" value="hall"> Hall d'accueil</label>
-        <label class="dest-sous-opt"><input type="checkbox" name="lieu" value="bureau"> Bureau</label>
-        <label class="dest-sous-opt"><input type="checkbox" name="lieu" value="reunion"> Salle de reunion</label>
-      </div>
-    </label>
-  </div>
-  <p class="etape-note" style="margin-top:24px">Une intention, un destinataire.<br>Il ne reste plus qu'&agrave; choisir les fleurs qui raconteront votre message.</p>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;padding:0 5vw 32px">
-    <button class="btn-etape-sec" onclick="retourEtape1()">&larr; Retour</button>
-    <button class="btn-etape" onclick="allerBanc()">Composer mon bouquet &rarr;</button>
-  </div>
-</div>
-
 <!-- BANC DE FLEURS -->
-<div id="etape-banc" style="display:none">
+<div id="etape-banc">
 <div id="conf-header">
-<div class="slbl">Composer votre bouquet</div>
+<div class="slbl">Choisir vos fleurs</div>
 <h2 class="stitle">Le banc de fleurs</h2>
-<p style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px;max-width:600px;margin:0 auto">Comme dans un atelier floral, laissez-vous guider par les fleurs qui vous attirent.<br>Il n'existe pas de bonne ou de mauvaise fa&ccedil;on de composer un bouquet.<br>Tout se m&eacute;lange dans le jardin.</p>
+<p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--br);max-width:600px;margin:0 auto">Choisissez les fleurs qui vous parlent.<br>Ajustez ensuite les quantit&eacute;s selon votre envie.<br>Il n'existe pas de bon ou mauvais choix.</p>
+<p style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--mjb-accent);max-width:600px;margin:26px auto 0;letter-spacing:.02em">Tout se m&eacute;lange dans le jardin.</p>
 </div>
 <div id="barre-livraison">Livraison 15 &euro; &middot; Offerte &agrave; partir de 125 euros de fleurs</div>
 <div class="seuils-info">
@@ -365,7 +294,7 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 <div class="seuil-bloc" id="bloc-signature"><div class="seuil-nom">Signature</div><div class="seuil-fourchette">95 &euro; &ndash; 124 &euro;</div><div class="seuil-livraison">Livraison 15 &euro;</div></div>
 <div class="seuil-bloc" id="bloc-genereux"><div class="seuil-nom">Genereux</div><div class="seuil-fourchette">125 &euro; et plus</div><div class="seuil-livraison">Livraison offerte</div></div>
 </div>
-<p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#C17A6A;padding:8px 5vw 4px;letter-spacing:.03em">Cliquez sur une fleur pour la s&eacute;lectionner, puis ajustez les quantit&eacute;s avec les boutons + et &minus;</p>
+<p style="text-align:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:#C17A6A;padding:10px 5vw 6px;letter-spacing:.02em">Cliquez sur une fleur pour la s&eacute;lectionner, puis ajustez les quantit&eacute;s avec les boutons + et &minus;</p>
 <div id="categories-nav">
 <button class="cat-btn active" data-cat="tout">Toutes</button>
 <button class="cat-btn" data-cat="roses">Roses</button>
@@ -385,7 +314,7 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 <div id="recap-bar">
 <div style="flex:1;min-width:120px">
 <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px">Votre selection</div>
-<div id="sel-tags"><span style="font-size:11px;color:rgba(255,255,255,.2);font-style:italic">Aucune fleur choisie</span></div>
+<div id="sel-tags"><span style="font-size:11px;color:rgba(255,255,255,.2);font-style:italic">Votre inspiration</span></div>
 </div>
 <div id="total-zone">
 <div id="total-label">Total fleurs</div>
@@ -394,7 +323,7 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 </div>
 </div>
 <div id="msg-minimum"></div>
-<p style="text-align:center;font-size:12px;color:var(--brm);font-style:italic;margin:12px 5vw 0">&#127800; Composez librement selon votre sensibilit&eacute;. Si vous le souhaitez, <a href="#" onclick="ouvrirLangageFleurs();return false;" style="color:var(--mjb-bouton);text-decoration:underline">d&eacute;couvrez aussi le langage des fleurs</a>.</p>
+<p style="text-align:center;font-size:12px;color:var(--brm);font-style:italic;margin:12px 5vw 0">&#127800; Choisissez librement selon votre sensibilit&eacute;. Si vous le souhaitez, <a href="#" onclick="ouvrirLangageFleurs();return false;" style="color:var(--mjb-bouton);text-decoration:underline">d&eacute;couvrez aussi le langage des fleurs</a>.</p>
 <button id="btn-commander" onclick="commander()">Visualiser mon bouquet</button>
 </div><!-- fin etape-banc -->
 </div><!-- fin conf-section -->
@@ -451,7 +380,7 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 <div id="modal-langage-panel" style="background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);height:100%;width:100%;padding:40px 32px;position:relative;overflow-y:auto;transform:translateX(100%);transition:transform .35s ease;box-shadow:-10px 0 40px rgba(0,0,0,.2);pointer-events:all">
 <button onclick="fermerLangageFleurs()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--brm)">&#x2715;</button>
 <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--br);margin-bottom:6px">Le langage des fleurs</h3>
-<p style="font-size:13px;color:var(--brm);font-style:italic;margin-bottom:8px;line-height:1.8">Depuis des si&egrave;cles, les fleurs accompagnent les &eacute;motions et les grands moments de la vie. Leur symbolique a travers&eacute; les &eacute;poques et varie selon les cultures.<br><br>Chez Mon Joli Bouquet, nous vous invitons avant tout &agrave; composer librement, selon vos envies, vos souvenirs ou votre intuition. Si vous &ecirc;tes curieux, d&eacute;couvrez ici quelques rep&egrave;res issus de cette tradition florale.</p>
+<p style="font-size:13px;color:var(--brm);font-style:italic;margin-bottom:8px;line-height:1.8">Quelques rep&egrave;res issus de la tradition florale, &agrave; explorer si l'envie vous prend.</p>
 <div><div style="padding:14px 0;border-bottom:1px solid rgba(47,43,43,.12)"><div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--br);margin-bottom:3px">Rose rouge</div><div style="font-size:13px;color:var(--brm);line-height:1.7">Amour, passion, admiration.</div></div>
 <div style="padding:14px 0;border-bottom:1px solid rgba(47,43,43,.12)"><div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--br);margin-bottom:3px">Rose blanche</div><div style="font-size:13px;color:var(--brm);line-height:1.7">Puret&eacute;, sinc&eacute;rit&eacute;, respect.</div></div>
 <div style="padding:14px 0;border-bottom:1px solid rgba(47,43,43,.12)"><div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--br);margin-bottom:3px">Rose rose</div><div style="font-size:13px;color:var(--brm);line-height:1.7">Tendresse, douceur, gratitude.</div></div>
@@ -486,13 +415,13 @@ function fermerLangageFleurs(){
 </script>
 <footer>
 <div class="fgrid">
-<div><div class="fbrand">Mon Joli Bouquet</div><p class="ftag">Composer son bouquet,<br>accompagne par un atelier.<br><br>Phase 1 &middot; 2025</p></div>
-<div class="fcol"><h4>Explorer</h4><a href="#concept">Le concept</a><a href="#conf-section">Composer</a><a href="#gammes">Les gammes</a></div>
+<div><div class="fbrand">Mon Joli Bouquet</div><p class="ftag">Choisir ses fleurs,<br>accompagn&eacute; par un atelier.<br><br>Phase 1 &middot; 2025</p></div>
+<div class="fcol"><h4>Explorer</h4><a href="#concept">Le concept</a><a href="#conf-section">Choisir vos fleurs</a><a href="#gammes">Les gammes</a></div>
 <div class="fcol"><h4>Les ateliers</h4><a href="#ateliers">Notre reseau</a><a href="#">Devenir partenaire</a></div>
-<div class="fcol"><h4>Informations</h4><a href="#faq">FAQ</a><a href="#">Livraison</a><a href="#">Contact</a></div>
+<div class="fcol"><h4>Informations</h4><a href="#faq">FAQ</a><a href="#">Livraison</a><a href="mailto:contact@monjolibouquet.com">contact@monjolibouquet.com</a></div>
 </div>
 <div class="fbot">
-<span>2025 Mon Joli Bouquet</span>
+<span>&copy; 2027 Mon Joli Bouquet</span>
 <span style="font-style:italic;font-family:'Cormorant Garamond',serif">Dans un jardin, tout se m&eacute;lange.</span>
 </div>
 </footer>
@@ -503,7 +432,7 @@ function fermerLangageFleurs(){
     <button id="modal-close" onclick="fermerModal()">&#x2715;</button>
     <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--mjb-accent);margin-bottom:8px">Votre selection &#x2714;&#xFE0F;</div>
     <div id="modal-titre">Votre bouquet commence ici</div>
-    <div id="modal-sous" style="background:rgba(255,255,255,.45);border:1px solid rgba(47,43,43,.15);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:12px;color:var(--brm);line-height:1.6">&#127800; Cette illustration vous aide &agrave; appr&eacute;cier l'harmonie de votre s&eacute;lection. Les quantit&eacute;s repr&eacute;sent&eacute;es peuvent diff&eacute;rer. Votre artisan r&eacute;alisera votre bouquet avec les vari&eacute;t&eacute;s et les quantit&eacute;s exactement choisies.</div>
+    <div id="modal-sous" style="background:rgba(255,255,255,.45);border:1px solid rgba(47,43,43,.15);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:12px;color:var(--brm);line-height:1.6">&#127800; Vous ne choisissez pas un bouquet mais une intention.</div>
     <div id="modal-img-zone">
       <div id="modal-spinner" style="text-align:center;color:var(--brm)">
         <div style="font-size:52px;animation:fleurPulse 2.2s ease-in-out infinite">&#127801;</div>
@@ -536,24 +465,6 @@ function fermerLangageFleurs(){
 </div>
 
 <script>
-function allerEtape2(){
-  document.getElementById('etape-intention').style.display='none';
-  document.getElementById('etape-destinataire').style.display='block';
-  document.getElementById('conf-section').scrollIntoView({behavior:'smooth'});
-}
-function retourEtape1(){
-  document.getElementById('etape-destinataire').style.display='none';
-  document.getElementById('etape-intention').style.display='block';
-  document.getElementById('conf-section').scrollIntoView({behavior:'smooth'});
-}
-function allerBanc(){
-  document.getElementById('etape-destinataire').style.display='none';
-  document.getElementById('etape-banc').style.display='block';
-  document.getElementById('conf-section').scrollIntoView({behavior:'smooth'});
-}
-function toggleEntreprise(show){
-  document.getElementById('dest-sous-entreprise').style.display=show?'flex':'none';
-}
 var FLEURS=[
 {id:'lys-rose',n:'Lys oriental rose',e:'🌸',p:10,cat:'lys'},
 {id:'lys-blanc',n:'Lys oriental blanc',e:'🤍',p:10,cat:'lys'},
