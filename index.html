@@ -286,7 +286,7 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 <div class="slbl">Choisir vos fleurs</div>
 <h2 class="stitle">Le banc de fleurs</h2>
 <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--br);max-width:600px;margin:0 auto">Choisissez les fleurs qui vous parlent.<br>Ajustez ensuite les quantit&eacute;s selon votre envie.<br>Il n'existe pas de bon ou mauvais choix.</p>
-<p style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--mjb-accent);max-width:600px;margin:26px auto 0;letter-spacing:.02em">Tout se m&eacute;lange dans le jardin.</p>
+<p style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:31px;color:var(--mjb-accent);max-width:600px;margin:36px auto 0;letter-spacing:.02em">Tout se m&eacute;lange dans le jardin.</p>
 </div>
 <div id="barre-livraison">Livraison 15 &euro; &middot; Offerte &agrave; partir de 125 euros de fleurs</div>
 <div class="seuils-info">
@@ -323,7 +323,7 @@ footer{background:linear-gradient(180deg,#F2DFA8 0%,#D4A090 100%);padding:64px 5
 </div>
 </div>
 <div id="msg-minimum"></div>
-<p style="text-align:center;font-size:12px;color:var(--brm);font-style:italic;margin:12px 5vw 0">&#127800; Choisissez librement selon votre sensibilit&eacute;. Si vous le souhaitez, <a href="#" onclick="ouvrirLangageFleurs();return false;" style="color:var(--mjb-bouton);text-decoration:underline">d&eacute;couvrez aussi le langage des fleurs</a>.</p>
+<p style="text-align:center;margin:20px 5vw 0"><a href="#" onclick="ouvrirLangageFleurs();return false;" style="display:inline-block;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--mjb-bouton);border-bottom:1px solid var(--mjb-bouton);padding-bottom:2px;text-decoration:none">&#127800; D&eacute;couvrez aussi le langage des fleurs</a></p>
 <button id="btn-commander" onclick="commander()">Visualiser mon bouquet</button>
 </div><!-- fin etape-banc -->
 </div><!-- fin conf-section -->
@@ -415,9 +415,9 @@ function fermerLangageFleurs(){
 </script>
 <footer>
 <div class="fgrid">
-<div><div class="fbrand">Mon Joli Bouquet</div><p class="ftag">Choisir ses fleurs,<br>accompagn&eacute; par un atelier.<br><br>Phase 1 &middot; 2025</p></div>
+<div><div class="fbrand">Mon Joli Bouquet</div><p class="ftag">Cr&eacute;&eacute; par vous.<br>Sublim&eacute; par un artisan fleuriste.</p></div>
 <div class="fcol"><h4>Explorer</h4><a href="#concept">Le concept</a><a href="#conf-section">Choisir vos fleurs</a><a href="#gammes">Les gammes</a></div>
-<div class="fcol"><h4>Les ateliers</h4><a href="#ateliers">Notre reseau</a><a href="#">Devenir partenaire</a></div>
+<div class="fcol"><h4>Les ateliers</h4><a href="#ateliers">Notre reseau</a></div>
 <div class="fcol"><h4>Informations</h4><a href="#faq">FAQ</a><a href="#">Livraison</a><a href="mailto:contact@monjolibouquet.com">contact@monjolibouquet.com</a></div>
 </div>
 <div class="fbot">
@@ -432,7 +432,6 @@ function fermerLangageFleurs(){
     <button id="modal-close" onclick="fermerModal()">&#x2715;</button>
     <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--mjb-accent);margin-bottom:8px">Votre selection &#x2714;&#xFE0F;</div>
     <div id="modal-titre">Votre bouquet commence ici</div>
-    <div id="modal-sous" style="background:rgba(255,255,255,.45);border:1px solid rgba(47,43,43,.15);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:12px;color:var(--brm);line-height:1.6">&#127800; Vous ne choisissez pas un bouquet mais une intention.</div>
     <div id="modal-img-zone">
       <div id="modal-spinner" style="text-align:center;color:var(--brm)">
         <div style="font-size:52px;animation:fleurPulse 2.2s ease-in-out infinite">&#127801;</div>
@@ -452,7 +451,7 @@ function fermerLangageFleurs(){
       })();
       </script>
     </div>
-    <div id="modal-legende">Illustration d'ambiance &mdash; visuel d'inspiration.</div>
+    <div id="modal-legende" style="background:rgba(255,255,255,.45);border:1px solid rgba(47,43,43,.15);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:var(--brm);line-height:1.6">Illustration d'inspiration. Le bouquet r&eacute;alis&eacute; pourra pr&eacute;senter quelques variations selon les fleurs disponibles et le geste de l'artisan. Les quantit&eacute;s s&eacute;lectionn&eacute;es seront toujours respect&eacute;es.</div>
     <label style="display:flex;align-items:flex-start;gap:8px;font-size:10px;color:var(--brm);margin-bottom:18px;cursor:pointer;line-height:1.6">
       <input type="checkbox" id="modal-check-dispo" style="margin-top:2px">
       J'ai pris connaissance que certaines fleurs peuvent etre remplacees par une variete equivalente en cas d'indisponibilite exceptionnelle.
@@ -518,7 +517,7 @@ function toggleF(id){if(sel[id])delete sel[id];else sel[id]=1;buildGrille();upda
 function changeQ(id,d){if(!sel[id])return;sel[id]=Math.max(1,Math.min(20,sel[id]+d));var qn=document.getElementById('qn-'+id);if(qn)qn.textContent=sel[id];updateUI();}
 function setFeuillage(el,val){document.querySelectorAll('.feuillage-opt').forEach(function(b){b.classList.remove('active');});el.classList.add('active');feuilGenActif=(val==='genereux');updateUI();}
 
-function updateUI(){var total=getTotal();var geste=getGeste(total);var ids=Object.keys(sel);document.getElementById('total-montant').textContent=total+' euro';var gb=document.getElementById('geste-badge');var labels={essentiel:'Geste Essentiel',signature:'Geste Signature',genereux:'Geste Genereux'};gb.textContent=geste?labels[geste]:'';gb.className=geste||'';['essentiel','signature','genereux'].forEach(function(g){document.getElementById('bloc-'+g).classList.toggle('actif',geste===g);});var barre=document.getElementById('barre-livraison');if(total>=SEUIL_GEN){barre.textContent='Livraison offerte - Geste Genereux';barre.classList.add('offerte');}else{var reste=SEUIL_GEN-total;barre.textContent=total>0?'Livraison 15 euro - encore '+reste+' euro pour la livraison offerte':'Livraison 15 euro - Offerte \u00e0 partir de 125 euros de fleurs';barre.classList.remove('offerte');}var tags=document.getElementById('sel-tags');if(!ids.length){tags.innerHTML='<span style="font-size:11px;color:var(--brm);font-style:italic">Aucune fleur choisie</span>';}else{tags.innerHTML=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return'<div class="sel-tag">'+f.e+' '+f.n.split(' ').slice(0,2).join(' ')+' <span style="opacity:.5">x'+sel[id]+'</span></div>';}).join('');}var msg=document.getElementById('msg-minimum');var btn=document.getElementById('btn-commander');if(total===0){msg.textContent='Minimum de commande : 75 euro';btn.classList.remove('vis');}else if(total<MINIMUM){msg.textContent='Encore '+(MINIMUM-total)+' euro pour atteindre le minimum de commande';btn.classList.remove('vis');}else{msg.textContent='';btn.classList.add('vis');}}
+function updateUI(){var total=getTotal();var geste=getGeste(total);var ids=Object.keys(sel);document.getElementById('total-montant').textContent=total+' euro';var gb=document.getElementById('geste-badge');var labels={essentiel:'Geste Essentiel',signature:'Geste Signature',genereux:'Geste Genereux'};gb.textContent=geste?labels[geste]:'';gb.className=geste||'';['essentiel','signature','genereux'].forEach(function(g){document.getElementById('bloc-'+g).classList.toggle('actif',geste===g);});var barre=document.getElementById('barre-livraison');if(total>=SEUIL_GEN){barre.textContent='Livraison offerte - Geste Genereux';barre.classList.add('offerte');}else{var reste=SEUIL_GEN-total;barre.textContent=total>0?'Livraison 15 euro - encore '+reste+' euro pour la livraison offerte':'Livraison 15 euro - Offerte \u00e0 partir de 125 euros de fleurs';barre.classList.remove('offerte');}var tags=document.getElementById('sel-tags');if(!ids.length){tags.innerHTML='<span style="font-size:11px;color:var(--brm);font-style:italic">Votre inspiration</span>';}else{tags.innerHTML=ids.map(function(id){var f=FLEURS.find(function(x){return x.id===id;});return'<div class="sel-tag">'+f.e+' '+f.n.split(' ').slice(0,2).join(' ')+' <span style="opacity:.5">x'+sel[id]+'</span></div>';}).join('');}var msg=document.getElementById('msg-minimum');var btn=document.getElementById('btn-commander');if(total===0){msg.textContent='Minimum de commande : 75 euro';btn.classList.remove('vis');}else if(total<MINIMUM){msg.textContent='Encore '+(MINIMUM-total)+' euro pour atteindre le minimum de commande';btn.classList.remove('vis');}else{msg.textContent='';btn.classList.add('vis');}}
 
 document.querySelectorAll('.cat-btn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');catActive=btn.dataset.cat;buildGrille();});});
 
@@ -645,9 +644,9 @@ function allerRecap(){
 }
 
 function toggleEntrepriseCoord(){
-  var val=document.querySelector('input[name="achat-type"]:checked');
+  var val=document.getElementById('besoin-facture-pro');
   var bloc=document.getElementById('bloc-entreprise');
-  if(val&&val.value==='entreprise') bloc.style.display='block';
+  if(val&&val.checked) bloc.style.display='block';
   else bloc.style.display='none';
 }
 
@@ -684,7 +683,7 @@ buildGrille();updateUI();
   <div id="etape-message">
     <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--brm);margin-bottom:12px">&Eacute;tape 1 sur 3</div>
     <h3>Accompagnez votre bouquet</h3>
-    <p class="p-sous">Souhaitez-vous joindre quelques mots&nbsp;?</p>
+    <p class="p-sous">Quelques mots peuvent parfois prolonger une &eacute;motion.</p>
     <div class="p-champ">
       <label>Votre message (facultatif)</label>
       <textarea id="message-bouquet" placeholder="Un mot, une phrase, une intention…"></textarea>
@@ -705,7 +704,7 @@ buildGrille();updateUI();
     <div class="p-champ-row">
       <div class="p-champ"><label>T&eacute;l&eacute;phone *</label><input type="tel" id="coord-telephone-dest" placeholder="06 00 00 00 00"></div>
       <div class="p-champ">
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--brm);line-height:1.7;margin-bottom:10px">Nous acceptons les commandes jusqu'&agrave; la matin&eacute;e pr&eacute;c&eacute;dant la livraison.<br>Mais les plus beaux bouquets ont parfois besoin d'un peu de temps.<br>Quelques jours d'avance permettent &agrave; l'artisan de r&eacute;unir les fleurs souhait&eacute;es et d'accorder &agrave; votre cr&eacute;ation toute l'attention qu'elle m&eacute;rite.</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--brm);line-height:1.7;margin-bottom:10px">Pour offrir &agrave; votre artisan le temps de r&eacute;unir les plus belles fleurs, nous vous conseillons d'anticiper votre commande de quelques jours lorsque cela est possible.</p>
         <label>Date souhait&eacute;e *</label><input type="date" id="coord-date">
       </div>
     </div>
@@ -720,11 +719,7 @@ buildGrille();updateUI();
     <div class="p-champ"><label>Email *</label><input type="email" id="coord-email" placeholder="vous@email.com"></div>
     <div class="p-champ"><label>T&eacute;l&eacute;phone</label><input type="tel" id="coord-tel" placeholder="06 00 00 00 00"></div>
     <div class="p-champ">
-      <label>Vous achetez en tant que</label>
-      <div class="p-radio-group">
-        <label class="p-radio"><input type="radio" name="achat-type" value="particulier" checked onclick="toggleEntrepriseCoord()"> Particulier</label>
-        <label class="p-radio"><input type="radio" name="achat-type" value="entreprise" onclick="toggleEntrepriseCoord()"> Entreprise</label>
-      </div>
+      <label class="p-radio"><input type="checkbox" id="besoin-facture-pro" onclick="toggleEntrepriseCoord()"> J'ai besoin d'une facture professionnelle</label>
     </div>
     <div id="bloc-entreprise" style="display:none;background:rgba(47,43,43,.04);padding:16px;margin-top:4px">
       <div class="p-champ"><label>Nom de l'entreprise</label><input type="text" id="coord-entreprise-nom" placeholder="Raison sociale"></div>
@@ -773,6 +768,8 @@ buildGrille();updateUI();
       <input type="checkbox" id="recap-cgv">
       J'accepte les conditions g&eacute;n&eacute;rales de vente et je comprends que mon bouquet sera compos&eacute; par un artisan fleuriste qui pourra interpr&eacute;ter librement ma s&eacute;lection.
     </label>
+    <hr class="p-sep">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--br);text-align:center;margin:6px 0 4px">Votre artisan r&eacute;alisera une cr&eacute;ation unique &agrave; partir de cette s&eacute;lection.</p>
     <div id="recap-erreur" class="p-erreur">Merci d'accepter les conditions avant de confirmer.</div>
     <div class="p-btns">
       <button class="p-btn-s" onclick="afficherEtapeParcours('etape-coordonnees')">&#8592; Modifier</button>
